@@ -24,7 +24,7 @@ export default function Index() {
           <main className="relative z-10 mx-auto max-w-screen-2xl px-8 pb-12">
             <div className="relative mb-16 px-4 sm:px-6 text-center mt-20 sm:mt-24 md:mt-[110px]">
               <div className="mx-auto mb-8 max-w-3xl text-center">
-                <h1 className="mb-2 text-5xl md:text-6xl leading-[72px] font-medium text-slate-800">
+                <h1 className="mb-2 text-4xl sm:text-5xl md:text-6xl leading-[44px] sm:leading-[60px] md:leading-[72px] font-medium text-slate-800">
                   What would you build today?
                 </h1>
                 <p className="text-slate-600 text-lg leading-7 font-light">
