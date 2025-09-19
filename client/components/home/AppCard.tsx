@@ -9,6 +9,8 @@ export interface AppCardProps {
   logoUrl?: string;
   logoAlt?: string;
   placeholderLetter?: string;
+  containerClassName?: string;
+  containerStyle?: React.CSSProperties;
 }
 
 export default function AppCard({
@@ -19,9 +21,11 @@ export default function AppCard({
   logoUrl,
   logoAlt,
   placeholderLetter,
+  containerClassName,
+  containerStyle,
 }: AppCardProps) {
   return (
-    <div className="opacity-0 animate-slide-up will-change-transform">
+    <div className={"opacity-0 animate-slide-up will-change-transform " + (containerClassName || "")} style={containerStyle}>
       <a href={href} title={`Open ${title}`} className="block h-full">
         <div className="group h-full cursor-pointer rounded-2xl border border-gray-100 bg-white p-3 shadow-sm transition">
           <div className="flex h-full gap-3">
@@ -44,7 +48,7 @@ export default function AppCard({
             <div className="flex h-20 flex-1 flex-col justify-between">
               <div className="flex-1">
                 <div className="mb-1 flex items-center gap-1">
-                  <h3 className="truncate font-medium text-slate-800">{title}</h3>
+                  <h3 className="truncate font-medium text-slate-800" title={title}>{title}</h3>
                   <span className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <ArrowRight className="h-4 w-4" />
                   </span>
