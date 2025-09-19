@@ -22,7 +22,7 @@ export default function Index() {
       <main className="w-full h-full">
         <div>
           <main className="relative z-10 mx-auto max-w-screen-2xl px-8 pb-12">
-            <div className="relative mt-[110px] mb-16 min-h-[1320px] px-6 text-center">
+            <div className="relative mb-16 px-4 sm:px-6 text-center mt-20 sm:mt-24 md:mt-[110px]">
               <div className="mx-auto mb-8 max-w-3xl text-center">
                 <h1 className="mb-2 text-5xl md:text-6xl leading-[72px] font-medium text-slate-800">
                   What would you build today?
