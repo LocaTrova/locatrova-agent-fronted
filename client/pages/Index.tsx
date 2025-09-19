@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, ArrowUp, Palette, Plus, Lightbulb } from "lucide-react";
+import { ArrowUp, Palette, Plus, Lightbulb } from "lucide-react";
 import AppCard from "@/components/home/AppCard";
 
 export default function Index() {
