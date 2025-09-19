@@ -20,7 +20,7 @@ export default function Index() {
   return (
     <div className="min-h-screen flex-1 overflow-x-auto bg-slate-50">
       <main className="w-full h-full">
-        <div className="min-h-[2031px]">
+        <div>
           <main className="relative z-10 mx-auto max-w-screen-2xl px-8 pb-12">
             <div className="relative mt-[110px] mb-16 min-h-[1320px] px-6 text-center">
               <div className="mx-auto mb-8 max-w-3xl text-center">
