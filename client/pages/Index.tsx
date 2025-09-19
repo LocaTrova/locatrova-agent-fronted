@@ -127,7 +127,7 @@ export default function Index() {
                   <div className="relative">
                     <h2 className="text-xl font-bold text-slate-900">Recent Apps</h2>
                   </div>
-                  <a href="/apps" className="text-sm font-medium text-orange-600 hover:text-orange-700">
+                  <a href="/apps" className="text-sm font-medium text-orange-600 hover:text-orange-700 ui-focus">
                     View all
                   </a>
                 </div>
