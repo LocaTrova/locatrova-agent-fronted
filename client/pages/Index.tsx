@@ -8,11 +8,11 @@ export default function Index() {
 
   const ideas = useMemo(
     () => [
-      "Home Management",
-      "Dev productivity",
-      "Travel Planning",
-      "Health and Wellness",
-      "Content Generation and Editing",
+      "Urban exteriors",
+      "Natural landscapes",
+      "Industrial sites",
+      "Residential interiors",
+      "Iconic landmarks",
     ],
     [],
   );
@@ -25,10 +25,10 @@ export default function Index() {
             <div className="relative mb-16 px-4 sm:px-6 text-center mt-20 sm:mt-24 md:mt-[110px]">
               <div className="mx-auto mb-8 max-w-3xl text-center">
                 <h1 className="mb-2 text-4xl sm:text-5xl md:text-6xl leading-[44px] sm:leading-[60px] md:leading-[72px] font-medium text-slate-800">
-                  What would you build today?
+                  Locatrova: What location do you need today?
                 </h1>
                 <p className="text-slate-600 text-lg leading-7 font-light">
-                  Describe your app idea below or get inspired by our templates
+                  Describe your shoot brief or location requirements below — or get inspired by our suggestions.
                 </p>
               </div>
 
@@ -39,14 +39,14 @@ export default function Index() {
                       <label htmlFor="idea-input" className="sr-only">Describe the app you want to create</label>
                       <textarea
                         id="idea-input"
-                        placeholder="Describe the app you want to create..."
+                        placeholder="Describe the scene or location you want to scout..."
                         className="mt-2 h-[120px] max-h-[200px] min-h-[110px] w-full resize-none rounded-2xl pl-6 pr-16 pt-3 text-base/6 font-light text-slate-800 placeholder:text-slate-400 focus:outline-none"
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
                       />
                       <button
-                        aria-label="Send message"
-                        title="Send message"
+                        aria-label="Search locations"
+                        title="Search locations"
                         disabled={disabled}
                         className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white transition ui-focus disabled:cursor-not-allowed disabled:opacity-70"
                         style={{ transform: "rotate(90deg)" }}
@@ -79,7 +79,7 @@ export default function Index() {
 
                 <div className="mt-4 w-full px-2">
                   <div className="mb-3 flex items-center justify-between">
-                    <h3 className="text-sm font-light text-slate-700">Ideas to get started</h3>
+                    <h3 className="text-sm font-light text-slate-700">Location ideas to get started</h3>
                     <a
                       href="#"
                       className="inline-flex items-center gap-1 rounded-xl bg-[rgba(255,172,105,0.15)] px-3 py-1.5 text-sm font-light text-[hsl(var(--accent-foreground))] hover:opacity-90 ui-focus"
@@ -125,7 +125,7 @@ export default function Index() {
               <div className="motion-safe:animate-fade-in">
                 <div className="mb-6 flex items-center justify-between">
                   <div className="relative">
-                    <h2 className="text-xl font-bold text-slate-900">Recent Apps</h2>
+                    <h2 className="text-xl font-bold text-slate-900">Recent Projects</h2>
                   </div>
                   <a href="/apps" className="text-sm font-medium text-orange-600 hover:text-orange-700 ui-focus">
                     View all
@@ -145,7 +145,7 @@ export default function Index() {
                       key={app.href}
                       href={app.href}
                       title="untitled"
-                      description="No description available"
+                      description="No notes yet"
                       placeholderLetter="U"
                       containerStyle={{ animationDelay: `${idx * 0.08}s` }}
                     />
@@ -154,7 +154,7 @@ export default function Index() {
                   <AppCard
                     href="https://app.base44.com/apps/68b992a60246ed249647fb64/editor/preview"
                     title="WanderWise"
-                    description="Your AI-powered guide to discovering amazing places. Chat naturally to find restaurants, hotels, attractions, and more, with curated results presented beautifully."
+                    description="Sunlit coastal town backdrop with walkable streets and boutique fronts."
                     logoUrl="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b992a60246ed249647fb64/30ee56946_logo.png"
                     logoAlt="WanderWise Logo"
                     updatedText="Updated 15 days ago"
@@ -164,7 +164,7 @@ export default function Index() {
                   <AppCard
                     href="https://app.base44.com/apps/68b96ebee640fb4df249d447/editor/preview"
                     title="WelcomePath"
-                    description="A warm and interactive portal to guide new hires through essential company policies, values, and team introductions, ensuring a smooth and engaging onboarding experience."
+                    description="Warm office lobby with natural wood, neutral palette, and soft lighting."
                     logoUrl="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b96ebee640fb4df249d447/ba83123f8_logo.png"
                     logoAlt="WelcomePath Logo"
                     updatedText="Updated 15 days ago"
