@@ -36,7 +36,9 @@ export default function Index() {
                 <div className="relative">
                   <div className="relative w-full backdrop-blur bg-white border border-slate-200 rounded-2xl sm:rounded-[30px] shadow-[0_0_0_0_rgba(0,0,0,0),0_8px_16px_0_rgba(0,0,0,0.04)] px-2">
                     <div className="relative">
+                      <label htmlFor="idea-input" className="sr-only">Describe the app you want to create</label>
                       <textarea
+                        id="idea-input"
                         placeholder="Describe the app you want to create..."
                         className="mt-2 h-[120px] max-h-[200px] min-h-[110px] w-full resize-none rounded-2xl pl-6 pr-16 pt-3 text-base/6 font-light text-slate-800 placeholder:text-slate-400 focus:outline-none"
                         value={prompt}
