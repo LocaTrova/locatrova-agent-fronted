@@ -25,7 +25,7 @@ export default function AppCard({
   containerStyle,
 }: AppCardProps) {
   return (
-    <div className={"opacity-0 animate-slide-up will-change-transform " + (containerClassName || "")} style={containerStyle}>
+    <div className={"opacity-0 motion-safe:animate-slide-up will-change-transform " + (containerClassName || "")} style={containerStyle}>
       <a href={href} title={`Open ${title}`} className="block h-full">
         <div className="group h-full cursor-pointer rounded-2xl border border-gray-100 bg-white p-3 shadow-sm transition">
           <div className="flex h-full gap-3">
