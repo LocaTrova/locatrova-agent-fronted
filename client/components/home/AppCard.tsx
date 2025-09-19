@@ -49,7 +49,7 @@ export default function AppCard({
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
-                <p className="mb-1 line-clamp-2 text-sm text-slate-600">{description}</p>
+                <p className="mb-1 text-sm leading-5 text-slate-600 overflow-hidden max-h-10">{description}</p>
               </div>
               <div className="flex items-center justify-between">
                 <div className="text-xs text-gray-400 whitespace-nowrap">{updatedText}</div>
