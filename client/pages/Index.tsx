@@ -139,37 +139,35 @@ export default function Index() {
                     { href: "https://app.base44.com/apps/68b9b82f2d451e26fad5a57e/editor/preview" },
                     { href: "https://app.base44.com/apps/68b9b82f2aa5b96bbb4166da/editor/preview" },
                   ].map((app, idx) => (
-                    <div key={app.href} style={{ animationDelay: `${idx * 0.08}s` }} className="[animation-delay:inherit]">
-                      <AppCard
-                        href={app.href}
-                        title="untitled"
-                        description="No description available"
-                        placeholderLetter="U"
-                      />
-                    </div>
+                    <AppCard
+                      key={app.href}
+                      href={app.href}
+                      title="untitled"
+                      description="No description available"
+                      placeholderLetter="U"
+                      containerStyle={{ animationDelay: `${idx * 0.08}s` }}
+                    />
                   ))}
 
-                  <div style={{ animationDelay: `${6 * 0.08}s` }} className="[animation-delay:inherit]">
-                    <AppCard
-                      href="https://app.base44.com/apps/68b992a60246ed249647fb64/editor/preview"
-                      title="WanderWise"
-                      description="Your AI-powered guide to discovering amazing places. Chat naturally to find restaurants, hotels, attractions, and more, with curated results presented beautifully."
-                      logoUrl="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b992a60246ed249647fb64/30ee56946_logo.png"
-                      logoAlt="WanderWise Logo"
-                      updatedText="Updated 15 days ago"
-                    />
-                  </div>
+                  <AppCard
+                    href="https://app.base44.com/apps/68b992a60246ed249647fb64/editor/preview"
+                    title="WanderWise"
+                    description="Your AI-powered guide to discovering amazing places. Chat naturally to find restaurants, hotels, attractions, and more, with curated results presented beautifully."
+                    logoUrl="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b992a60246ed249647fb64/30ee56946_logo.png"
+                    logoAlt="WanderWise Logo"
+                    updatedText="Updated 15 days ago"
+                    containerStyle={{ animationDelay: `${6 * 0.08}s` }}
+                  />
 
-                  <div style={{ animationDelay: `${7 * 0.08}s` }} className="[animation-delay:inherit]">
-                    <AppCard
-                      href="https://app.base44.com/apps/68b96ebee640fb4df249d447/editor/preview"
-                      title="WelcomePath"
-                      description="A warm and interactive portal to guide new hires through essential company policies, values, and team introductions, ensuring a smooth and engaging onboarding experience."
-                      logoUrl="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b96ebee640fb4df249d447/ba83123f8_logo.png"
-                      logoAlt="WelcomePath Logo"
-                      updatedText="Updated 15 days ago"
-                    />
-                  </div>
+                  <AppCard
+                    href="https://app.base44.com/apps/68b96ebee640fb4df249d447/editor/preview"
+                    title="WelcomePath"
+                    description="A warm and interactive portal to guide new hires through essential company policies, values, and team introductions, ensuring a smooth and engaging onboarding experience."
+                    logoUrl="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b96ebee640fb4df249d447/ba83123f8_logo.png"
+                    logoAlt="WelcomePath Logo"
+                    updatedText="Updated 15 days ago"
+                    containerStyle={{ animationDelay: `${7 * 0.08}s` }}
+                  />
                 </div>
               </div>
             </div>
