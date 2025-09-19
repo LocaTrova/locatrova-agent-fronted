@@ -48,7 +48,7 @@ export default function Index() {
                         aria-label="Send message"
                         title="Send message"
                         disabled={disabled}
-                        className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white transition disabled:cursor-not-allowed disabled:opacity-70"
+                        className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white transition ui-focus disabled:cursor-not-allowed disabled:opacity-70"
                         style={{ transform: "rotate(90deg)" }}
                       >
                         <ArrowUp className="h-4 w-4" />
