@@ -32,7 +32,7 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="mx-auto max-w-3xl">
+              <div className="mx-auto max-w-3xl px-2 sm:px-0">
                 <div className="relative">
                   <div className="relative w-full backdrop-blur bg-white border border-slate-200 rounded-[30px] shadow-[0_0_0_0_rgba(0,0,0,0),0_8px_16px_0_rgba(0,0,0,0.04)] px-2">
                     <div className="relative">
