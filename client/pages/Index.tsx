@@ -63,10 +63,10 @@ export default function Index() {
                     <div className="flex items-center justify-between px-4 py-4 text-sm">
                       <div className="flex items-center gap-1.5 text-sm">
                         <div className="flex items-center gap-2">
-                          <button className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-black hover:bg-slate-50">
+                          <button className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-black hover:bg-slate-50 ui-focus">
                             <Plus className="h-4 w-4" />
                           </button>
-                          <button className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-slate-500 hover:bg-slate-50">
+                          <button className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-slate-500 hover:bg-slate-50 ui-focus">
                             <Palette className="h-4 w-4 text-slate-500" />
                             <span className="text-xs text-slate-500">Styling Instructions</span>
                           </button>
@@ -82,7 +82,7 @@ export default function Index() {
                     <h3 className="text-sm font-light text-slate-700">Ideas to get started</h3>
                     <a
                       href="#"
-                      className="inline-flex items-center gap-1 rounded-xl bg-[rgba(255,172,105,0.15)] px-3 py-1.5 text-sm font-light text-[hsl(var(--accent-foreground))] hover:opacity-90"
+                      className="inline-flex items-center gap-1 rounded-xl bg-[rgba(255,172,105,0.15)] px-3 py-1.5 text-sm font-light text-[hsl(var(--accent-foreground))] hover:opacity-90 ui-focus"
                     >
                       <Lightbulb className="h-3.5 w-3.5 text-[hsl(var(--accent-foreground))]" />
                       More ideas
@@ -92,7 +92,7 @@ export default function Index() {
                     {ideas.map((label) => (
                       <button
                         key={label}
-                        className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-light text-slate-800 transition hover:border-slate-300 hover:shadow-sm"
+                        className="ui-chip ui-focus"
                       >
                         {label}
                       </button>
@@ -102,7 +102,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="relative rounded-[30px] bg-white px-8 py-8 shadow-[0_0_0_0_rgba(0,0,0,0),0_5px_10px_0_rgba(35,107,215,0.05)] animate-fade-in">
+            <div className="relative rounded-2xl md:rounded-[30px] bg-white px-4 sm:px-6 md:px-8 py-6 md:py-8 shadow-[0_0_0_0_rgba(0,0,0,0),0_5px_10px_0_rgba(35,107,215,0.05)] motion-safe:animate-fade-in">
               <div
                 aria-hidden
                 className="pointer-events-none absolute left-1/2 -top-40 -z-10 h-[800px] w-[2215px] max-h-[600px] -translate-x-1/2 rounded-[2215px]"
@@ -122,7 +122,7 @@ export default function Index() {
                 }}
               />
 
-              <div className="animate-fade-in">
+              <div className="motion-safe:animate-fade-in">
                 <div className="mb-6 flex items-center justify-between">
                   <div className="relative">
                     <h2 className="text-xl font-bold text-slate-900">Recent Apps</h2>
