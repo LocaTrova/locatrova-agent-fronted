@@ -12,7 +12,7 @@ export default function ResultCard({ title, description, imageUrl, badge }: Resu
     <div className="ui-card p-3 transition hover:shadow-sm">
       <div className="flex gap-3">
         <div className="flex-shrink-0">
-          <span className="relative flex h-20 w-20 overflow-hidden rounded-lg bg-slate-100">
+          <span className="relative flex h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-lg bg-slate-100">
             {imageUrl ? (
               // eslint-disable-next-line jsx-a11y/alt-text
               <img src={imageUrl} alt="" className="h-full w-full object-cover" />
