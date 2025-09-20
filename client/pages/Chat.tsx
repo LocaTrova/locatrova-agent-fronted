@@ -62,6 +62,10 @@ export default function ChatPage() {
     [],
   );
 
+  const [locationFilter, setLocationFilter] = useState<string>("any");
+  const [mapView, setMapView] = useState<boolean>(false);
+  const [filters, setFilters] = useState({ indoor: false, outdoor: false, permit: false });
+
   const onSend = (content: string) => {
     const user: Message = { id: crypto.randomUUID(), role: "user", content };
     setMessages((prev) => [...prev, user]);
