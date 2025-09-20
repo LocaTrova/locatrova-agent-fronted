@@ -7,7 +7,12 @@ export interface ResultCardProps {
   badge?: string;
 }
 
-export default function ResultCard({ title, description, imageUrl, badge }: ResultCardProps) {
+export default function ResultCard({
+  title,
+  description,
+  imageUrl,
+  badge,
+}: ResultCardProps) {
   return (
     <div className="ui-card p-3 transition hover:shadow-sm">
       <div className="flex gap-3">
@@ -15,9 +20,15 @@ export default function ResultCard({ title, description, imageUrl, badge }: Resu
           <span className="relative flex h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-lg bg-slate-100">
             {imageUrl ? (
               // eslint-disable-next-line jsx-a11y/alt-text
-              <img src={imageUrl} alt="" className="h-full w-full object-cover" />
+              <img
+                src={imageUrl}
+                alt=""
+                className="h-full w-full object-cover"
+              />
             ) : (
-              <span className="flex h-full w-full items-center justify-center text-slate-400">IMG</span>
+              <span className="flex h-full w-full items-center justify-center text-slate-400">
+                IMG
+              </span>
             )}
           </span>
         </div>
@@ -34,7 +45,9 @@ export default function ResultCard({ title, description, imageUrl, badge }: Resu
               )}
             </div>
             {description && (
-              <p className="text-sm leading-5 text-slate-600 overflow-hidden max-h-10">{description}</p>
+              <p className="text-sm leading-5 text-slate-600 overflow-hidden max-h-10">
+                {description}
+              </p>
             )}
           </div>
         </div>

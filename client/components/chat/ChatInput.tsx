@@ -20,7 +20,10 @@ export default function ChatInput({
   }, [disabled, onSend, value]);
 
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = (e) => {
-    if ((e.key === "Enter" && (e.metaKey || e.ctrlKey)) || (e.key === "Enter" && !e.shiftKey)) {
+    if (
+      (e.key === "Enter" && (e.metaKey || e.ctrlKey)) ||
+      (e.key === "Enter" && !e.shiftKey)
+    ) {
       e.preventDefault();
       handleSend();
     }
@@ -52,13 +55,24 @@ export default function ChatInput({
           <ArrowUp className="h-4 w-4" />
         </button>
       </div>
-      <input type="file" multiple accept=".jpg,.jpeg,.png,.pdf,.txt,.html" className="hidden" />
+      <input
+        type="file"
+        multiple
+        accept=".jpg,.jpeg,.png,.pdf,.txt,.html"
+        className="hidden"
+      />
       <div className="flex items-center justify-between px-4 py-2 text-sm">
         <div className="flex items-center gap-2">
-          <button className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-black hover:bg-slate-50 ui-focus" aria-label="Add attachment">
+          <button
+            className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-black hover:bg-slate-50 ui-focus"
+            aria-label="Add attachment"
+          >
             <Plus className="h-4 w-4" />
           </button>
-          <button className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-slate-500 hover:bg-slate-50 ui-focus" aria-label="Styling instructions">
+          <button
+            className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-slate-500 hover:bg-slate-50 ui-focus"
+            aria-label="Styling instructions"
+          >
             <Palette className="h-4 w-4 text-slate-500" />
             <span className="text-xs text-slate-500">Styling Instructions</span>
           </button>

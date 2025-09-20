@@ -3,7 +3,13 @@ import { useSearchParams } from "react-router-dom";
 import ChatInput from "@/components/chat/ChatInput";
 import MessageBubble, { Message } from "@/components/chat/MessageBubble";
 import ResultCard from "@/components/chat/ResultCard";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -39,7 +45,8 @@ export default function ChatPage() {
     () => [
       {
         title: "Rooftop Terrace – City Skyline",
-        description: "Golden-hour friendly rooftop with clear skyline view and elevator access.",
+        description:
+          "Golden-hour friendly rooftop with clear skyline view and elevator access.",
         imageUrl:
           "https://images.unsplash.com/photo-1523759711518-c4a2b5a8e7d3?q=80&w=400&auto=format&fit=crop",
         badge: "sunset",
@@ -48,7 +55,8 @@ export default function ChatPage() {
       },
       {
         title: "Industrial Warehouse",
-        description: "Raw textures, high ceilings, east-facing windows; controllable light.",
+        description:
+          "Raw textures, high ceilings, east-facing windows; controllable light.",
         imageUrl:
           "https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?q=80&w=400&auto=format&fit=crop",
         badge: "moody",
@@ -57,7 +65,8 @@ export default function ChatPage() {
       },
       {
         title: "Modern Office Lobby",
-        description: "Neutral palette, natural wood, large glass facade, great for corporate scenes.",
+        description:
+          "Neutral palette, natural wood, large glass facade, great for corporate scenes.",
         imageUrl:
           "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400&auto=format&fit=crop",
         badge: "corporate",
@@ -74,13 +83,13 @@ export default function ChatPage() {
 
   const filteredResults = useMemo(() => {
     return results.filter((r: any) => {
-      const locationOk = locationFilter === "any" || r.tags?.includes(locationFilter);
+      const locationOk =
+        locationFilter === "any" || r.tags?.includes(locationFilter);
       const af = new Set(activeFilters);
-      const filtersOk = (
+      const filtersOk =
         (!af.has("indoor") || r.attributes?.indoor) &&
         (!af.has("outdoor") || r.attributes?.outdoor) &&
-        (!af.has("permit") || r.attributes?.permit)
-      );
+        (!af.has("permit") || r.attributes?.permit);
       return locationOk && filtersOk;
     });
   }, [results, locationFilter, activeFilters]);
@@ -103,7 +112,10 @@ export default function ChatPage() {
         <div className="grid h-full min-h-0 grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
           {/* Left: Chat */}
           <section className="flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white">
-            <div aria-live="polite" className="flex-1 min-h-0 overflow-y-auto px-3 sm:px-4 py-2 [scrollbar-gutter:stable] pb-24 lg:pb-2 flex flex-col space-y-3 sm:space-y-4">
+            <div
+              aria-live="polite"
+              className="flex-1 min-h-0 overflow-y-auto px-3 sm:px-4 py-2 [scrollbar-gutter:stable] pb-24 lg:pb-2 flex flex-col space-y-3 sm:space-y-4"
+            >
               {messages.map((m) => (
                 <MessageBubble key={m.id} message={m} />
               ))}
@@ -118,8 +130,12 @@ export default function ChatPage() {
             <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
               <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-3">
                 <div className="flex items-center gap-2">
-                  <h2 className="text-sm font-semibold text-slate-900">Curated results</h2>
-                  <span className="text-xs text-slate-500">{filteredResults.length} found</span>
+                  <h2 className="text-sm font-semibold text-slate-900">
+                    Curated results
+                  </h2>
+                  <span className="text-xs text-slate-500">
+                    {filteredResults.length} found
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2">
@@ -130,7 +146,10 @@ export default function ChatPage() {
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-3">
-                <Select value={locationFilter} onValueChange={setLocationFilter}>
+                <Select
+                  value={locationFilter}
+                  onValueChange={setLocationFilter}
+                >
                   <SelectTrigger className="h-8 w-[150px] text-xs">
                     <SelectValue placeholder="Location" />
                   </SelectTrigger>
@@ -146,15 +165,46 @@ export default function ChatPage() {
 
                 <div className="flex items-center gap-1">
                   <span className="text-xs text-slate-500">Curate by:</span>
-                  <ToggleGroup type="multiple" value={activeFilters} onValueChange={setActiveFilters} className="gap-1">
-                    <ToggleGroupItem value="indoor" aria-label="Indoor" className="h-8 px-2 text-xs">Indoor</ToggleGroupItem>
-                    <ToggleGroupItem value="outdoor" aria-label="Outdoor" className="h-8 px-2 text-xs">Outdoor</ToggleGroupItem>
-                    <ToggleGroupItem value="permit" aria-label="Permit required" className="h-8 px-2 text-xs">Permit</ToggleGroupItem>
+                  <ToggleGroup
+                    type="multiple"
+                    value={activeFilters}
+                    onValueChange={setActiveFilters}
+                    className="gap-1"
+                  >
+                    <ToggleGroupItem
+                      value="indoor"
+                      aria-label="Indoor"
+                      className="h-8 px-2 text-xs"
+                    >
+                      Indoor
+                    </ToggleGroupItem>
+                    <ToggleGroupItem
+                      value="outdoor"
+                      aria-label="Outdoor"
+                      className="h-8 px-2 text-xs"
+                    >
+                      Outdoor
+                    </ToggleGroupItem>
+                    <ToggleGroupItem
+                      value="permit"
+                      aria-label="Permit required"
+                      className="h-8 px-2 text-xs"
+                    >
+                      Permit
+                    </ToggleGroupItem>
                   </ToggleGroup>
                 </div>
 
                 {(locationFilter !== "any" || activeFilters.length > 0) && (
-                  <Button variant="ghost" size="sm" className="h-8 text-xs" onClick={() => { setLocationFilter("any"); setActiveFilters([]); }}>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 text-xs"
+                    onClick={() => {
+                      setLocationFilter("any");
+                      setActiveFilters([]);
+                    }}
+                  >
                     Clear
                   </Button>
                 )}
@@ -164,7 +214,9 @@ export default function ChatPage() {
               <div className="flex-1 min-h-0 grid place-items-center p-6 text-slate-600">
                 <div className="text-center">
                   <div className="mb-1 text-sm font-medium">Map view</div>
-                  <p className="text-sm">Coming soon. Toggle off “Map” to see the list.</p>
+                  <p className="text-sm">
+                    Coming soon. Toggle off “Map” to see the list.
+                  </p>
                 </div>
               </div>
             ) : (
