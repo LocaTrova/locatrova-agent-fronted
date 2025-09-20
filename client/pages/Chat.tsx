@@ -96,14 +96,81 @@ export default function ChatPage() {
 
           {/* Right: Curated results */}
           <section className="flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white">
-            <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-3 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-              <h2 className="text-sm font-semibold text-slate-900">Curated results</h2>
+            <div className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-3 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+              <div className="flex items-center gap-2">
+                <h2 className="text-sm font-semibold text-slate-900">Curated results</h2>
+                <span className="hidden sm:inline-flex items-center gap-1 text-xs text-slate-500">
+                  <MapPin className="h-3.5 w-3.5" />
+                  Location
+                </span>
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Select value={locationFilter} onValueChange={setLocationFilter}>
+                  <SelectTrigger className="h-8 w-[130px] text-xs">
+                    <SelectValue placeholder="Location" />
+                  </SelectTrigger>
+                  <SelectContent align="end">
+                    <SelectItem value="any">Any</SelectItem>
+                    <SelectItem value="urban">Urban</SelectItem>
+                    <SelectItem value="coastal">Coastal</SelectItem>
+                    <SelectItem value="industrial">Industrial</SelectItem>
+                    <SelectItem value="residential">Residential</SelectItem>
+                    <SelectItem value="nature">Nature</SelectItem>
+                  </SelectContent>
+                </Select>
+
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="sm" className="h-8 gap-1">
+                      <SlidersHorizontal className="h-3.5 w-3.5" />
+                      <span className="text-xs">Filters</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-44">
+                    <DropdownMenuLabel>Curate by</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuCheckboxItem
+                      checked={filters.indoor}
+                      onCheckedChange={(v) => setFilters((f) => ({ ...f, indoor: Boolean(v) }))}
+                    >
+                      Indoor
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      checked={filters.outdoor}
+                      onCheckedChange={(v) => setFilters((f) => ({ ...f, outdoor: Boolean(v) }))}
+                    >
+                      Outdoor
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      checked={filters.permit}
+                      onCheckedChange={(v) => setFilters((f) => ({ ...f, permit: Boolean(v) }))}
+                    >
+                      Permit required
+                    </DropdownMenuCheckboxItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
+                <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
+                  <Map className="h-4 w-4 text-slate-500" />
+                  <span className="text-xs text-slate-600">Map</span>
+                  <Switch checked={mapView} onCheckedChange={setMapView} />
+                </div>
+              </div>
             </div>
-            <div className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 [scrollbar-gutter:stable]">
-              {results.map((r, i) => (
-                <ResultCard key={i} {...r} />
-              ))}
-            </div>
+            {mapView ? (
+              <div className="flex-1 min-h-0 grid place-items-center p-6 text-slate-600">
+                <div className="text-center">
+                  <div className="mb-1 text-sm font-medium">Map view</div>
+                  <p className="text-sm">Coming soon. Toggle off ���Map” to see the list.</p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 [scrollbar-gutter:stable]">
+                {results.map((r, i) => (
+                  <ResultCard key={i} {...r} />
+                ))}
+              </div>
+            )}
           </section>
         </div>
       </div>
