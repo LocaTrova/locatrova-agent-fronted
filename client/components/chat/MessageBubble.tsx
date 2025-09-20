@@ -18,7 +18,7 @@ export default function MessageBubble({ message }: { message: Message }) {
           (isUser
             ? "bg-slate-200 text-slate-800"
             : "bg-white text-slate-800 border border-slate-200") +
-          " max-w-[85%] rounded-lg px-4 py-3 text-sm leading-5"
+          " max-w-[90%] sm:max-w-[85%] rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm leading-5"
         }
       >
         <p className="whitespace-pre-wrap break-words">{message.content}</p>
