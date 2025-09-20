@@ -43,6 +43,8 @@ export default function ChatPage() {
         imageUrl:
           "https://images.unsplash.com/photo-1523759711518-c4a2b5a8e7d3?q=80&w=400&auto=format&fit=crop",
         badge: "sunset",
+        tags: ["urban", "outdoor"],
+        attributes: { indoor: false, outdoor: true, permit: true },
       },
       {
         title: "Industrial Warehouse",
@@ -50,6 +52,8 @@ export default function ChatPage() {
         imageUrl:
           "https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?q=80&w=400&auto=format&fit=crop",
         badge: "moody",
+        tags: ["industrial", "urban", "indoor"],
+        attributes: { indoor: true, outdoor: false, permit: true },
       },
       {
         title: "Modern Office Lobby",
@@ -57,6 +61,8 @@ export default function ChatPage() {
         imageUrl:
           "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400&auto=format&fit=crop",
         badge: "corporate",
+        tags: ["residential", "indoor"],
+        attributes: { indoor: true, outdoor: false, permit: false },
       },
     ],
     [],
@@ -64,7 +70,20 @@ export default function ChatPage() {
 
   const [locationFilter, setLocationFilter] = useState<string>("any");
   const [mapView, setMapView] = useState<boolean>(false);
-  const [filters, setFilters] = useState({ indoor: false, outdoor: false, permit: false });
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+
+  const filteredResults = useMemo(() => {
+    return results.filter((r: any) => {
+      const locationOk = locationFilter === "any" || r.tags?.includes(locationFilter);
+      const af = new Set(activeFilters);
+      const filtersOk = (
+        (!af.has("indoor") || r.attributes?.indoor) &&
+        (!af.has("outdoor") || r.attributes?.outdoor) &&
+        (!af.has("permit") || r.attributes?.permit)
+      );
+      return locationOk && filtersOk;
+    });
+  }, [results, locationFilter, activeFilters]);
 
   const onSend = (content: string) => {
     const user: Message = { id: crypto.randomUUID(), role: "user", content };
@@ -161,7 +180,7 @@ export default function ChatPage() {
               <div className="flex-1 min-h-0 grid place-items-center p-6 text-slate-600">
                 <div className="text-center">
                   <div className="mb-1 text-sm font-medium">Map view</div>
-                  <p className="text-sm">Coming soon. Toggle off ���Map” to see the list.</p>
+                  <p className="text-sm">Coming soon. Toggle off “Map” to see the list.</p>
                 </div>
               </div>
             ) : (
