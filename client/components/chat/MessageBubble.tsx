@@ -12,7 +12,7 @@ export interface Message {
 export default function MessageBubble({ message }: { message: Message }) {
   const isUser = message.role === "user";
   return (
-    <div className={isUser ? "flex justify-end mb-6" : "mb-6"}>
+    <div className={isUser ? "flex justify-end" : "flex"}>
       <div
         className={
           (isUser
