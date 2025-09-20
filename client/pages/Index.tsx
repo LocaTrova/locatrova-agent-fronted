@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
 import { ArrowUp, Palette, Plus, Lightbulb } from "lucide-react";
 import AppCard from "@/components/home/AppCard";
+import { useNavigate } from "react-router-dom";
 
 export default function Index() {
   const [prompt, setPrompt] = useState("");
   const disabled = prompt.trim().length === 0;
+  const navigate = useNavigate();
 
   const ideas = useMemo(
     () => [
@@ -48,6 +50,7 @@ export default function Index() {
                         aria-label="Search locations"
                         title="Search locations"
                         disabled={disabled}
+                        onClick={() => navigate(`/chat?q=${encodeURIComponent(prompt)}`)}
                         className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white transition ui-focus disabled:cursor-not-allowed disabled:opacity-70"
                         style={{ transform: "rotate(90deg)" }}
                       >
