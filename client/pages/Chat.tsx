@@ -70,32 +70,32 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="min-h-screen flex-1 overflow-x-auto bg-slate-50">
-      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 py-6">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+    <div className="min-h-screen flex-1 overflow-x-hidden bg-slate-50">
+      <div className="mx-auto max-w-screen-2xl px-3 sm:px-6 py-4 sm:py-6">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
           {/* Left: Chat */}
-          <div className="flex h-[calc(100vh-160px)] flex-col rounded-2xl border border-slate-200 bg-white">
-            <div className="flex-1 overflow-y-auto px-4 py-2">
+          <section className="flex min-h-[60vh] lg:h-[calc(100vh-160px)] flex-col rounded-2xl border border-slate-200 bg-white">
+            <div aria-live="polite" className="flex-1 overflow-y-auto px-3 sm:px-4 py-2 [scrollbar-gutter:stable] pb-24 lg:pb-2">
               {messages.map((m) => (
                 <MessageBubble key={m.id} message={m} />
               ))}
             </div>
-            <div className="border-t border-slate-200 p-3">
+            <div className="sticky bottom-0 border-t border-slate-200 p-2 sm:p-3 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 pb-safe">
               <ChatInput onSend={onSend} autoFocus />
             </div>
-          </div>
+          </section>
 
           {/* Right: Curated results */}
-          <div className="flex h-[calc(100vh-160px)] flex-col rounded-2xl border border-slate-200 bg-white">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+          <section className="flex min-h-[40vh] lg:h-[calc(100vh-160px)] flex-col rounded-2xl border border-slate-200 bg-white">
+            <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-3 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
               <h2 className="text-sm font-semibold text-slate-900">Curated results</h2>
             </div>
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 [scrollbar-gutter:stable]">
               {results.map((r, i) => (
                 <ResultCard key={i} {...r} />
               ))}
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>
