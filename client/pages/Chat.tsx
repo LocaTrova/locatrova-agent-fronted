@@ -115,20 +115,26 @@ export default function ChatPage() {
 
           {/* Right: Curated results */}
           <section className="flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white">
-            <div className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-3 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-              <div className="flex items-center gap-2">
-                <h2 className="text-sm font-semibold text-slate-900">Curated results</h2>
-                <span className="hidden sm:inline-flex items-center gap-1 text-xs text-slate-500">
-                  <MapPin className="h-3.5 w-3.5" />
-                  Location
-                </span>
+            <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+              <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-sm font-semibold text-slate-900">Curated results</h2>
+                  <span className="text-xs text-slate-500">{filteredResults.length} found</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
+                    <Map className="h-4 w-4 text-slate-500" />
+                    <span className="text-xs text-slate-600">Map</span>
+                    <Switch checked={mapView} onCheckedChange={setMapView} />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-3">
                 <Select value={locationFilter} onValueChange={setLocationFilter}>
-                  <SelectTrigger className="h-8 w-[130px] text-xs">
+                  <SelectTrigger className="h-8 w-[150px] text-xs">
                     <SelectValue placeholder="Location" />
                   </SelectTrigger>
-                  <SelectContent align="end">
+                  <SelectContent align="start">
                     <SelectItem value="any">Any</SelectItem>
                     <SelectItem value="urban">Urban</SelectItem>
                     <SelectItem value="coastal">Coastal</SelectItem>
@@ -138,42 +144,20 @@ export default function ChatPage() {
                   </SelectContent>
                 </Select>
 
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm" className="h-8 gap-1">
-                      <SlidersHorizontal className="h-3.5 w-3.5" />
-                      <span className="text-xs">Filters</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-44">
-                    <DropdownMenuLabel>Curate by</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuCheckboxItem
-                      checked={filters.indoor}
-                      onCheckedChange={(v) => setFilters((f) => ({ ...f, indoor: Boolean(v) }))}
-                    >
-                      Indoor
-                    </DropdownMenuCheckboxItem>
-                    <DropdownMenuCheckboxItem
-                      checked={filters.outdoor}
-                      onCheckedChange={(v) => setFilters((f) => ({ ...f, outdoor: Boolean(v) }))}
-                    >
-                      Outdoor
-                    </DropdownMenuCheckboxItem>
-                    <DropdownMenuCheckboxItem
-                      checked={filters.permit}
-                      onCheckedChange={(v) => setFilters((f) => ({ ...f, permit: Boolean(v) }))}
-                    >
-                      Permit required
-                    </DropdownMenuCheckboxItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-
-                <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
-                  <Map className="h-4 w-4 text-slate-500" />
-                  <span className="text-xs text-slate-600">Map</span>
-                  <Switch checked={mapView} onCheckedChange={setMapView} />
+                <div className="flex items-center gap-1">
+                  <span className="text-xs text-slate-500">Curate by:</span>
+                  <ToggleGroup type="multiple" value={activeFilters} onValueChange={setActiveFilters} className="gap-1">
+                    <ToggleGroupItem value="indoor" aria-label="Indoor" className="h-8 px-2 text-xs">Indoor</ToggleGroupItem>
+                    <ToggleGroupItem value="outdoor" aria-label="Outdoor" className="h-8 px-2 text-xs">Outdoor</ToggleGroupItem>
+                    <ToggleGroupItem value="permit" aria-label="Permit required" className="h-8 px-2 text-xs">Permit</ToggleGroupItem>
+                  </ToggleGroup>
                 </div>
+
+                {(locationFilter !== "any" || activeFilters.length > 0) && (
+                  <Button variant="ghost" size="sm" className="h-8 text-xs" onClick={() => { setLocationFilter("any"); setActiveFilters([]); }}>
+                    Clear
+                  </Button>
+                )}
               </div>
             </div>
             {mapView ? (
