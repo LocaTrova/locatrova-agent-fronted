@@ -169,7 +169,7 @@ export default function ChatPage() {
               </div>
             ) : (
               <div className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 [scrollbar-gutter:stable]">
-                {results.map((r, i) => (
+                {filteredResults.map((r: any, i: number) => (
                   <ResultCard key={i} {...r} />
                 ))}
               </div>
