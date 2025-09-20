@@ -3,6 +3,11 @@ import { useSearchParams } from "react-router-dom";
 import ChatInput from "@/components/chat/ChatInput";
 import MessageBubble, { Message } from "@/components/chat/MessageBubble";
 import ResultCard from "@/components/chat/ResultCard";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
+import { SlidersHorizontal, MapPin, Map } from "lucide-react";
 
 export default function ChatPage() {
   const [params] = useSearchParams();
