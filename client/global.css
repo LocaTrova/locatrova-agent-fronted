@@ -113,4 +113,5 @@
   .ui-focus { @apply outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white; }
   .ui-card { @apply rounded-2xl border border-gray-100 bg-white; }
   .ui-chip { @apply inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-light text-slate-800 transition hover:border-slate-300 hover:shadow-sm; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
 }
