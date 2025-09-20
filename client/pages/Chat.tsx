@@ -75,7 +75,7 @@ export default function ChatPage() {
         <div className="grid h-full min-h-0 grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
           {/* Left: Chat */}
           <section className="flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white">
-            <div aria-live="polite" className="flex-1 min-h-0 overflow-y-auto px-3 sm:px-4 py-2 [scrollbar-gutter:stable] pb-24 lg:pb-2">
+            <div aria-live="polite" className="flex-1 min-h-0 overflow-y-auto px-3 sm:px-4 py-2 [scrollbar-gutter:stable] pb-24 lg:pb-2 flex flex-col space-y-3 sm:space-y-4">
               {messages.map((m) => (
                 <MessageBubble key={m.id} message={m} />
               ))}
