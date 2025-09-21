@@ -103,6 +103,7 @@
   }
 
   body {
+    margin: 0;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     font-family: "Wix Madefor Text", system-ui, sans-serif;

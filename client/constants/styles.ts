@@ -7,10 +7,10 @@ export const STYLES = {
   // Container styles
   CONTAINER: {
     SECTION:
-      "flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white",
+      "flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white lg:rounded-none lg:border-0",
     INPUT_WRAPPER:
       "relative w-full backdrop-blur bg-white border border-slate-200 rounded-2xl sm:rounded-[30px] shadow-[0_0_0_0_rgba(0,0,0,0),0_8px_16px_0_rgba(0,0,0,0.04)] px-2",
-    PAGE: "h-[100svh] w-full overflow-hidden bg-slate-50",
+    PAGE: "h-screen min-h-screen w-full overflow-hidden bg-slate-50",
     PAGE_INNER: "mx-auto max-w-screen-2xl h-full px-3 sm:px-6 py-4 sm:py-6",
   },
 

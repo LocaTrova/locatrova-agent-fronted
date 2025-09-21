@@ -45,7 +45,7 @@ export function ChatContainer() {
 
   return (
     <div className={STYLES.CONTAINER.PAGE}>
-      <div className={`${STYLES.CONTAINER.PAGE_INNER} max-w-none`}>
+      <div className={`${STYLES.CONTAINER.PAGE_INNER} max-w-none px-0 py-0`}>
         <div className={`${STYLES.GRID.CHAT_LAYOUT} lg:grid-cols-[30%_70%]`}>
           {/* Left: Chat */}
           <ChatSection
