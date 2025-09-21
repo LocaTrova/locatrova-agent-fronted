@@ -18,11 +18,12 @@ export default function ResultCard({
                
               <img
                 src={imageUrl}
-                alt=""
+                alt={title || "Location preview"}
+                loading="lazy"
                 className="h-full w-full object-cover"
               />
             ) : (
-              <span className="flex h-full w-full items-center justify-center text-slate-400">
+              <span className="flex h-full w-full items-center justify-center text-slate-400" aria-hidden>
                 IMG
               </span>
             )}
