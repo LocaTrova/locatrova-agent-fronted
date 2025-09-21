@@ -19,7 +19,7 @@ export default function ChatSection({
   onSendMessage,
 }: ChatSectionProps) {
   return (
-    <section className={STYLES.CONTAINER.SECTION}>
+    <section aria-label="Conversation" className={STYLES.CONTAINER.SECTION}>
       <div
         aria-live="polite"
         className={`${STYLES.SCROLL.AREA_WITH_BOTTOM} ${STYLES.SPACING.PADDING_RESPONSIVE} py-2 flex flex-col ${STYLES.SPACING.CONTENT_GAP}`}

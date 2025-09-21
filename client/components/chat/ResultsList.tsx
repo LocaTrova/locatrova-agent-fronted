@@ -45,7 +45,7 @@ export default function ResultsList({
     return (
       <div className="flex-1 min-h-0 grid place-items-center p-6">
         <div className="text-center text-slate-500">
-          <div className="text-sm font-medium mb-1">No results found</div>
+          <div className="text-sm font-medium mb-1">No locations found</div>
           <p className="text-sm">
             Try adjusting your filters or search criteria
           </p>

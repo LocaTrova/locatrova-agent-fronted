@@ -62,15 +62,15 @@ export const API_CONFIG = {
 export const UI_TEXT = {
   BUTTONS: {
     CLEAR: "Clear",
-    SEND: "Send message",
+    SEND: "Search locations",
     ADD_ATTACHMENT: "Add attachment",
     STYLING: "Styling Instructions",
   },
   LABELS: {
-    CURATED_RESULTS: "Curated results",
+    CURATED_RESULTS: "Curated locations",
     MAP: "Map",
     MAP_VIEW: "Map view",
-    CURATE_BY: "Curate by:",
+    CURATE_BY: "Filter by:",
     LOCATION: "Location",
   },
   FILTERS: {
