@@ -1,14 +1,10 @@
 import React from "react";
+import type { LocationResult } from "../../../shared/api";
 
-export interface ResultCardProps {
-  title: string;
-  description?: string;
-  imageUrl?: string;
-  badge?: string;
-}
+type ResultCardProps = Partial<LocationResult>;
 
 export default function ResultCard({
-  title,
+  title = "",
   description,
   imageUrl,
   badge,
@@ -19,7 +15,7 @@ export default function ResultCard({
         <div className="flex-shrink-0">
           <span className="relative flex h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-lg bg-slate-100">
             {imageUrl ? (
-              // eslint-disable-next-line jsx-a11y/alt-text
+               
               <img
                 src={imageUrl}
                 alt=""

@@ -1,13 +1,7 @@
 import React from "react";
+import type { Message } from "../../../shared/api";
 
-export type ChatRole = "user" | "assistant";
-
-export interface Message {
-  id: string;
-  role: ChatRole;
-  content: string;
-  createdAt?: string;
-}
+export { type Message } from "../../../shared/api";
 
 export default function MessageBubble({ message }: { message: Message }) {
   const isUser = message.role === "user";

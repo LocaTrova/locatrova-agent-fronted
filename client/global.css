@@ -2,9 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@100;300;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   /**
@@ -101,23 +99,45 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: "Wix Madefor Text", system-ui, sans-serif;
   }
 }
 
 @layer utilities {
   .ui-focus {
-    @apply outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+    outline: none;
+  }
+  .ui-focus:focus-visible {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px hsla(var(--primary) / 0.6);
   }
   .ui-card {
-    @apply rounded-2xl border border-gray-100 bg-white;
+    border-radius: 1rem;
+    border: 1px solid rgb(243 244 246);
+    background-color: white;
   }
   .ui-chip {
-    @apply inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-light text-slate-800 transition hover:border-slate-300 hover:shadow-sm;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(226 232 240);
+    background-color: white;
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: rgb(30 41 59);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .ui-chip:hover {
+    border-color: rgb(203 213 225);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);

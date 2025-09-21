@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { ArrowUp, Palette, Plus, Lightbulb } from "lucide-react";
 import AppCard from "@/components/home/AppCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export default function Index() {
   const [prompt, setPrompt] = useState("");
@@ -18,6 +18,16 @@ export default function Index() {
     ],
     [],
   );
+
+  // Memoize the onChange handler to prevent re-creation on every render
+  const handlePromptChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setPrompt(e.target.value);
+  }, []);
+
+  // Memoize the onClick handler to prevent re-creation on every render
+  const handleSearch = useCallback(() => {
+    navigate(`/chat?q=${encodeURIComponent(prompt)}`);
+  }, [navigate, prompt]);
 
   return (
     <div className="min-h-screen flex-1 overflow-x-auto bg-slate-50">
@@ -47,15 +57,13 @@ export default function Index() {
                         placeholder="Describe the scene or location you want to scout..."
                         className="mt-2 h-[120px] max-h-[200px] min-h-[110px] w-full resize-none rounded-2xl pl-6 pr-16 pt-3 text-base/6 font-light text-slate-800 placeholder:text-slate-400 focus:outline-none"
                         value={prompt}
-                        onChange={(e) => setPrompt(e.target.value)}
+                        onChange={handlePromptChange}
                       />
                       <button
                         aria-label="Search locations"
                         title="Search locations"
                         disabled={disabled}
-                        onClick={() =>
-                          navigate(`/chat?q=${encodeURIComponent(prompt)}`)
-                        }
+                        onClick={handleSearch}
                         className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white transition ui-focus disabled:cursor-not-allowed disabled:opacity-70"
                         style={{ transform: "rotate(90deg)" }}
                       >
@@ -93,7 +101,7 @@ export default function Index() {
                       Location ideas to get started
                     </h3>
                     <a
-                      href="#"
+                      href="/apps"
                       className="inline-flex items-center gap-1 rounded-xl bg-[rgba(255,172,105,0.15)] px-3 py-1.5 text-sm font-light text-[hsl(var(--accent-foreground))] hover:opacity-90 ui-focus"
                     >
                       <Lightbulb className="h-3.5 w-3.5 text-[hsl(var(--accent-foreground))]" />
@@ -172,7 +180,6 @@ export default function Index() {
                       href={app.href}
                       title="untitled"
                       description="No notes yet"
-                      placeholderLetter="U"
                       containerStyle={{ animationDelay: `${idx * 0.08}s` }}
                     />
                   ))}
