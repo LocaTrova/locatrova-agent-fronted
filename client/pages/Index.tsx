@@ -9,11 +9,11 @@ export default function Index() {
 
   const ideas = useMemo(
     () => [
-      "Reporting Dashboard",
-      "Gaming Platform",
-      "Onboarding Portal",
-      "Networking App",
-      "Room Visualizer",
+      "Urban exteriors",
+      "Natural landscapes",
+      "Industrial sites",
+      "Residential interiors",
+      "Iconic landmarks",
     ],
     [],
   );
@@ -63,13 +63,11 @@ export default function Index() {
       {/* Content */}
       <div className="relative mx-auto flex max-w-[3840px] flex-col px-6 pt-[355px] pb-[153px]">
         <div className="mx-auto w-full max-w-[2400px] text-center">
-          <h1 className="mx-auto max-w-[60%] text-center font-[\'Wix Madefor Text\'] text-[152px] leading-[1.1] tracking-[-0.01em] text-slate-900">
-            <span>Let’s make your dream a </span>
-            <span className="text-[152px] text-[rgb(235,255,177)]">reality. </span>
-            <span>Right now.</span>
+          <h1 className="mx-auto max-w-[60%] text-center font-['Wix Madefor Text'] text-[120px] leading-[1.1] tracking-[-0.01em] text-slate-900">
+            Locatrova: What location do you need today?
           </h1>
-          <p className="mx-auto mt-14 max-w-[41%] text-center font-[\'Wix Madefor Text\'] text-[44px] leading-[1.4] text-slate-800">
-            Base44 lets you build fully-functional apps in minutes with just your words. No coding necessary.
+          <p className="mx-auto mt-14 max-w-[41%] text-center font-['Wix Madefor Text'] text-[44px] leading-[1.4] text-slate-800">
+            Describe your shoot brief or location requirements below — or get inspired by our suggestions.
           </p>
         </div>
 
@@ -77,19 +75,19 @@ export default function Index() {
         <div className="mx-auto mt-24 w-full max-w-[2106px] rounded-[70px] border border-slate-300/60 bg-white/80 p-9 backdrop-blur-[20px]">
           <div className="relative">
             <label htmlFor="idea-input" className="sr-only">
-              What do you want to build?
+              Describe the location you want to scout
             </label>
             <textarea
               id="idea-input"
               rows={6}
-              placeholder="What do you want to build?"
+              placeholder="Describe the scene or location you want to scout..."
               value={prompt}
               onChange={handlePromptChange}
               className="min-h-[220px] w-full resize-none rounded-[61px] border border-slate-300 px-14 py-12 text-[36px] leading-[1.4] text-slate-700 outline-none placeholder:text-slate-400"
             />
             <button
-              aria-label="Start Now"
-              title="Start Now"
+              aria-label="Search locations"
+              title="Search locations"
               disabled={disabled}
               onClick={handleSearch}
               className="absolute right-8 bottom-8 flex h-10 w-10 items-center justify-center rounded-lg bg-[rgb(255,152,59)] text-black ui-focus disabled:cursor-not-allowed disabled:opacity-70"
