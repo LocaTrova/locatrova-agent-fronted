@@ -70,12 +70,12 @@ export const STYLES = {
 // Component-specific style combinations
 export const COMPONENT_STYLES = {
   MESSAGE_BUBBLE: {
-    USER: "bg-slate-200 text-slate-800",
+    USER: "bg-[rgba(255,152,59,0.18)] text-slate-900 border border-orange-300",
     ASSISTANT: "bg-white text-slate-800 border border-slate-200",
     WRAPPER_USER: "flex justify-end",
     WRAPPER_ASSISTANT: "flex",
     CONTENT:
-      "max-w-[90%] sm:max-w-[85%] rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm leading-5",
+      "max-w-[90%] sm:max-w-[85%] rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm leading-5",
   },
 
   CARD: {
