@@ -1,13 +1,18 @@
-import { FC, memo, useEffect, useMemo, useState } from "react";
+import { FC, memo, useMemo } from "react";
+import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import type { LatLngExpression } from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { useGeocode, type Coords } from "@/hooks/useGeocode";
 
-type Coords = { lat: number; lon: number } | null;
+export type MapPoint = { lat: number; lon: number; label?: string };
 
-type MapSectionProps = {
-  address: string;
-  zoom?: number;
-};
+ type MapSectionProps = {
+   address: string;
+   zoom?: number;
+   markers?: MapPoint[];
+ };
 
-function toEmbedUrl(coords: Coords, zoom: number) {
+ function toEmbedUrl(coords: Coords, zoom: number) {
   if (!coords) return "";
   const { lat, lon } = coords;
   const delta = 0.01; // ~1km radius
@@ -22,48 +27,16 @@ function toEmbedUrl(coords: Coords, zoom: number) {
   )}&layer=mapnik&marker=${encodeURIComponent(marker)}&zoom=${zoom}`;
 }
 
-const MapSection: FC<MapSectionProps> = ({ address, zoom = 16 }) => {
-  const [coords, setCoords] = useState<Coords>(null);
-  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">(
-    "idle",
-  );
-
-  useEffect(() => {
-    let cancelled = false;
-    async function run() {
-      setStatus("loading");
-      try {
-        const url = new URL("https://nominatim.openstreetmap.org/search");
-        url.searchParams.set("format", "json");
-        url.searchParams.set("q", address);
-        url.searchParams.set("limit", "1");
-        const res = await fetch(url.toString(), {
-          headers: {
-            Accept: "application/json",
-          },
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data: Array<{ lat: string; lon: string }> = await res.json();
-        const first = data[0];
-        if (!first) throw new Error("Address not found");
-        if (!cancelled)
-          setCoords({ lat: parseFloat(first.lat), lon: parseFloat(first.lon) });
-        if (!cancelled) setStatus("done");
-      } catch (e) {
-        if (!cancelled) setStatus("error");
-      }
-    }
-    run();
-    return () => {
-      cancelled = true;
-    };
-  }, [address]);
+const MapSection: FC<MapSectionProps> = ({ address, zoom = 16, markers }) => {
+  const { coords, status } = useGeocode(address);
 
   const embedUrl = useMemo(() => toEmbedUrl(coords, zoom), [coords, zoom]);
   const viewUrl = useMemo(() => {
     if (!coords) return "#";
     return `https://www.openstreetmap.org/?mlat=${coords.lat}&mlon=${coords.lon}#map=${zoom}/${coords.lat}/${coords.lon}`;
   }, [coords, zoom]);
+
+  const hasMultiple = (markers?.length ?? 0) > 0;
 
   return (
     <section aria-label="Mappa" className="py-8">
@@ -74,13 +47,19 @@ const MapSection: FC<MapSectionProps> = ({ address, zoom = 16 }) => {
             <span className="text-slate-600 text-sm">Caricamento mappa…</span>
           </div>
         )}
-        {status === "done" && embedUrl && (
-          <iframe
-            title="OpenStreetMap"
-            src={embedUrl}
-            className="absolute inset-0 h-full w-full border-0"
-            loading="lazy"
-          />
+        {status === "done" && coords && (
+          hasMultiple ? (
+            <LeafletPointsMap center={[coords.lat, coords.lon]} zoom={zoom} points={markers!} />
+          ) : (
+            embedUrl && (
+              <iframe
+                title="OpenStreetMap"
+                src={embedUrl}
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+              />
+            )
+          )
         )}
       </div>
       <div className="mt-2">
@@ -94,6 +73,25 @@ const MapSection: FC<MapSectionProps> = ({ address, zoom = 16 }) => {
         </a>
       </div>
     </section>
+  );
+};
+
+const LeafletPointsMap: FC<{ center: LatLngExpression; zoom: number; points: MapPoint[] }> = ({ center, zoom, points }) => {
+  return (
+    <MapContainer center={center} zoom={zoom} className="absolute inset-0 h-full w-full">
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      {/* Center marker */}
+      <CircleMarker center={center} radius={8} pathOptions={{ color: "#0ea5e9", fillColor: "#0ea5e9", fillOpacity: 0.9 }} />
+      {/* Extra points */}
+      {points.map((p, idx) => (
+        <CircleMarker key={`${p.lat},${p.lon}-${idx}`} center={[p.lat, p.lon]} radius={7} pathOptions={{ color: "#ef4444", fillColor: "#ef4444", fillOpacity: 0.9 }}>
+          {p.label ? <Popup>{p.label}</Popup> : null}
+        </CircleMarker>
+      ))}
+    </MapContainer>
   );
 };
 
