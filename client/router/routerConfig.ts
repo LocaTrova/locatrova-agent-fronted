@@ -4,6 +4,7 @@ import NotFound from "../pages/NotFound";
 import Apps from "../pages/Apps";
 import Chat from "../pages/Chat";
 import CSSTest from "../pages/CSSTest";
+import LocationPage from "../pages/Location";
 
 /**
  * Route definitions without JSX
@@ -22,6 +23,14 @@ const routes: RouteObject[] = [
   {
     path: "/chat",
     Component: Chat,
+  },
+  {
+    path: "/location/:id",
+    Component: LocationPage,
+  },
+  {
+    path: "/location/:id/:identifier",
+    Component: LocationPage,
   },
   {
     path: "/css-test",
