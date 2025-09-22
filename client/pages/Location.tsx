@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router";
 import FeaturesSection from "@/components/location/Features";
 import MapSection from "@/components/location/MapSection";
+import FloorplanSection from "@/components/location/Floorplan";
 import { MapPin, ArrowLeft, Heart } from "lucide-react";
 
 export default function LocationPage() {
