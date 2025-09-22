@@ -45,7 +45,24 @@ export function ChatContainer() {
 
   return (
     <div className={STYLES.CONTAINER.PAGE}>
-      <div className="w-full h-full">
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(312deg, rgb(160,165,194) 27.0662%, rgb(206,221,228) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="https://static.wixstatic.com/media/343a2a_5c066484f7904623adfe3ee51e4634a8~mv2.jpg/v1/fill/w_2880,h_1527,al_c,q_90,enc_avif,quality_auto/Hero-bg-base-new.jpg"
+            alt="Hero background"
+            className="absolute inset-0 h-full w-full object-cover opacity-60"
+            style={{ maskSize: "100% 100%", maskRepeat: "no-repeat", maskPosition: "50% 50%" }}
+          />
+        </div>
+      </div>
+      <div className="relative w-full h-full">
         <div className={`${STYLES.GRID.CHAT_LAYOUT} w-full`}>
           {/* Left: Chat */}
           <ChatSection
