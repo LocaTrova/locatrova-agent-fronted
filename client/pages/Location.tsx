@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router";
 import FeaturesSection from "@/components/location/Features";
 import MapSection from "@/components/location/MapSection";
-import { MapPin, ArrowLeft } from "lucide-react";
+import { MapPin, ArrowLeft, Heart } from "lucide-react";
 
 export default function LocationPage() {
   const { id, identifier } = useParams<{ id: string; identifier?: string }>();
@@ -33,7 +33,7 @@ export default function LocationPage() {
         <nav className="sticky top-2 z-20">
           <button
             type="button"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/chat")}
             className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur border border-slate-200 px-3 py-1.5 text-sm text-slate-700 shadow-sm hover:shadow-md hover:bg-white transition"
             aria-label="Torna indietro"
           >
@@ -102,14 +102,24 @@ export default function LocationPage() {
         </div>
 
         {/* Info header */}
-        <div className="mt-6 grid grid-cols-[48px_1fr] items-center gap-3 overflow-hidden">
-          <button
-            type="button"
-            className="h-12 w-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm shrink-0"
-            aria-label="Apri mappa"
-          >
-            <MapPin className="h-5 w-5 text-slate-700" />
-          </button>
+        <div className="mt-6 grid grid-cols-[auto_1fr] items-center gap-3 overflow-hidden">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="h-12 w-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm shrink-0"
+              aria-label="Apri mappa"
+            >
+              <MapPin className="h-5 w-5 text-slate-700" />
+            </button>
+            <button
+              type="button"
+              className="h-12 w-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm shrink-0"
+              aria-label="Aggiungi ai preferiti"
+              title="Aggiungi ai preferiti"
+            >
+              <Heart className="h-5 w-5 text-rose-600" />
+            </button>
+          </div>
           <div className="min-w-0">
             <h1 className="text-[20px] font-semibold pr-4 truncate">
               Trilocale via Rodolfo Lanciani 7, Bologna, Roma
