@@ -1,5 +1,6 @@
 import React from "react";
 import { Maximize2 } from "lucide-react";
+import { TYPE } from "@/constants/styles";
 
 interface FloorplanSectionProps {
   imageUrl?: string;
