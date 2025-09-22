@@ -10,7 +10,7 @@ export default function ResultCard({
   badge,
 }: ResultCardProps) {
   return (
-    <div className="p-3 transition hover:shadow-sm border border-white/20 bg-white/50 backdrop-blur-md">
+    <div className="p-3 transition hover:shadow-md hover:ring-1 hover:ring-orange-400/30 border border-white/25 bg-white/60 backdrop-blur-md">
       <div className="flex gap-3">
         <div className="flex-shrink-0">
           <span className="relative flex h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-lg bg-slate-100">
