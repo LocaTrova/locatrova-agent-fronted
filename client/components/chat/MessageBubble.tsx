@@ -10,7 +10,7 @@ export default function MessageBubble({ message }: { message: Message }) {
       <div
         className={
           (isUser
-            ? "bg-white text-slate-900 border border-orange-300"
+            ? "bg-[rgba(255,152,59,0.18)] text-slate-900 border border-orange-300"
             : "bg-white text-slate-800 border border-slate-200") +
           " max-w-[90%] sm:max-w-[85%] rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm leading-5"
         }
