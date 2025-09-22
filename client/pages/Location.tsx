@@ -162,7 +162,7 @@ export default function LocationPage() {
           className="mt-6 border-t border-slate-200 pt-6"
         >
           <h2 className={TYPE.H2}>Descrizione</h2>
-          <p className="mt-2 ${TYPE.SUBTITLE}">
+          <p className={"mt-2 " + TYPE.SUBTITLE}>
             <span className="capitalize">riferimento</span>:{" "}
             <span>Lanciani grande</span>
           </p>
