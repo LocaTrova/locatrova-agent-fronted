@@ -16,7 +16,9 @@ export default function FloorplanSection({
 
   return (
     <section aria-label={title} className="py-8">
-      <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">{title}</h2>
+      <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">
+        {title}
+      </h2>
       <figure
         className="mt-3 relative w-full max-w-full rounded-xl overflow-hidden ring-1 ring-slate-200 bg-slate-50"
         style={{ aspectRatio: "16 / 9" }}

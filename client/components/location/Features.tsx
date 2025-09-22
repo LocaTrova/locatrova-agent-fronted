@@ -25,7 +25,11 @@ type FeatureItem = {
 };
 
 const FEATURES: FeatureItem[] = [
-  { icon: Landmark, title: "Tipologia", description: "Appartamento | Intera proprietà | Classe immobile signorile" },
+  {
+    icon: Landmark,
+    title: "Tipologia",
+    description: "Appartamento | Intera proprietà | Classe immobile signorile",
+  },
   { icon: BadgeCheck, title: "Contratto", description: "Vendita" },
   { icon: Layers, title: "Piano", description: "4" },
   { icon: Building2, title: "Piani edificio", description: "5" },
@@ -38,8 +42,16 @@ const FEATURES: FeatureItem[] = [
   { icon: Sofa, title: "Arredato", description: "No" },
   { icon: DoorOpen, title: "Balcone", description: "No" },
   { icon: Umbrella, title: "Terrazzo", description: "No" },
-  { icon: Flame, title: "Riscaldamento", description: "Centralizzato, a radiatori, alimentato a gas" },
-  { icon: Snowflake, title: "Climatizzazione", description: "Predisposizione impianto" },
+  {
+    icon: Flame,
+    title: "Riscaldamento",
+    description: "Centralizzato, a radiatori, alimentato a gas",
+  },
+  {
+    icon: Snowflake,
+    title: "Climatizzazione",
+    description: "Predisposizione impianto",
+  },
 ];
 
 const OTHER_FEATURES = [
@@ -63,7 +75,9 @@ const FeaturesSection: FC = () => {
   return (
     <section aria-label="Caratteristiche" className="bg-[#FAF9F8]">
       <div className="mx-auto w-full max-w-[2200px] py-6">
-        <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">Caratteristiche</h2>
+        <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">
+          Caratteristiche
+        </h2>
         <dl className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f) => (
             <FeatureRow key={f.title} {...f} />
@@ -71,11 +85,16 @@ const FeaturesSection: FC = () => {
         </dl>
 
         <div className="mt-8">
-          <h3 className="text-2xl font-semibold text-slate-900 tracking-tight">Altre caratteristiche</h3>
+          <h3 className="text-2xl font-semibold text-slate-900 tracking-tight">
+            Altre caratteristiche
+          </h3>
           <ul className="mt-2 flex flex-wrap gap-2">
             {OTHER_FEATURES.map((label) => (
               <li key={label}>
-                <Badge variant="secondary" className="h-6 text-[13px] font-medium rounded-md bg-slate-50 text-slate-700 border-slate-300">
+                <Badge
+                  variant="secondary"
+                  className="h-6 text-[13px] font-medium rounded-md bg-slate-50 text-slate-700 border-slate-300"
+                >
                   {label}
                 </Badge>
               </li>

@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from 'react';
-import { useSearchParams } from 'react-router';
-import { useLocationData } from '../../hooks/useLocationData';
-import { useLocationFilter } from '../../hooks/useLocationFilter';
-import { useChat } from '../../hooks/useChat';
-import ChatSection from './ChatSection';
-import { ChatResultsSection } from './ChatResultsSection';
-import { STYLES } from '../../constants/styles';
+import React, { useState, useCallback } from "react";
+import { useSearchParams } from "react-router";
+import { useLocationData } from "../../hooks/useLocationData";
+import { useLocationFilter } from "../../hooks/useLocationFilter";
+import { useChat } from "../../hooks/useChat";
+import ChatSection from "./ChatSection";
+import { ChatResultsSection } from "./ChatResultsSection";
+import { STYLES } from "../../constants/styles";
 
 /**
  * Container component for Chat page
@@ -20,10 +20,7 @@ export function ChatContainer() {
   const { messages, sendMessage } = useChat(seed);
 
   // Location data management
-  const {
-    locations,
-    locationsLoading,
-  } = useLocationData();
+  const { locations, locationsLoading } = useLocationData();
 
   // Filter functionality
   const {
@@ -48,13 +45,13 @@ export function ChatContainer() {
       <div className="relative w-full h-full">
         <div className={`${STYLES.GRID.CHAT_LAYOUT} w-full`}>
           {/* Left: Chat */}
-          <ChatSection
-            messages={messages}
-            onSendMessage={sendMessage}
-          />
+          <ChatSection messages={messages} onSendMessage={sendMessage} />
 
           {/* Right: Curated results */}
-          <section aria-label="Location results" className={`${STYLES.CONTAINER.SECTION} w-full border border-slate-300/40 ring-1 ring-slate-300/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]`}>
+          <section
+            aria-label="Location results"
+            className={`${STYLES.CONTAINER.SECTION} w-full border border-slate-300/40 ring-1 ring-slate-300/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]`}
+          >
             <ChatResultsSection
               filteredResults={filteredResults}
               filters={filters}

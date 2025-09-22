@@ -68,7 +68,9 @@ export default function FilterControls({
                 aria-label="Clear location filter"
                 title="Clear location filter"
               >
-                <span className="truncate max-w-[120px]">{LOCATION_FILTERS[filters.locationFilter]}</span>
+                <span className="truncate max-w-[120px]">
+                  {LOCATION_FILTERS[filters.locationFilter]}
+                </span>
                 <X className="ml-2 h-3 w-3" />
               </button>
             )}
@@ -76,7 +78,11 @@ export default function FilterControls({
               <button
                 key={f}
                 className="ui-chip border-slate-200/80 hover:bg-slate-50"
-                onClick={() => onAttributeFiltersChange(filters.activeFilters.filter((v) => v !== f))}
+                onClick={() =>
+                  onAttributeFiltersChange(
+                    filters.activeFilters.filter((v) => v !== f),
+                  )
+                }
                 aria-label={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
                 title={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
               >
@@ -92,12 +98,22 @@ export default function FilterControls({
           onValueChange={(v) => v && onMapViewChange(v === "map")}
           className="h-8 rounded-xl bg-white/50 ring-1 ring-white/20 backdrop-blur-md"
         >
-          <ToggleGroupItem value="list" aria-label="List view" className={listItemClass}>
+          <ToggleGroupItem
+            value="list"
+            aria-label="List view"
+            className={listItemClass}
+          >
             <List className={`${DIMENSIONS.ICON.SMALL} text-slate-600`} />
             <span className="hidden sm:inline text-xs ml-1">List</span>
           </ToggleGroupItem>
-          <ToggleGroupItem value="map" aria-label="Map view" className={mapItemClass}>
-            <Map className={`${DIMENSIONS.ICON.SMALL} ${mapView ? "text-orange-700" : "text-slate-600"}`} />
+          <ToggleGroupItem
+            value="map"
+            aria-label="Map view"
+            className={mapItemClass}
+          >
+            <Map
+              className={`${DIMENSIONS.ICON.SMALL} ${mapView ? "text-orange-700" : "text-slate-600"}`}
+            />
             <span className="hidden sm:inline text-xs ml-1">Map</span>
           </ToggleGroupItem>
         </ToggleGroup>

@@ -36,7 +36,12 @@ export default function ResultsList({
   if (mapView) {
     return (
       <div className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_MEDIUM}`}>
-        <MapSection address={addressSeed && addressSeed.trim() ? addressSeed : "Roma, Italia"} markers={[]} />
+        <MapSection
+          address={
+            addressSeed && addressSeed.trim() ? addressSeed : "Roma, Italia"
+          }
+          markers={[]}
+        />
       </div>
     );
   }
@@ -59,10 +64,20 @@ export default function ResultsList({
       className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_MEDIUM} ${STYLES.SPACING.CONTENT_GAP}`}
     >
       {results.map((result, index) => {
-        const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
+        const slug = (s: string) =>
+          s
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)+/g, "");
         const base = result.title ? slug(result.title) : "location";
         const href = `/location/${encodeURIComponent(`${base}-${index}`)}`;
-        return <ResultCard key={(result.title || "location") + index} {...result} href={href} />;
+        return (
+          <ResultCard
+            key={(result.title || "location") + index}
+            {...result}
+            href={href}
+          />
+        );
       })}
     </div>
   );

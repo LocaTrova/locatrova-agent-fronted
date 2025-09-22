@@ -1,7 +1,12 @@
-import React from 'react';
-import type { LocationResult, ResultFilter, LocationFilterType, AttributeFilterType } from '../../../shared/api';
-import FilterControls from './FilterControls';
-import ResultsList from './ResultsList';
+import React from "react";
+import type {
+  LocationResult,
+  ResultFilter,
+  LocationFilterType,
+  AttributeFilterType,
+} from "../../../shared/api";
+import FilterControls from "./FilterControls";
+import ResultsList from "./ResultsList";
 
 interface ChatResultsSectionProps {
   filteredResults: LocationResult[];

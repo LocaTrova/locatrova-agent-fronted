@@ -19,9 +19,12 @@ export default function Index() {
     [],
   );
 
-  const handlePromptChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPrompt(e.target.value);
-  }, []);
+  const handlePromptChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setPrompt(e.target.value);
+    },
+    [],
+  );
 
   const handleSearch = useCallback(() => {
     navigate(`/chat?q=${encodeURIComponent(prompt)}`);
@@ -57,7 +60,11 @@ export default function Index() {
             src="https://static.wixstatic.com/media/343a2a_5c066484f7904623adfe3ee51e4634a8~mv2.jpg/v1/fill/w_2880,h_1527,al_c,q_90,enc_avif,quality_auto/Hero-bg-base-new.jpg"
             alt="Hero background"
             className="absolute inset-0 h-full w-full object-cover"
-            style={{ maskSize: "100% 100%", maskRepeat: "no-repeat", maskPosition: "50% 50%" }}
+            style={{
+              maskSize: "100% 100%",
+              maskRepeat: "no-repeat",
+              maskPosition: "50% 50%",
+            }}
           />
         </div>
       </div>
@@ -69,7 +76,8 @@ export default function Index() {
             Trova la location perfetta per il tuo set.
           </h1>
           <p className="mx-auto mt-6 sm:mt-8 lg:mt-10 max-w-[92%] sm:max-w-[70%] lg:max-w-[41%] text-center font-['Wix Madefor Text'] text-[clamp(16px,3.6vw,22px)] leading-relaxed text-slate-800">
-            Scrivi ciò che ti serve o lasciati ispirare: Locatrova cura per te i risultati migliori.
+            Scrivi ciò che ti serve o lasciati ispirare: Locatrova cura per te i
+            risultati migliori.
           </p>
         </div>
 
@@ -137,7 +145,9 @@ export default function Index() {
               className="h-8 w-8 rounded-full border-2 border-white shadow"
             />
           </div>
-          <p className="text-sm text-slate-800">Scelto da oltre 400K professionisti</p>
+          <p className="text-sm text-slate-800">
+            Scelto da oltre 400K professionisti
+          </p>
         </div>
       </div>
     </section>

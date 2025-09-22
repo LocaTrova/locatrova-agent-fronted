@@ -62,7 +62,10 @@ export default function LocationPage() {
           {/* Column 2 */}
           <div className="grid gap-2 sm:gap-3 md:gap-4 content-start">
             {images.slice(1, 3).map((src, i) => (
-              <div key={src} className="relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md">
+              <div
+                key={src}
+                className="relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md"
+              >
                 <img
                   src={src}
                   alt={`Location ${id} photo ${i + 2}`}
@@ -76,7 +79,10 @@ export default function LocationPage() {
           {/* Column 3 */}
           <div className="grid gap-2 sm:gap-3 md:gap-4 content-start">
             {images.slice(3, 5).map((src, i) => (
-              <div key={src} className="relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md">
+              <div
+                key={src}
+                className="relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md"
+              >
                 <img
                   src={src}
                   alt={`Location ${id} photo ${i + 4}`}
@@ -91,7 +97,10 @@ export default function LocationPage() {
         {/* Bottom row thumbnails */}
         <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
           {images.slice(5).map((src, i) => (
-            <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-md">
+            <div
+              key={src}
+              className="relative aspect-[4/3] overflow-hidden rounded-md"
+            >
               <img
                 src={src}
                 alt={`Location ${id} extra photo ${i + 6}`}
@@ -125,26 +134,63 @@ export default function LocationPage() {
             <h1 className="text-[20px] font-semibold pr-4 truncate">
               Trilocale via Rodolfo Lanciani 7, Bologna, Roma
             </h1>
-            <nav className="pt-0.5 text-slate-600 text-sm" aria-label="Percorso">
+            <nav
+              className="pt-0.5 text-slate-600 text-sm"
+              aria-label="Percorso"
+            >
               <ol className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <li>Roma</li>
-                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">Bologna</li>
-                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">Via Rodolfo Lanciani</li>
+                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">
+                  Bologna
+                </li>
+                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">
+                  Via Rodolfo Lanciani
+                </li>
               </ol>
             </nav>
           </div>
         </div>
 
         {/* Descrizione section */}
-        <section aria-label="Descrizione" className="mt-6 border-t border-slate-200 pt-6">
-          <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">Descrizione</h2>
+        <section
+          aria-label="Descrizione"
+          className="mt-6 border-t border-slate-200 pt-6"
+        >
+          <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">
+            Descrizione
+          </h2>
           <p className="mt-2 font-semibold text-slate-800">
-            <span className="capitalize">riferimento</span>: <span>Lanciani grande</span>
+            <span className="capitalize">riferimento</span>:{" "}
+            <span>Lanciani grande</span>
           </p>
-          <p className="mt-1 font-semibold uppercase text-slate-900">trilocale nuova realizzazione</p>
+          <p className="mt-1 font-semibold uppercase text-slate-900">
+            trilocale nuova realizzazione
+          </p>
           <div className="mt-2 text-slate-700">
             <p>
-              Via Lanciani in prossimità di Piazza Orazio Marucchi, a breve distanza da Villa Torlonia, in palazzo degli anni ’40, elegante appartamento di nuova realizzazione posto al piano quarto con doppia esposizione e zona giorno esposta a Sud, che garantisce grande luminosità agli spazi. Internamente l’immobile è composto da ingresso, ampio salone con angolo cottura, due camere più una zona studio, doppi servizi e una stanza lavanderia dotata di finestra. La consegna è prevista entro dicembre 2025, le finiture interne utilizzate sono di pregio, gli impianti avranno tutte le certificazioni di conformità. Essendo l’immobile in fase di completamento, è ancora possibile apportare modifiche agli spazi e personalizzare le finiture. Al momento sono previsti pavimenti in gres porcellanato effetto legno e i rivestimenti del bagno in gres porcellanato (60x120) effetto marmo. I materiali utilizzati, ivi compresi gli infissi in PVC triplo vetro della Schuco, garantiranno il massimo comfort acustico, il pieno rispetto degli standard ambientali più stringenti  ed un’alta efficienza energetica (Classe A). Saranno inoltre disponibili serrande elettriche, scalda Acqua in Pompa di Calore e impianto di condizionamento.  Per qualsiasi altra personalizzazione la società costruttrice è disponibile ad incontrare le esigenze dell’acquirente, compatibilmente con lo stato di avanzamento dei lavori.
+              Via Lanciani in prossimità di Piazza Orazio Marucchi, a breve
+              distanza da Villa Torlonia, in palazzo degli anni ’40, elegante
+              appartamento di nuova realizzazione posto al piano quarto con
+              doppia esposizione e zona giorno esposta a Sud, che garantisce
+              grande luminosità agli spazi. Internamente l’immobile è composto
+              da ingresso, ampio salone con angolo cottura, due camere più una
+              zona studio, doppi servizi e una stanza lavanderia dotata di
+              finestra. La consegna è prevista entro dicembre 2025, le finiture
+              interne utilizzate sono di pregio, gli impianti avranno tutte le
+              certificazioni di conformità. Essendo l’immobile in fase di
+              completamento, è ancora possibile apportare modifiche agli spazi e
+              personalizzare le finiture. Al momento sono previsti pavimenti in
+              gres porcellanato effetto legno e i rivestimenti del bagno in gres
+              porcellanato (60x120) effetto marmo. I materiali utilizzati, ivi
+              compresi gli infissi in PVC triplo vetro della Schuco,
+              garantiranno il massimo comfort acustico, il pieno rispetto degli
+              standard ambientali più stringenti ed un’alta efficienza
+              energetica (Classe A). Saranno inoltre disponibili serrande
+              elettriche, scalda Acqua in Pompa di Calore e impianto di
+              condizionamento. Per qualsiasi altra personalizzazione la società
+              costruttrice è disponibile ad incontrare le esigenze
+              dell’acquirente, compatibilmente con lo stato di avanzamento dei
+              lavori.
             </p>
           </div>
         </section>

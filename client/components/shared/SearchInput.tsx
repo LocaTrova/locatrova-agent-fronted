@@ -32,9 +32,12 @@ export default function SearchInput({
   }, [isDisabled, onSubmit, value]);
 
   // Memoize the onChange handler to prevent re-creation on every render
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(e.target.value);
-  }, []);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setValue(e.target.value);
+    },
+    [],
+  );
 
   // Memoize the file input click handler to prevent re-creation on every render
   const handleAttachmentClick = useCallback(() => {
@@ -64,7 +67,9 @@ export default function SearchInput({
   const textareaStyle = STYLES.INPUT.TEXTAREA;
 
   return (
-    <div className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className} ring-1 ring-orange-300/20`}>
+    <div
+      className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className} ring-1 ring-orange-300/20`}
+    >
       <div className="relative">
         <label htmlFor="search-input" className="sr-only">
           {placeholder}
