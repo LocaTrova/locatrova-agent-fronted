@@ -64,7 +64,7 @@ export default function SearchInput({
   const textareaStyle = STYLES.INPUT.TEXTAREA;
 
   return (
-    <div className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className}`}>
+    <div className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className} ring-1 ring-orange-300/20`}>
       <div className="relative">
         <label htmlFor="search-input" className="sr-only">
           {placeholder}
