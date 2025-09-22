@@ -102,6 +102,10 @@
     border-color: hsl(var(--border));
   }
 
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     margin: 0;
     background-color: hsl(var(--background));
