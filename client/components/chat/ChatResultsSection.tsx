@@ -26,6 +26,7 @@ export function ChatResultsSection({
   hasActiveFilters,
   mapView,
   loading,
+  addressSeed,
   onLocationFilterChange,
   onAttributeFiltersChange,
   onClearFilters,
