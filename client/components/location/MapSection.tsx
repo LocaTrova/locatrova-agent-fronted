@@ -41,7 +41,7 @@ const MapSection: FC<MapSectionProps> = ({ address, zoom = 16, markers }) => {
   return (
     <section aria-label="Mappa" className="py-8">
       <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">Mappa</h2>
-      <div className="mt-3 relative w-full max-w-full rounded-xl overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
+      <div className="mt-3 relative w-full max-w-full rounded-xl overflow-hidden ring-1 ring-slate-200" style={{ aspectRatio: "16 / 9" }}>
         {status !== "done" && (
           <div className="absolute inset-0 grid place-items-center bg-slate-100">
             <span className="text-slate-600 text-sm">Caricamento mappa…</span>
