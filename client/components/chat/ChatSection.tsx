@@ -25,7 +25,7 @@ export default function ChatSection({
     >
       <div
         aria-live="polite"
-        className={`${STYLES.SCROLL.AREA_WITH_BOTTOM} ${STYLES.SPACING.PADDING_RESPONSIVE} py-2 flex flex-col ${STYLES.SPACING.CONTENT_GAP}`}
+        className={`${STYLES.SCROLL.AREA_WITH_BOTTOM} ${STYLES.SPACING.PADDING_RESPONSIVE} py-3 sm:py-4 flex flex-col ${STYLES.SPACING.CONTENT_GAP}`}
       >
         {messages.map((message) => (
           <MessageBubble key={message.id} message={message} />
