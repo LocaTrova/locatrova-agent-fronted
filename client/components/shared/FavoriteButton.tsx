@@ -5,7 +5,10 @@ import { Heart } from "lucide-react";
 export default function FavoriteButton({
   defaultOn = false,
   onToggle,
-}: { defaultOn?: boolean; onToggle?: (value: boolean) => void }) {
+}: {
+  defaultOn?: boolean;
+  onToggle?: (value: boolean) => void;
+}) {
   const [fav, setFav] = useState<boolean>(defaultOn);
   const toggle = () => {
     const next = !fav;
@@ -19,7 +22,11 @@ export default function FavoriteButton({
       aria-pressed={fav}
       onClick={toggle}
     >
-      <Heart className={fav ? "h-5 w-5 text-rose-600 fill-rose-500" : "h-5 w-5 text-rose-600"} />
+      <Heart
+        className={
+          fav ? "h-5 w-5 text-rose-600 fill-rose-500" : "h-5 w-5 text-rose-600"
+        }
+      />
     </IconButton>
   );
 }

@@ -53,7 +53,9 @@ const MapSection: FC<MapSectionProps> = ({ address, zoom = 16, markers }) => {
         )}
         {status === "error" && (
           <div className="absolute inset-0 grid place-items-center bg-slate-50">
-            <span className={TYPE.SMALL}>Impossibile caricare la mappa per questo indirizzo.</span>
+            <span className={TYPE.SMALL}>
+              Impossibile caricare la mappa per questo indirizzo.
+            </span>
           </div>
         )}
         {status === "done" &&

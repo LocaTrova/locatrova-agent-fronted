@@ -22,7 +22,9 @@ export default function MessageBubble({ message }: { message: Message }) {
       <div className={bubbleClass}>
         <p className="whitespace-pre-wrap break-words">{message.content}</p>
         {message.createdAt && (
-          <div className={"mt-2 " + COMPONENT_STYLES.MESSAGE_BUBBLE.TIMESTAMP}>{message.createdAt}</div>
+          <div className={"mt-2 " + COMPONENT_STYLES.MESSAGE_BUBBLE.TIMESTAMP}>
+            {message.createdAt}
+          </div>
         )}
       </div>
     </div>

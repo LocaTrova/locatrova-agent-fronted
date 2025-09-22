@@ -38,7 +38,10 @@ export default function LocationPage() {
           <button
             type="button"
             onClick={() => {
-              const sameHost = typeof document !== "undefined" && document.referrer && new URL(document.referrer).host === window.location.host;
+              const sameHost =
+                typeof document !== "undefined" &&
+                document.referrer &&
+                new URL(document.referrer).host === window.location.host;
               if (sameHost && window.history.length > 1) navigate(-1);
               else navigate("/chat");
             }}
@@ -50,9 +53,7 @@ export default function LocationPage() {
           </button>
         </nav>
         {/* Responsive photo grid */}
-        <div
-          className="grid gap-2 sm:gap-3 md:gap-4 mt-4 [grid-template-columns:1fr] md:[grid-template-columns:2fr_1fr_1fr]"
-        >
+        <div className="grid gap-2 sm:gap-3 md:gap-4 mt-4 [grid-template-columns:1fr] md:[grid-template-columns:2fr_1fr_1fr]">
           {/* Column 1: big hero image */}
           <div className="grid gap-2 sm:gap-3 md:gap-4">
             <div className="group relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[600px] overflow-hidden rounded-md">
@@ -127,7 +128,11 @@ export default function LocationPage() {
               aria-label="Apri mappa"
               aria-controls="map-section"
               title="Vai alla mappa"
-              onClick={() => document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("map-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               <MapPin className="h-5 w-5 text-slate-700" />
             </IconButton>
@@ -199,17 +204,27 @@ export default function LocationPage() {
         </section>
 
         {/* Features section */}
-        <section aria-label="Caratteristiche" id="caratteristiche" className="mt-8 border-t border-slate-200 pt-6">
+        <section
+          aria-label="Caratteristiche"
+          id="caratteristiche"
+          className="mt-8 border-t border-slate-200 pt-6"
+        >
           <FeaturesSection />
         </section>
 
         {/* Planimetria section */}
-        <section id="planimetria" className="mt-2 border-t border-slate-200 pt-6">
+        <section
+          id="planimetria"
+          className="mt-2 border-t border-slate-200 pt-6"
+        >
           <FloorplanSection />
         </section>
 
         {/* Map section */}
-        <section id="map-section" className="mt-2 border-t border-slate-200 pt-6">
+        <section
+          id="map-section"
+          className="mt-2 border-t border-slate-200 pt-6"
+        >
           <MapSection address="Via Rodolfo Lanciani 7, Roma" markers={[]} />
         </section>
       </div>
