@@ -65,12 +65,7 @@ export default function ResultsList({
       className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_MEDIUM} ${STYLES.SPACING.CONTENT_GAP}`}
     >
       {results.map((result, index) => {
-        const slug = (s: string) =>
-          s
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)+/g, "");
-        const base = result.title ? slug(result.title) : "location";
+        const base = result.title ? slugify(result.title) : "location";
         const href = `/location/${encodeURIComponent(`${base}-${index}`)}`;
         return (
           <ResultCard
