@@ -36,7 +36,7 @@ export default function ResultsList({
   if (mapView) {
     return (
       <div className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_MEDIUM}`}>
-        <MapSection address={addressSeed && addressSeed.trim() ? addressSeed : "Roma, Italia"} />
+        <MapSection address={addressSeed && addressSeed.trim() ? addressSeed : "Roma, Italia"} markers={[]} />
       </div>
     );
   }
