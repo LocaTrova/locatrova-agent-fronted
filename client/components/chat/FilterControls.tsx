@@ -92,7 +92,7 @@ export default function FilterControls({
           onValueChange={(v) => v && onMapViewChange(v === "map")}
           className="h-8 rounded-xl bg-white/50 ring-1 ring-white/20 backdrop-blur-md"
         >
-          <ToggleGroupItem value="list" aria-label="List view" className="px-2">
+          <ToggleGroupItem value="list" aria-label="List view" className={listItemClass}>
             <List className={`${DIMENSIONS.ICON.SMALL} text-slate-600`} />
             <span className="hidden sm:inline text-xs ml-1">List</span>
           </ToggleGroupItem>
