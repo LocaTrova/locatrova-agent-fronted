@@ -37,7 +37,7 @@ export default function Index() {
     <section
       tabIndex={-1}
       aria-label="main content"
-      className="relative min-h-[2031px] w-full overflow-hidden"
+      className="relative min-h-screen w-full overflow-hidden"
       style={{ backgroundColor: "rgba(255,255,0,1)" }}
     >
       {/* Background gradient layer */}
@@ -61,18 +61,18 @@ export default function Index() {
       </div>
 
       {/* Content */}
-      <div className="relative mx-auto flex max-w-[3840px] flex-col px-6 pt-[355px] pb-[153px]">
+      <div className="relative mx-auto flex max-w-[3840px] flex-col px-4 sm:px-6 lg:px-8 pt-24 sm:pt-40 lg:pt-56 pb-16 sm:pb-24 lg:pb-36">
         <div className="mx-auto w-full max-w-[2400px] text-center">
-          <h1 className="mx-auto max-w-[60%] text-center font-['Wix Madefor Text'] text-[120px] leading-[1.1] tracking-[-0.01em] text-slate-900">
+          <h1 className="mx-auto max-w-[92%] sm:max-w-[80%] lg:max-w-[60%] text-center font-['Wix Madefor Text'] text-[clamp(28px,7vw,72px)] leading-tight tracking-[-0.01em] text-slate-900">
             Locatrova: What location do you need today?
           </h1>
-          <p className="mx-auto mt-14 max-w-[41%] text-center font-['Wix Madefor Text'] text-[44px] leading-[1.4] text-slate-800">
+          <p className="mx-auto mt-6 sm:mt-8 lg:mt-10 max-w-[92%] sm:max-w-[70%] lg:max-w-[41%] text-center font-['Wix Madefor Text'] text-[clamp(16px,3.6vw,22px)] leading-relaxed text-slate-800">
             Describe your shoot brief or location requirements below — or get inspired by our suggestions.
           </p>
         </div>
 
         {/* Input card */}
-        <div className="mx-auto mt-24 w-full max-w-[2106px] rounded-[70px] border border-slate-300/60 bg-white/80 p-9 backdrop-blur-[20px]">
+        <div className="mx-auto mt-10 sm:mt-16 lg:mt-24 w-full max-w-xl sm:max-w-2xl lg:max-w-[2106px] rounded-2xl sm:rounded-[50px] lg:rounded-[70px] border border-slate-300/60 bg-white/80 p-4 sm:p-6 lg:p-9 backdrop-blur-[20px]">
           <div className="relative">
             <label htmlFor="idea-input" className="sr-only">
               Describe the location you want to scout
@@ -83,14 +83,14 @@ export default function Index() {
               placeholder="Describe the scene or location you want to scout..."
               value={prompt}
               onChange={handlePromptChange}
-              className="min-h-[220px] w-full resize-none rounded-[61px] border border-slate-300 px-14 py-12 text-[36px] leading-[1.4] text-slate-700 outline-none placeholder:text-slate-400"
+              className="min-h-28 sm:min-h-40 lg:min-h-[220px] w-full resize-none rounded-[24px] sm:rounded-[40px] lg:rounded-[61px] border border-slate-300 px-6 sm:px-10 lg:px-14 py-6 sm:py-10 lg:py-12 text-[clamp(14px,2.6vw,18px)] leading-relaxed text-slate-700 outline-none placeholder:text-slate-400"
             />
             <button
               aria-label="Search locations"
               title="Search locations"
               disabled={disabled}
               onClick={handleSearch}
-              className="absolute right-8 bottom-8 flex h-10 w-10 items-center justify-center rounded-lg bg-[rgb(255,152,59)] text-black ui-focus disabled:cursor-not-allowed disabled:opacity-70"
+              className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-[rgb(255,152,59)] text-black ui-focus disabled:cursor-not-allowed disabled:opacity-70"
             >
               <ArrowUp className="h-4 w-4" />
             </button>
@@ -98,15 +98,15 @@ export default function Index() {
 
           {/* Suggestions */}
           <div className="mt-8">
-            <p className="mb-4 text-[32px] leading-[38px] text-slate-700">
+            <p className="mb-3 sm:mb-4 text-[clamp(14px,2.8vw,18px)] leading-relaxed text-slate-700">
               Not sure where to start? Try one of these:
             </p>
-            <div className="flex flex-wrap items-center justify-around gap-5">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
               {ideas.map((label) => (
                 <button
                   key={label}
                   onClick={handleIdeaClick(label)}
-                  className="rounded-full border border-slate-400/70 px-8 py-4 text-[28px] text-slate-700 hover:bg-slate-50 ui-focus"
+                  className="rounded-full border border-slate-400/70 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 text-[clamp(12px,2.6vw,18px)] text-slate-700 hover:bg-slate-50 ui-focus"
                   aria-label={label}
                 >
                   {label}
@@ -117,7 +117,7 @@ export default function Index() {
         </div>
 
         {/* Trust row */}
-        <div className="mx-auto mt-24 flex items-center gap-6">
+        <div className="mx-auto mt-10 sm:mt-16 lg:mt-24 flex items-center justify-center gap-3 sm:gap-4 lg:gap-6 px-4">
           <div className="flex items-center -space-x-3">
             <img
               src="https://static.wixstatic.com/media/343a2a_e11a5a44bfae4bc583f904ff2c77705d~mv2.jpg"
