@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useParams } from "react-router";
 import FeaturesSection from "@/components/location/Features";
+import { MapPin } from "lucide-react";
 
 export default function LocationPage() {
   const { id, identifier } = useParams<{ id: string; identifier?: string }>();
@@ -88,32 +89,25 @@ export default function LocationPage() {
         </div>
 
         {/* Info header */}
-        <div className="mt-6 flex items-center overflow-hidden">
+        <div className="mt-6 grid grid-cols-[48px_1fr] items-center gap-3 overflow-hidden">
           <button
             type="button"
-            className="h-16 w-16 shrink-0"
+            className="h-12 w-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm shrink-0"
             aria-label="Apri mappa"
           >
-            <img
-              alt="map icon"
-              src="https://s1.immobiliare.it/_next/static/media/map-icon-animation-sprite.27e8ad06.png"
-              loading="eager"
-              width={128}
-              height={128}
-              className="h-full w-full object-cover"
-            />
+            <MapPin className="h-5 w-5 text-slate-700" />
           </button>
-          <div className="ml-4">
-            <h1 className="text-[20px] font-semibold pr-4">
+          <div className="min-w-0">
+            <h1 className="text-[20px] font-semibold pr-4 truncate">
               Trilocale via Rodolfo Lanciani 7, Bologna, Roma
             </h1>
-            <div className="pt-0.5">
-              <button type="button" className="text-slate-600 text-sm" aria-label="Seleziona zona">
-                <span>Roma</span>
-                <span className="pl-6">Bologna</span>
-                <span className="pl-6">Via Rodolfo Lanciani</span>
-              </button>
-            </div>
+            <nav className="pt-0.5 text-slate-600 text-sm" aria-label="Percorso">
+              <ol className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                <li>Roma</li>
+                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">Bologna</li>
+                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">Via Rodolfo Lanciani</li>
+              </ol>
+            </nav>
           </div>
         </div>
 
