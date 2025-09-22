@@ -11,7 +11,12 @@ export default function FloorplanSection({
   title = "Planimetria",
 }: FloorplanSectionProps) {
   const handleExpand = () => {
-    window.open(imageUrl, "_blank", "noopener,noreferrer");
+    try {
+      const { openInNewTab } = await import("@/lib/utils");
+      openInNewTab(imageUrl);
+    } catch {
+      window.open(imageUrl, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (

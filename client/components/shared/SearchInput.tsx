@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useId, useState } from "react";
 import { ArrowUp, Plus, Palette } from "lucide-react";
 import { DIMENSIONS, MESSAGES, UI_TEXT, FILE_CONFIG } from "../../constants";
 import { STYLES } from "../../constants/styles";
@@ -24,6 +24,7 @@ export default function SearchInput({
 }: SearchInputProps) {
   const [value, setValue] = useState("");
   const isDisabled = value.trim().length === 0;
+  const fileInputId = useId();
 
   const handleSubmit = useCallback(() => {
     if (isDisabled) return;
@@ -41,8 +42,8 @@ export default function SearchInput({
 
   // Memoize the file input click handler to prevent re-creation on every render
   const handleAttachmentClick = useCallback(() => {
-    document.getElementById("file-input")?.click();
-  }, []);
+    document.getElementById(fileInputId)?.click();
+  }, [fileInputId]);
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = (
     e,
@@ -98,7 +99,7 @@ export default function SearchInput({
         <>
           <input
             type="file"
-            id="file-input"
+            id={fileInputId}
             multiple
             accept={FILE_CONFIG.ACCEPTED_FORMATS.join(",")}
             className="hidden"

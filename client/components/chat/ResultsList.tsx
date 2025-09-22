@@ -4,6 +4,7 @@ import type { LocationResult } from "../../../shared/api";
 import { STYLES } from "../../constants/styles";
 import { MESSAGES } from "../../constants";
 import MapSection from "@/components/location/MapSection";
+import { slugify } from "@/lib/utils";
 
 interface ResultsListProps {
   results: LocationResult[];

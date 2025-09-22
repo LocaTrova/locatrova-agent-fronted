@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import type { LocationResult } from "../../../shared/api";
 import { Link } from "react-router";
-import { Search, Heart } from "lucide-react";
+import { Search } from "lucide-react";
+import FavoriteToggle from "./FavoriteToggle";
 
 type ResultCardProps = Partial<LocationResult> & { href?: string };
 
@@ -66,14 +67,7 @@ export default function ResultCard({
                 >
                   <Search className="h-4 w-4" />
                 </Link>
-                <button
-                  type="button"
-                  aria-label="Aggiungi ai preferiti"
-                  title="Aggiungi ai preferiti"
-                  className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/70 text-rose-700 ring-1 ring-rose-300/40 border border-white/30 backdrop-blur-md shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500/60"
-                >
-                  <Heart className="h-4 w-4" />
-                </button>
+                <FavoriteToggle />
               </>
             )}
           </div>
