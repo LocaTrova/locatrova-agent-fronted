@@ -52,14 +52,24 @@ export default function ResultCard({
           </div>
         <div className="flex items-center">
           {title && (
-            <Link
-              to={href || "#"}
-              aria-label={`View ${title}`}
-              title={`View ${title}`}
-              className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,152,59,0.22)] text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md shadow-[0_8px_18px_rgba(255,68,0,0.15)] hover:bg-[rgba(255,152,59,0.32)] focus:outline-none focus:ring-2 focus:ring-orange-500/60"
-            >
-              <Search className="h-4 w-4" />
-            </Link>
+            <>
+              <Link
+                to={href || "#"}
+                aria-label={`View ${title}`}
+                title={`View ${title}`}
+                className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,152,59,0.22)] text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md shadow-[0_8px_18px_rgba(255,68,0,0.15)] hover:bg-[rgba(255,152,59,0.32)] focus:outline-none focus:ring-2 focus:ring-orange-500/60"
+              >
+                <Search className="h-4 w-4" />
+              </Link>
+              <button
+                type="button"
+                aria-label="Aggiungi ai preferiti"
+                title="Aggiungi ai preferiti"
+                className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/70 text-rose-700 ring-1 ring-rose-300/40 border border-white/30 backdrop-blur-md shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500/60"
+              >
+                <Heart className="h-4 w-4" />
+              </button>
+            </>
           )}
         </div>
       </div>
