@@ -56,7 +56,7 @@ export default function ResultsList({
 
   return (
     <div
-      className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_MEDIUM} ${STYLES.SPACING.CONTENT_GAP}`}
+      className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_SMALL} ${STYLES.SPACING.CONTENT_GAP}`}
     >
       {results.map((result, index) => (
         <ResultCard key={result.title + index} {...result} />
