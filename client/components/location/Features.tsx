@@ -61,8 +61,8 @@ const FeatureRow: FC<FeatureItem> = ({ icon: Icon, title, description }) => (
 
 const FeaturesSection: FC = () => {
   return (
-    <section aria-label="Caratteristiche" className="bg-[#FAF9F8] py-8">
-      <div className="mx-auto w-full max-w-[2200px]">
+    <section aria-label="Caratteristiche" className="bg-[#FAF9F8]">
+      <div className="mx-auto w-full max-w-[2200px] py-6">
         <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">Caratteristiche</h2>
         <dl className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f) => (
