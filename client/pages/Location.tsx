@@ -6,6 +6,7 @@ import FloorplanSection from "@/components/location/Floorplan";
 import { MapPin, ArrowLeft } from "lucide-react";
 import IconButton from "@/components/shared/IconButton";
 import FavoriteButton from "@/components/shared/FavoriteButton";
+import { TYPE } from "@/constants/styles";
 
 export default function LocationPage() {
   const { id, identifier } = useParams<{ id: string; identifier?: string }>();
