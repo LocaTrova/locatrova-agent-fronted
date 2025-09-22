@@ -3,11 +3,13 @@ import ResultCard from "./ResultCard";
 import type { LocationResult } from "../../../shared/api";
 import { STYLES } from "../../constants/styles";
 import { MESSAGES } from "../../constants";
+import MapSection from "@/components/location/MapSection";
 
 interface ResultsListProps {
   results: LocationResult[];
   mapView: boolean;
   loading?: boolean;
+  addressSeed?: string;
 }
 
 /**
@@ -19,6 +21,7 @@ export default function ResultsList({
   results,
   mapView,
   loading = false,
+  addressSeed,
 }: ResultsListProps) {
   if (loading) {
     return (
@@ -32,11 +35,8 @@ export default function ResultsList({
 
   if (mapView) {
     return (
-      <div className="flex-1 min-h-0 grid place-items-center p-6 text-slate-600">
-        <div className="text-center">
-          <div className="mb-1 text-sm font-medium">Map view</div>
-          <p className="text-sm">{MESSAGES.PLACEHOLDERS.MAP_VIEW_COMING}</p>
-        </div>
+      <div className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_MEDIUM}`}>
+        <MapSection address={addressSeed && addressSeed.trim() ? addressSeed : "Roma, Italia"} />
       </div>
     );
   }
