@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useParams } from "react-router";
+import FeaturesSection from "@/components/location/Features";
 
 export default function LocationPage() {
   const { id, identifier } = useParams<{ id: string; identifier?: string }>();
@@ -84,6 +85,11 @@ export default function LocationPage() {
               />
             </div>
           ))}
+        </div>
+
+        {/* Features section */}
+        <div className="mt-8">
+          <FeaturesSection />
         </div>
       </div>
     </main>
