@@ -2,7 +2,7 @@ import React from "react";
 import MessageBubble from "./MessageBubble";
 import ChatInput from "./ChatInput";
 import type { Message } from "../../../shared/api";
-import { STYLES } from "../../constants/styles";
+import { STYLES, TYPE } from "../../constants/styles";
 import { useEffect, useRef } from "react";
 
 interface ChatSectionProps {
