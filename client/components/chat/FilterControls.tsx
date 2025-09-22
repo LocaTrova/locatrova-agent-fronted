@@ -50,7 +50,7 @@ export default function FilterControls({
 }: FilterControlsProps) {
   return (
     <div className={STYLES.STICKY.TOP}>
-      <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-2">
         <div className="flex items-center gap-2">
           <h2 className="text-sm font-semibold text-slate-900">
             {UI_TEXT.LABELS.CURATED_RESULTS}
@@ -66,7 +66,7 @@ export default function FilterControls({
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-3">
+      <div className="flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-2">
         <Select
           value={filters.locationFilter}
           onValueChange={onLocationFilterChange}
