@@ -61,6 +61,7 @@ export function ChatContainer() {
               hasActiveFilters={hasActiveFilters}
               mapView={mapView}
               loading={locationsLoading}
+              addressSeed={seed ?? undefined}
               onLocationFilterChange={setLocationFilter}
               onAttributeFiltersChange={setActiveFilters}
               onClearFilters={clearFilters}
