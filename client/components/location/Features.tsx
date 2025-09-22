@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 import {
   Landmark,
   BadgeCheck,
-  Stairs,
+  Layers,
   Building2,
   MoveVertical,
   Ruler,
