@@ -9,7 +9,7 @@ export const STYLES = {
     SECTION:
       "flex h-full min-h-0 flex-col bg-white/60 backdrop-blur-md",
     INPUT_WRAPPER:
-      "relative w-full backdrop-blur bg-white border border-slate-200 rounded-2xl sm:rounded-[30px] shadow-[0_0_0_0_rgba(0,0,0,0),0_8px_16px_0_rgba(0,0,0,0.04)] px-2",
+      "relative w-full backdrop-blur-md bg-white/60 border border-white/30 rounded-2xl sm:rounded-[30px] shadow-[0_0_0_0_rgba(0,0,0,0),0_8px_16px_0_rgba(0,0,0,0.04)] px-2",
     PAGE: "relative h-screen min-h-screen w-full overflow-hidden",
     PAGE_INNER: "mx-auto max-w-screen-2xl h-full px-3 sm:px-6 py-4 sm:py-6",
   },
