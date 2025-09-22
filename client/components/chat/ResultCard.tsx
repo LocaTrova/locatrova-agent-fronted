@@ -1,13 +1,16 @@
 import React from "react";
 import type { LocationResult } from "../../../shared/api";
+import { Link } from "react-router";
+import { Search } from "lucide-react";
 
-type ResultCardProps = Partial<LocationResult>;
+type ResultCardProps = Partial<LocationResult> & { href?: string };
 
 export default function ResultCard({
   title = "",
   description,
   imageUrl,
   badge,
+  href,
 }: ResultCardProps) {
   return (
     <div className="p-3 transition hover:shadow-md hover:ring-1 hover:ring-orange-400/30 border border-white/25 bg-white/60 backdrop-blur-md">
@@ -26,6 +29,16 @@ export default function ResultCard({
               <span className="flex h-full w-full items-center justify-center text-slate-400" aria-hidden>
                 IMG
               </span>
+            )}
+            {title && (
+              <Link
+                to={href || "#"}
+                aria-label={`View ${title}`}
+                title={`View ${title}`}
+                className="absolute right-1.5 bottom-1.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[rgba(255,152,59,0.22)] text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md shadow-[0_8px_18px_rgba(255,68,0,0.15)] hover:bg-[rgba(255,152,59,0.32)] focus:outline-none focus:ring-2 focus:ring-orange-500/60"
+              >
+                <Search className="h-4 w-4" />
+              </Link>
             )}
           </span>
         </div>
