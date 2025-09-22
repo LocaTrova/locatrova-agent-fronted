@@ -1,11 +1,12 @@
 import { useMemo } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import FeaturesSection from "@/components/location/Features";
 import MapSection from "@/components/location/MapSection";
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowLeft } from "lucide-react";
 
 export default function LocationPage() {
   const { id, identifier } = useParams<{ id: string; identifier?: string }>();
+  const navigate = useNavigate();
 
   // Demo image set (replace with real data in a later step)
   const images = useMemo(
@@ -29,6 +30,17 @@ export default function LocationPage() {
       className="min-h-screen w-full bg-[#FAF9F8]"
     >
       <div className="mx-auto w-full max-w-[2200px] px-4 sm:px-6 lg:px-8 py-4">
+        <nav className="sticky top-2 z-20">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur border border-slate-200 px-3 py-1.5 text-sm text-slate-700 shadow-sm hover:shadow-md hover:bg-white transition"
+            aria-label="Torna indietro"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span className="hidden sm:inline">Indietro</span>
+          </button>
+        </nav>
         {/* Responsive photo grid */}
         <div
           className="grid gap-2 sm:gap-3 md:gap-4 mt-4"
