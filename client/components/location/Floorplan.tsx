@@ -10,7 +10,7 @@ export default function FloorplanSection({
   imageUrl = "https://pic.im-cdn.it/plan/117062099/m.jpg",
   title = "Planimetria",
 }: FloorplanSectionProps) {
-  const handleExpand = () => {
+  const handleExpand = async () => {
     try {
       const { openInNewTab } = await import("@/lib/utils");
       openInNewTab(imageUrl);
