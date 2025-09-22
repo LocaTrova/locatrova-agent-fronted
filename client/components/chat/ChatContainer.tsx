@@ -54,7 +54,7 @@ export function ChatContainer() {
           />
 
           {/* Right: Curated results */}
-          <section aria-label="Location results" className={`${STYLES.CONTAINER.SECTION} w-full`}>
+          <section aria-label="Location results" className={`${STYLES.CONTAINER.SECTION} w-full border border-slate-300/40 ring-1 ring-slate-300/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]`}>
             <ChatResultsSection
               filteredResults={filteredResults}
               filters={filters}
