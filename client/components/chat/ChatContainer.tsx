@@ -45,7 +45,7 @@ export function ChatContainer() {
 
   return (
     <div className={STYLES.CONTAINER.PAGE}>
-      <div className={`${STYLES.CONTAINER.PAGE_INNER} w-full max-w-none mx-0 px-0 py-0`}>
+      <div className="w-full h-full">
         <div className={`${STYLES.GRID.CHAT_LAYOUT} w-full`}>
           {/* Left: Chat */}
           <ChatSection
