@@ -46,13 +46,6 @@ export function ChatContainer() {
   return (
     <div className={STYLES.CONTAINER.PAGE}>
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(312deg, rgb(160,165,194) 27.0662%, rgb(206,221,228) 100%)",
-          }}
-        />
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://static.wixstatic.com/media/343a2a_5c066484f7904623adfe3ee51e4634a8~mv2.jpg/v1/fill/w_2880,h_1527,al_c,q_90,enc_avif,quality_auto/Hero-bg-base-new.jpg"
