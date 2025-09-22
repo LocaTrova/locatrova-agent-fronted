@@ -82,7 +82,7 @@ export default function SearchInput({
           title={UI_TEXT.BUTTONS.SEND}
           disabled={isDisabled}
           onClick={handleSubmit}
-          className={STYLES.BUTTON.SEND}
+          className={`${STYLES.BUTTON.SEND} hover:shadow-sm disabled:shadow-none disabled:bg-[rgb(255,152,59,0.5)]`}
           style={{ transform: "rotate(90deg)" }}
         >
           <ArrowUp className={DIMENSIONS.ICON.SMALL} />
