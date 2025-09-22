@@ -9,6 +9,7 @@ interface ChatResultsSectionProps {
   hasActiveFilters: boolean;
   mapView: boolean;
   loading: boolean;
+  addressSeed?: string;
   onLocationFilterChange: (filter: LocationFilterType) => void;
   onAttributeFiltersChange: (filters: AttributeFilterType[]) => void;
   onClearFilters: () => void;
