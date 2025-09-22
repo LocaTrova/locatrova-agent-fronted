@@ -154,6 +154,11 @@ export default function LocationPage() {
           <FeaturesSection />
         </div>
 
+        {/* Planimetria section */}
+        <div className="mt-2 border-t border-slate-200 pt-6">
+          <FloorplanSection />
+        </div>
+
         {/* Map section */}
         <div className="mt-2 border-t border-slate-200 pt-6">
           <MapSection address="Via Rodolfo Lanciani 7, Roma" markers={[]} />
