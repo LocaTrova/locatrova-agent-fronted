@@ -85,3 +85,13 @@ export const COMPONENT_STYLES = {
       "rounded-md bg-orange-50 px-1.5 py-0.5 text-[10px] font-medium text-orange-600",
   },
 } as const;
+
+// Typography tokens (DRY)
+export const TYPE = {
+  H2: "text-2xl font-semibold text-slate-900 tracking-tight",
+  SECTION_LABEL: "text-sm font-medium text-slate-600",
+  SUBTITLE: "font-semibold text-slate-800",
+  BODY: "text-slate-700",
+  SMALL: "text-sm text-slate-600",
+  SMALL_MUTED: "text-xs text-gray-400",
+} as const;
