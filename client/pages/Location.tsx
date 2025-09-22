@@ -44,16 +44,15 @@ export default function LocationPage() {
         </nav>
         {/* Responsive photo grid */}
         <div
-          className="grid gap-2 sm:gap-3 md:gap-4 mt-4"
-          style={{ gridTemplateColumns: "2fr 1fr 1fr" }}
+          className="grid gap-2 sm:gap-3 md:gap-4 mt-4 [grid-template-columns:1fr] md:[grid-template-columns:2fr_1fr_1fr]"
         >
           {/* Column 1: big hero image */}
           <div className="grid gap-2 sm:gap-3 md:gap-4">
-            <div className="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[600px] overflow-hidden rounded-md">
+            <div className="group relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[600px] overflow-hidden rounded-md">
               <img
                 src={images[0]}
                 alt={`Location ${id}${identifier ? ` – ${identifier}` : ""} main`}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.01]"
                 loading="eager"
               />
             </div>
@@ -64,12 +63,12 @@ export default function LocationPage() {
             {images.slice(1, 3).map((src, i) => (
               <div
                 key={src}
-                className="relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md"
+                className="group relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md"
               >
                 <img
                   src={src}
                   alt={`Location ${id} photo ${i + 2}`}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
               </div>
@@ -81,12 +80,12 @@ export default function LocationPage() {
             {images.slice(3, 5).map((src, i) => (
               <div
                 key={src}
-                className="relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md"
+                className="group relative h-[150px] sm:h-[200px] md:h-[230px] overflow-hidden rounded-md"
               >
                 <img
                   src={src}
                   alt={`Location ${id} photo ${i + 4}`}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
               </div>
@@ -99,12 +98,12 @@ export default function LocationPage() {
           {images.slice(5).map((src, i) => (
             <div
               key={src}
-              className="relative aspect-[4/3] overflow-hidden rounded-md"
+              className="group relative aspect-[4/3] overflow-hidden rounded-md"
             >
               <img
                 src={src}
                 alt={`Location ${id} extra photo ${i + 6}`}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
                 loading="lazy"
               />
             </div>
@@ -118,6 +117,9 @@ export default function LocationPage() {
               type="button"
               className="h-12 w-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center shadow-sm shrink-0"
               aria-label="Apri mappa"
+              aria-controls="map-section"
+              title="Vai alla mappa"
+              onClick={() => document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <MapPin className="h-5 w-5 text-slate-700" />
             </button>
@@ -154,6 +156,7 @@ export default function LocationPage() {
         {/* Descrizione section */}
         <section
           aria-label="Descrizione"
+          id="descrizione"
           className="mt-6 border-t border-slate-200 pt-6"
         >
           <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">
@@ -196,19 +199,19 @@ export default function LocationPage() {
         </section>
 
         {/* Features section */}
-        <div className="mt-8 border-t border-slate-200 pt-6">
+        <section aria-label="Caratteristiche" id="caratteristiche" className="mt-8 border-t border-slate-200 pt-6">
           <FeaturesSection />
-        </div>
+        </section>
 
         {/* Planimetria section */}
-        <div className="mt-2 border-t border-slate-200 pt-6">
+        <section id="planimetria" className="mt-2 border-t border-slate-200 pt-6">
           <FloorplanSection />
-        </div>
+        </section>
 
         {/* Map section */}
-        <div className="mt-2 border-t border-slate-200 pt-6">
+        <section id="map-section" className="mt-2 border-t border-slate-200 pt-6">
           <MapSection address="Via Rodolfo Lanciani 7, Roma" markers={[]} />
-        </div>
+        </section>
       </div>
     </main>
   );
