@@ -7,7 +7,7 @@ export const STYLES = {
   // Container styles
   CONTAINER: {
     SECTION:
-      "flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white lg:rounded-none lg:border-0",
+      "flex h-full min-h-0 flex-col bg-white",
     INPUT_WRAPPER:
       "relative w-full backdrop-blur bg-white border border-slate-200 rounded-2xl sm:rounded-[30px] shadow-[0_0_0_0_rgba(0,0,0,0),0_8px_16px_0_rgba(0,0,0,0.04)] px-2",
     PAGE: "h-screen min-h-screen w-full overflow-hidden bg-slate-50",
@@ -55,7 +55,7 @@ export const STYLES = {
   // Grid layouts
   GRID: {
     CHAT_LAYOUT:
-      "grid h-full min-h-0 grid-cols-1 gap-3 sm:gap-4 lg:gap-0 lg:grid-cols-[30%_70%]",
+      "grid h-full min-h-0 grid-cols-1 gap-0 lg:grid-cols-[30%_70%]",
     APPS_LAYOUT:
       "mt-16 grid gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
   },
