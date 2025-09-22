@@ -75,6 +75,7 @@ export const COMPONENT_STYLES = {
     WRAPPER_ASSISTANT: "flex",
     CONTENT:
       "max-w-[90%] sm:max-w-[85%] rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm leading-5",
+    TIMESTAMP: "text-xs text-gray-400",
   },
 
   CARD: {
