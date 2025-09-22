@@ -27,36 +27,6 @@ export default function LocationPage() {
       className="min-h-screen w-full bg-[#FAF9F8]"
     >
       <div className="mx-auto w-full max-w-[2200px] px-4 sm:px-6 lg:px-8 py-4">
-        {/* Header: map icon + title + location crumbs */}
-        <div className="flex items-center overflow-hidden">
-          <button
-            type="button"
-            className="h-16 w-16 shrink-0"
-            aria-label="Apri mappa"
-          >
-            <img
-              alt="map icon"
-              src="https://s1.immobiliare.it/_next/static/media/map-icon-animation-sprite.27e8ad06.png"
-              loading="eager"
-              width={128}
-              height={128}
-              className="h-full w-full object-cover"
-            />
-          </button>
-          <div className="ml-4">
-            <h1 className="text-[20px] font-semibold pr-4">
-              Trilocale via Rodolfo Lanciani 7, Bologna, Roma
-            </h1>
-            <div className="pt-0.5">
-              <button type="button" className="text-slate-600 text-sm" aria-label="Seleziona zona">
-                <span>Roma</span>
-                <span className="pl-6">Bologna</span>
-                <span className="pl-6">Via Rodolfo Lanciani</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Responsive photo grid */}
         <div
           className="grid gap-2 sm:gap-3 md:gap-4 mt-4"
@@ -115,6 +85,36 @@ export default function LocationPage() {
               />
             </div>
           ))}
+        </div>
+
+        {/* Info header */}
+        <div className="mt-6 flex items-center overflow-hidden">
+          <button
+            type="button"
+            className="h-16 w-16 shrink-0"
+            aria-label="Apri mappa"
+          >
+            <img
+              alt="map icon"
+              src="https://s1.immobiliare.it/_next/static/media/map-icon-animation-sprite.27e8ad06.png"
+              loading="eager"
+              width={128}
+              height={128}
+              className="h-full w-full object-cover"
+            />
+          </button>
+          <div className="ml-4">
+            <h1 className="text-[20px] font-semibold pr-4">
+              Trilocale via Rodolfo Lanciani 7, Bologna, Roma
+            </h1>
+            <div className="pt-0.5">
+              <button type="button" className="text-slate-600 text-sm" aria-label="Seleziona zona">
+                <span>Roma</span>
+                <span className="pl-6">Bologna</span>
+                <span className="pl-6">Via Rodolfo Lanciani</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Features section */}
