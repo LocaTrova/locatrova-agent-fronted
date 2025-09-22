@@ -47,6 +47,9 @@ export default function FilterControls({
   onClearFilters,
   hasActiveFilters,
 }: FilterControlsProps) {
+  const baseToggleItem = "px-2 data-[state=on]:shadow-sm transition";
+  const listItemClass = `${baseToggleItem} ${!mapView ? "bg-white/70 text-slate-800 ring-1 ring-white/30" : "text-slate-600"}`;
+  const mapItemClass = `${baseToggleItem} ${mapView ? "bg-orange-100/80 text-orange-800 ring-1 ring-orange-400/40 shadow-[0_0_0_2px_rgba(255,152,59,0.25),0_8px_24px_rgba(255,68,0,0.15)]" : "text-slate-600"}`;
   return (
     <div className={STYLES.STICKY.TOP}>
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-2">
