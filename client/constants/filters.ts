@@ -40,5 +40,5 @@ export const FILTER_CONFIG = {
   DEFAULT_ATTRIBUTES: [] as AttributeFilterType[],
   TOGGLE_GROUP_CLASS: "gap-1",
   TOGGLE_ITEM_CLASS: "h-8 px-2 text-xs",
-  SELECT_TRIGGER_CLASS: "h-8 w-[150px] text-xs",
+  SELECT_TRIGGER_CLASS: "h-9 w-[170px] text-xs sm:text-sm",
 } as const;
