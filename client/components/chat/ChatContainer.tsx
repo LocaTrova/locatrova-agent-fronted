@@ -45,8 +45,8 @@ export function ChatContainer() {
 
   return (
     <div className={STYLES.CONTAINER.PAGE}>
-      <div className={`${STYLES.CONTAINER.PAGE_INNER} max-w-none px-0 py-0`}>
-        <div className={STYLES.GRID.CHAT_LAYOUT}>
+      <div className={`${STYLES.CONTAINER.PAGE_INNER} w-full max-w-none mx-0 px-0 py-0`}>
+        <div className={`${STYLES.GRID.CHAT_LAYOUT} w-full`}>
           {/* Left: Chat */}
           <ChatSection
             messages={messages}
@@ -54,7 +54,7 @@ export function ChatContainer() {
           />
 
           {/* Right: Curated results */}
-          <section aria-label="Location results" className={STYLES.CONTAINER.SECTION}>
+          <section aria-label="Location results" className={`${STYLES.CONTAINER.SECTION} w-full`}>
             <ChatResultsSection
               filteredResults={filteredResults}
               filters={filters}
