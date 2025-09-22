@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useParams } from "react-router";
 import FeaturesSection from "@/components/location/Features";
+import MapSection from "@/components/location/MapSection";
 import { MapPin } from "lucide-react";
 
 export default function LocationPage() {
