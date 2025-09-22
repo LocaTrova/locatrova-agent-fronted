@@ -27,7 +27,7 @@ type FeatureItem = {
 const FEATURES: FeatureItem[] = [
   { icon: Landmark, title: "Tipologia", description: "Appartamento | Intera proprietà | Classe immobile signorile" },
   { icon: BadgeCheck, title: "Contratto", description: "Vendita" },
-  { icon: Stairs, title: "Piano", description: "4" },
+  { icon: Layers, title: "Piano", description: "4" },
   { icon: Building2, title: "Piani edificio", description: "5" },
   { icon: MoveVertical, title: "Ascensore", description: "Sì" },
   { icon: Ruler, title: "Superficie", description: "98 m²" },
