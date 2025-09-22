@@ -40,21 +40,19 @@ const MapSection: FC<MapSectionProps> = ({ address, zoom = 16, markers }) => {
 
   return (
     <section aria-label="Mappa" className="py-8">
-      <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">
-        Mappa
-      </h2>
+      <h2 className={TYPE.H2}>Mappa</h2>
       <div
         className="mt-3 relative w-full max-w-full rounded-xl overflow-hidden ring-1 ring-slate-200"
         style={{ aspectRatio: "16 / 9" }}
       >
         {status === "loading" && (
           <div className="absolute inset-0 grid place-items-center bg-slate-100">
-            <span className="text-slate-600 text-sm">Caricamento mappa…</span>
+            <span className={TYPE.SMALL}>Caricamento mappa…</span>
           </div>
         )}
         {status === "error" && (
           <div className="absolute inset-0 grid place-items-center bg-slate-50">
-            <span className="text-slate-600 text-sm">Impossibile caricare la mappa per questo indirizzo.</span>
+            <span className={TYPE.SMALL}>Impossibile caricare la mappa per questo indirizzo.</span>
           </div>
         )}
         {status === "done" &&
