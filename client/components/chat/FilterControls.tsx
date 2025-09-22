@@ -51,7 +51,7 @@ export default function FilterControls({
     <div className={STYLES.STICKY.TOP}>
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-2">
         <div className="flex items-center gap-2 min-w-0">
-          <h2 className="text-sm font-semibold text-slate-900 whitespace-nowrap">
+          <h2 className="font-semibold text-slate-900 whitespace-nowrap text-[clamp(14px,2.8vw,16px)]">
             {UI_TEXT.LABELS.CURATED_RESULTS}
           </h2>
           <span className="inline-flex items-center rounded-full bg-orange-100/70 text-orange-800 px-2 py-0.5 text-[10px] font-medium ring-1 ring-orange-300/40">
