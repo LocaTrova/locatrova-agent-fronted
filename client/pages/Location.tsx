@@ -133,7 +133,7 @@ export default function LocationPage() {
 
         {/* Map section */}
         <div className="mt-2">
-          <MapSection address="Via Rodolfo Lanciani 7, Roma" />
+          <MapSection address="Via Rodolfo Lanciani 7, Roma" markers={[]} />
         </div>
       </div>
     </main>
