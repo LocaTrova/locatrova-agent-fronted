@@ -40,9 +40,9 @@ export const STYLES = {
   SPACING: {
     SECTION_GAP: "gap-4 sm:gap-6",
     CONTENT_GAP: "space-y-3 sm:space-y-4",
-    PADDING_RESPONSIVE: "px-3 sm:px-4",
-    PADDING_SMALL: "p-2 sm:p-3",
-    PADDING_MEDIUM: "p-3 sm:p-4",
+    PADDING_RESPONSIVE: "px-4 sm:px-6 lg:px-8",
+    PADDING_SMALL: "p-3 sm:p-4",
+    PADDING_MEDIUM: "p-4 sm:p-6",
   },
 
   // Scrollable areas
