@@ -55,7 +55,7 @@ export const STYLES = {
   // Grid layouts
   GRID: {
     CHAT_LAYOUT:
-      "grid h-full min-h-0 grid-cols-1 gap-0 lg:grid-cols-[30%_70%]",
+      "grid h-full min-h-0 grid-cols-1 gap-0 lg:grid-cols-[30%_70%] lg:divide-x lg:divide-white/15",
     APPS_LAYOUT:
       "mt-16 grid gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
   },
