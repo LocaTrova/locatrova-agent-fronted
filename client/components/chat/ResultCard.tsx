@@ -32,7 +32,7 @@ export default function ResultCard({
         <div className="flex min-w-0 flex-1 flex-col justify-between">
           <div className="min-w-0">
             <div className="mb-1 flex items-center gap-2">
-              <h3 className="truncate font-medium text-slate-800" title={title}>
+              <h3 className="truncate font-semibold text-slate-800 text-[clamp(14px,2.8vw,16px)]" title={title}>
                 {title}
               </h3>
               {badge && (
