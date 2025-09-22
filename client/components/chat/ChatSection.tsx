@@ -33,7 +33,7 @@ export default function ChatSection({
       className={`${STYLES.CONTAINER.SECTION} border border-orange-200/40 ring-1 ring-orange-300/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]`}
     >
       <header className={`${STYLES.STICKY.TOP} px-4 sm:px-6 py-2`}>
-        <h2 className="text-sm font-medium text-slate-600">Chat</h2>
+        <h2 className={TYPE.SECTION_LABEL}>Chat</h2>
       </header>
       <div
         ref={scrollRef}
