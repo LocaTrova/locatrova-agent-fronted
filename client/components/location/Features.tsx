@@ -17,6 +17,7 @@ import {
   Snowflake,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { TYPE } from "@/constants/styles";
 
 type FeatureItem = {
   icon: FC<{ className?: string }>;
