@@ -48,6 +48,7 @@ export function ChatResultsSection({
         results={filteredResults}
         loading={loading}
         mapView={mapView}
+        addressSeed={addressSeed}
       />
     </>
   );
