@@ -96,8 +96,8 @@ export default function FilterControls({
             <List className={`${DIMENSIONS.ICON.SMALL} text-slate-600`} />
             <span className="hidden sm:inline text-xs ml-1">List</span>
           </ToggleGroupItem>
-          <ToggleGroupItem value="map" aria-label="Map view" className="px-2">
-            <Map className={`${DIMENSIONS.ICON.SMALL} text-slate-600`} />
+          <ToggleGroupItem value="map" aria-label="Map view" className={mapItemClass}>
+            <Map className={`${DIMENSIONS.ICON.SMALL} ${mapView ? "text-orange-700" : "text-slate-600"}`} />
             <span className="hidden sm:inline text-xs ml-1">Map</span>
           </ToggleGroupItem>
         </ToggleGroup>
