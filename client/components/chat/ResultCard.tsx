@@ -42,7 +42,7 @@ export default function ResultCard({
               )}
             </div>
             {description && (
-              <p className="text-sm leading-5 text-slate-600 overflow-hidden max-h-10">
+              <p className="text-[13px] sm:text-sm leading-5 text-slate-600 overflow-hidden max-h-10">
                 {description}
               </p>
             )}
