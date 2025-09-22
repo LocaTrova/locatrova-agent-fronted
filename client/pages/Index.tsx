@@ -1,6 +1,7 @@
 import { useMemo, useState, useCallback } from "react";
 import { ArrowUp } from "lucide-react";
 import { useNavigate } from "react-router";
+import Navbar from "@/components/home/Navbar";
 
 export default function Index() {
   const [prompt, setPrompt] = useState("");
@@ -38,8 +39,9 @@ export default function Index() {
       tabIndex={-1}
       aria-label="main content"
       className="relative min-h-screen w-full overflow-hidden"
-      style={{ backgroundColor: "rgba(255,255,0,1)" }}
+      style={{ backgroundColor: "#FFFCF5" }}
     >
+      <Navbar />
       {/* Background gradient layer */}
       <div className="absolute inset-0">
         <div
@@ -64,10 +66,10 @@ export default function Index() {
       <div className="relative mx-auto flex max-w-[3840px] flex-col px-4 sm:px-6 lg:px-8 pt-24 sm:pt-40 lg:pt-56 pb-16 sm:pb-24 lg:pb-36">
         <div className="mx-auto w-full max-w-[2400px] text-center">
           <h1 className="mx-auto max-w-[92%] sm:max-w-[80%] lg:max-w-[60%] text-center font-['Wix Madefor Text'] text-[clamp(28px,7vw,72px)] leading-tight tracking-[-0.01em] text-slate-900">
-            Locatrova: What location do you need today?
+            Trova la location perfetta per il tuo set.
           </h1>
           <p className="mx-auto mt-6 sm:mt-8 lg:mt-10 max-w-[92%] sm:max-w-[70%] lg:max-w-[41%] text-center font-['Wix Madefor Text'] text-[clamp(16px,3.6vw,22px)] leading-relaxed text-slate-800">
-            Describe your shoot brief or location requirements below — or get inspired by our suggestions.
+            Scrivi ciò che ti serve o lasciati ispirare: Locatrova cura per te i risultati migliori.
           </p>
         </div>
 
@@ -99,7 +101,7 @@ export default function Index() {
           {/* Suggestions */}
           <div className="mt-8">
             <p className="mb-3 sm:mb-4 text-[clamp(14px,2.8vw,18px)] leading-relaxed text-slate-700">
-              Not sure where to start? Try one of these:
+              Non sai da dove iniziare? Prova uno di questi spunti:
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
               {ideas.map((label) => (
@@ -135,7 +137,7 @@ export default function Index() {
               className="h-8 w-8 rounded-full border-2 border-white shadow"
             />
           </div>
-          <p className="text-sm text-slate-800">Trusted by 400K+ users</p>
+          <p className="text-sm text-slate-800">Scelto da oltre 400K professionisti</p>
         </div>
       </div>
     </section>
