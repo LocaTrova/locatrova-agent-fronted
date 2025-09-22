@@ -6,10 +6,9 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Map } from "lucide-react";
+import { Map, List, X } from "lucide-react";
 import type {
   LocationFilterType,
   AttributeFilterType,
@@ -51,19 +50,54 @@ export default function FilterControls({
   return (
     <div className={STYLES.STICKY.TOP}>
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-2">
-        <div className="flex items-center gap-2">
-          <h2 className="text-sm font-semibold text-slate-900">
+        <div className="flex items-center gap-2 min-w-0">
+          <h2 className="text-sm font-semibold text-slate-900 whitespace-nowrap">
             {UI_TEXT.LABELS.CURATED_RESULTS}
           </h2>
-          <span className="text-xs text-slate-500">{resultCount} found</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <Map className={`${DIMENSIONS.ICON.SMALL} text-slate-500`} />
-            <span className="text-xs text-slate-600">{UI_TEXT.LABELS.MAP}</span>
-            <Switch checked={mapView} onCheckedChange={onMapViewChange} />
+          <span className="inline-flex items-center rounded-full bg-orange-100/70 text-orange-800 px-2 py-0.5 text-[10px] font-medium ring-1 ring-orange-300/40">
+            {resultCount} found
+          </span>
+          <div className="flex items-center gap-1 min-w-0">
+            {filters.locationFilter !== "any" && (
+              <button
+                className="ui-chip border-orange-200/70 text-orange-800 hover:bg-orange-50"
+                onClick={() => onLocationFilterChange("any")}
+                aria-label="Clear location filter"
+                title="Clear location filter"
+              >
+                <span className="truncate max-w-[120px]">{LOCATION_FILTERS[filters.locationFilter]}</span>
+                <X className="ml-2 h-3 w-3" />
+              </button>
+            )}
+            {filters.activeFilters.map((f) => (
+              <button
+                key={f}
+                className="ui-chip border-slate-200/80 hover:bg-slate-50"
+                onClick={() => onAttributeFiltersChange(filters.activeFilters.filter((v) => v !== f))}
+                aria-label={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
+                title={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
+              >
+                <span>{ATTRIBUTE_FILTERS[f].label}</span>
+                <X className="ml-2 h-3 w-3" />
+              </button>
+            ))}
           </div>
         </div>
+        <ToggleGroup
+          type="single"
+          value={mapView ? "map" : "list"}
+          onValueChange={(v) => v && onMapViewChange(v === "map")}
+          className="h-8 rounded-xl bg-white/50 ring-1 ring-white/20 backdrop-blur-md"
+        >
+          <ToggleGroupItem value="list" aria-label="List view" className="px-2">
+            <List className={`${DIMENSIONS.ICON.SMALL} text-slate-600`} />
+            <span className="hidden sm:inline text-xs ml-1">List</span>
+          </ToggleGroupItem>
+          <ToggleGroupItem value="map" aria-label="Map view" className="px-2">
+            <Map className={`${DIMENSIONS.ICON.SMALL} text-slate-600`} />
+            <span className="hidden sm:inline text-xs ml-1">Map</span>
+          </ToggleGroupItem>
+        </ToggleGroup>
       </div>
 
       <div className="flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-2">
@@ -106,16 +140,18 @@ export default function FilterControls({
           </ToggleGroup>
         </div>
 
-        {hasActiveFilters && (
-          <Button
-            variant="ghost"
-            size="sm"
-            className={STYLES.BUTTON.GHOST}
-            onClick={onClearFilters}
-          >
-            {UI_TEXT.BUTTONS.CLEAR}
-          </Button>
-        )}
+        <div className="ml-auto">
+          {hasActiveFilters && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className={STYLES.BUTTON.GHOST}
+              onClick={onClearFilters}
+            >
+              {UI_TEXT.BUTTONS.CLEAR}
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );
