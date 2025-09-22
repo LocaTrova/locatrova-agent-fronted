@@ -130,6 +130,11 @@ export default function LocationPage() {
         <div className="mt-8">
           <FeaturesSection />
         </div>
+
+        {/* Map section */}
+        <div className="mt-2">
+          <MapSection address="Via Rodolfo Lanciani 7, Roma" />
+        </div>
       </div>
     </main>
   );
