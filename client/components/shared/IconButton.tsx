@@ -13,7 +13,7 @@ export default function IconButton({
   ...props
 }: IconButtonProps) {
   const base =
-    "inline-flex items-center justify-center shrink-0 h-12 w-12 border shadow-sm";
+    "inline-flex items-center justify-center shrink-0 h-12 w-12 border shadow-sm ui-focus";
   const shape =
     rounded === "full"
       ? "rounded-full"
