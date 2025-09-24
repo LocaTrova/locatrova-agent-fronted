@@ -6,7 +6,7 @@ import FavoriteToggle from "./FavoriteToggle";
 
 type ResultCardProps = Partial<LocationResult> & { href?: string };
 
-export default function ResultCard({
+function ResultCard({
   title = "",
   description,
   imageUrl,
@@ -76,3 +76,5 @@ export default function ResultCard({
     </div>
   );
 }
+
+export default React.memo(ResultCard);
