@@ -86,7 +86,7 @@ export default function Index() {
       <div className="relative mx-auto flex max-w-[3840px] flex-col px-4 sm:px-6 lg:px-8 pt-24 sm:pt-40 lg:pt-56 pb-16 sm:pb-24 lg:pb-36">
         <div className="mx-auto w-full max-w-[2400px] text-center">
           <h1 className="mx-auto max-w-[92%] sm:max-w-[80%] lg:max-w-[60%] text-center font-['Wix Madefor Text'] text-[clamp(28px,7vw,72px)] leading-tight tracking-[-0.01em] text-slate-900">
-            Trova la <span className="[text-shadow:0_0_10px_rgba(255,152,59,0.55)]">location</span> perfetta per il tuo <span className="inline-block" aria-live="polite" aria-atomic="true">{rotatingWords[wordIndex]}</span>.
+            Trova la <span className="text-[rgb(255,152,59)]">location</span> perfetta per il tuo <span className="inline-block" aria-live="polite" aria-atomic="true">{rotatingWords[wordIndex]}</span>.
           </h1>
           <p className="mx-auto mt-6 sm:mt-8 lg:mt-10 max-w-[92%] sm:max-w-[70%] lg:max-w-[41%] text-center font-['Wix Madefor Text'] text-[clamp(16px,3.6vw,22px)] leading-relaxed text-slate-800">
             Scrivi ciò che ti serve o lasciati ispirare: Locatrova cura per te i
