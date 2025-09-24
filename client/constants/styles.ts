@@ -23,7 +23,7 @@ export const STYLES = {
 
   // Button styles
   BUTTON: {
-    SEND: "absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[rgb(255,152,59)] text-black transition ui-focus disabled:cursor-not-allowed disabled:opacity-70",
+    SEND: "absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-brand text-black transition ui-focus disabled:cursor-not-allowed disabled:opacity-70",
     ICON: "inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs hover:bg-slate-50 ui-focus",
     GHOST: "h-8 text-xs",
   },

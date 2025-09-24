@@ -1,50 +1,36 @@
 import { createBrowserRouter, RouteObject } from "react-router";
-import Index from "../pages/Index";
-import NotFound from "../pages/NotFound";
-import Apps from "../pages/Apps";
-import Chat from "../pages/Chat";
-import CSSTest from "../pages/CSSTest";
-import LocationPage from "../pages/Location";
 
-/**
- * Route definitions without JSX
- * Follows Single Responsibility Principle - only handles routing setup
- * Separated from App component for better testability and maintainability
- */
 const routes: RouteObject[] = [
   {
     path: "/",
-    Component: Index,
+    lazy: () => import("../pages/Index").then((m) => ({ Component: m.default })),
   },
   {
     path: "/apps",
-    Component: Apps,
+    lazy: () => import("../pages/Apps").then((m) => ({ Component: m.default })),
   },
   {
     path: "/chat",
-    Component: Chat,
+    lazy: () => import("../pages/Chat").then((m) => ({ Component: m.default })),
   },
   {
     path: "/location/:id",
-    Component: LocationPage,
+    lazy: () => import("../pages/Location").then((m) => ({ Component: m.default })),
   },
   {
     path: "/location/:id/:identifier",
-    Component: LocationPage,
+    lazy: () => import("../pages/Location").then((m) => ({ Component: m.default })),
   },
   {
     path: "/css-test",
-    Component: CSSTest,
+    lazy: () => import("../pages/CSSTest").then((m) => ({ Component: m.default })),
   },
   {
     path: "*",
-    Component: NotFound,
+    lazy: () => import("../pages/NotFound").then((m) => ({ Component: m.default })),
   },
 ];
 
-/**
- * Router configuration with future flags
- */
 export const router = createBrowserRouter(routes, {
   future: {
     // Temporarily disabled v7_startTransition to fix infinite loop with Switch component
