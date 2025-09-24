@@ -6,11 +6,18 @@ import { TYPE, STYLES } from "@/constants/styles";
 export default function Navbar() {
   const { pathname } = useLocation();
 
-  const isActive = (p: string) => pathname === p || pathname.startsWith(`${p}/`);
+  const isActive = (p: string) =>
+    pathname === p || pathname.startsWith(`${p}/`);
 
   const linkBase = `${TYPE.SMALL} inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors hover:bg-white/70 ui-focus`;
 
-  const NavItem = ({ to, children }: { to: string; children: React.ReactNode }) => {
+  const NavItem = ({
+    to,
+    children,
+  }: {
+    to: string;
+    children: React.ReactNode;
+  }) => {
     const active = isActive(to);
     return (
       <Link
@@ -25,7 +32,9 @@ export default function Navbar() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-30" role="banner">
-      <div className={`mx-auto w-full max-w-[2200px] ${STYLES.SPACING.PADDING_RESPONSIVE} pt-4`}>
+      <div
+        className={`mx-auto w-full max-w-[2200px] ${STYLES.SPACING.PADDING_RESPONSIVE} pt-4`}
+      >
         <div className="flex items-center justify-between rounded-full border border-white/40 bg-white/60 supports-[backdrop-filter]:bg-white/50 backdrop-blur-md px-3 sm:px-4 py-2 shadow-sm">
           {/* Brand */}
           <Link
@@ -40,7 +49,10 @@ export default function Navbar() {
           </Link>
 
           {/* Nav */}
-          <nav aria-label="Primary" className="hidden md:flex items-center gap-1">
+          <nav
+            aria-label="Primary"
+            className="hidden md:flex items-center gap-1"
+          >
             <NavItem to="/chat">Chat</NavItem>
             <NavItem to="/apps">App</NavItem>
             <NavItem to="/css-test">CSS</NavItem>

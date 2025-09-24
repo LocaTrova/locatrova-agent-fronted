@@ -3,7 +3,8 @@ import { createBrowserRouter, RouteObject } from "react-router";
 const routes: RouteObject[] = [
   {
     path: "/",
-    lazy: () => import("../pages/Index").then((m) => ({ Component: m.default })),
+    lazy: () =>
+      import("../pages/Index").then((m) => ({ Component: m.default })),
   },
   {
     path: "/apps",
@@ -15,19 +16,23 @@ const routes: RouteObject[] = [
   },
   {
     path: "/location/:id",
-    lazy: () => import("../pages/Location").then((m) => ({ Component: m.default })),
+    lazy: () =>
+      import("../pages/Location").then((m) => ({ Component: m.default })),
   },
   {
     path: "/location/:id/:identifier",
-    lazy: () => import("../pages/Location").then((m) => ({ Component: m.default })),
+    lazy: () =>
+      import("../pages/Location").then((m) => ({ Component: m.default })),
   },
   {
     path: "/css-test",
-    lazy: () => import("../pages/CSSTest").then((m) => ({ Component: m.default })),
+    lazy: () =>
+      import("../pages/CSSTest").then((m) => ({ Component: m.default })),
   },
   {
     path: "*",
-    lazy: () => import("../pages/NotFound").then((m) => ({ Component: m.default })),
+    lazy: () =>
+      import("../pages/NotFound").then((m) => ({ Component: m.default })),
   },
 ];
 

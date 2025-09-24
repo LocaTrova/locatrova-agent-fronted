@@ -63,7 +63,19 @@ function ResultCard({
                   to={href || "#"}
                   aria-label={`View ${title}`}
                   title={`View ${title}`}
-                  className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-orange-500/60" style={{ backgroundColor: "hsla(var(--brand), 0.22)", boxShadow: "0 8px 18px hsla(18, 100%, 50%, 0.15)" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "hsla(var(--brand), 0.32)")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "hsla(var(--brand), 0.22)")}
+                  className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-orange-500/60"
+                  style={{
+                    backgroundColor: "hsla(var(--brand), 0.22)",
+                    boxShadow: "0 8px 18px hsla(18, 100%, 50%, 0.15)",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                      "hsla(var(--brand), 0.32)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                      "hsla(var(--brand), 0.22)")
+                  }
                 >
                   <Search className="h-4 w-4" />
                 </Link>

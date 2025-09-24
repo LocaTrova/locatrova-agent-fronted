@@ -6,7 +6,11 @@ interface RotatingWordProps {
   className?: string;
 }
 
-export default function RotatingWord({ words, interval = 1800, className }: RotatingWordProps) {
+export default function RotatingWord({
+  words,
+  interval = 1800,
+  className,
+}: RotatingWordProps) {
   const safeWords = words && words.length > 0 ? words : [""];
   const [index, setIndex] = useState(0);
 
@@ -18,7 +22,11 @@ export default function RotatingWord({ words, interval = 1800, className }: Rota
   }, [safeWords.length, interval]);
 
   return (
-    <span className={className ?? "inline-block"} aria-live="polite" aria-atomic="true">
+    <span
+      className={className ?? "inline-block"}
+      aria-live="polite"
+      aria-atomic="true"
+    >
       {safeWords[index]}
     </span>
   );
