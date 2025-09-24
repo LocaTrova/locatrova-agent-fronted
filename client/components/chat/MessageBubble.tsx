@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export { type Message } from "../../../shared/api";
 
-export default function MessageBubble({ message }: { message: Message }) {
+function MessageBubble({ message }: { message: Message }) {
   const isUser = message.role === "user";
   const wrapperClass = isUser
     ? COMPONENT_STYLES.MESSAGE_BUBBLE.WRAPPER_USER
@@ -30,3 +30,5 @@ export default function MessageBubble({ message }: { message: Message }) {
     </div>
   );
 }
+
+export default React.memo(MessageBubble);
