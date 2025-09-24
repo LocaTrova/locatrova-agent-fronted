@@ -1,7 +1,8 @@
-import { useMemo, useState, useCallback, useEffect } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { ArrowUp } from "lucide-react";
 import { useNavigate } from "react-router";
 import Navbar from "@/components/home/Navbar";
+import RotatingWord from "@/components/shared/RotatingWord";
 
 export default function Index() {
   const [prompt, setPrompt] = useState("");
@@ -19,18 +20,6 @@ export default function Index() {
     [],
   );
 
-  const rotatingWords = useMemo(
-    () => ["evento", "esperienza", "shooting", "spot", "progetto"],
-    [],
-  );
-  const [wordIndex, setWordIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setWordIndex((i) => (i + 1) % rotatingWords.length);
-    }, 1800);
-    return () => clearInterval(id);
-  }, [rotatingWords.length]);
 
   const handlePromptChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -86,7 +75,7 @@ export default function Index() {
       <div className="relative mx-auto flex max-w-[3840px] flex-col px-4 sm:px-6 lg:px-8 pt-24 sm:pt-40 lg:pt-56 pb-16 sm:pb-24 lg:pb-36">
         <div className="mx-auto w-full max-w-[2400px] text-center">
           <h1 className="mx-auto max-w-[92%] sm:max-w-[80%] lg:max-w-[60%] text-center font-['Wix Madefor Text'] text-[clamp(28px,7vw,72px)] leading-tight tracking-[-0.01em] text-slate-900">
-            Trova la <span className="text-[rgb(255,152,59)]">location</span> perfetta per il tuo <span className="inline-block" aria-live="polite" aria-atomic="true">{rotatingWords[wordIndex]}</span>.
+            Trova la <span className="text-brand">location</span> perfetta per il tuo <RotatingWord words={["evento","esperienza","shooting","spot","progetto"]} interval={1800} />.
           </h1>
           <p className="mx-auto mt-6 sm:mt-8 lg:mt-10 max-w-[92%] sm:max-w-[70%] lg:max-w-[41%] text-center font-['Wix Madefor Text'] text-[clamp(16px,3.6vw,22px)] leading-relaxed text-slate-800">
             Scrivi ciò che ti serve o lasciati ispirare: Locatrova cura per te i
@@ -113,7 +102,7 @@ export default function Index() {
               title="Search locations"
               disabled={disabled}
               onClick={handleSearch}
-              className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-[rgb(255,152,59)] text-black ui-focus disabled:cursor-not-allowed disabled:opacity-70"
+              className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-brand text-black ui-focus disabled:cursor-not-allowed disabled:opacity-70"
             >
               <ArrowUp className="h-4 w-4" />
             </button>

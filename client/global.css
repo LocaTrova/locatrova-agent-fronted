@@ -56,6 +56,10 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Brand tokens */
+    --brand: 28 100% 61%; /* #FF983B */
+    --brand-foreground: 0 0% 0%;
   }
 
   .dark {
@@ -121,6 +125,8 @@
   .ui-focus:focus-visible {
     box-shadow: 0 0 0 2px white, 0 0 0 4px hsla(var(--primary) / 0.6);
   }
+  .bg-brand { background-color: hsl(var(--brand)); }
+  .text-brand { color: hsl(var(--brand)); }
   .ui-card {
     border-radius: 1rem;
     border: 1px solid rgb(243 244 246);
