@@ -14,7 +14,7 @@ export default function ResultCard({
   href,
 }: ResultCardProps) {
   return (
-    <div className="p-3 transition hover:shadow-md hover:ring-1 hover:ring-orange-400/30 border border-white/25 bg-white/60 backdrop-blur-md">
+    <div className="transition ui-card p-3 hover:shadow-md hover:ring-1 hover:ring-orange-400/30 bg-white/60 backdrop-blur-md">
       <div className="flex gap-3">
         <div className="flex-shrink-0">
           <span className="relative flex h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-lg bg-slate-100">
@@ -63,7 +63,7 @@ export default function ResultCard({
                   to={href || "#"}
                   aria-label={`View ${title}`}
                   title={`View ${title}`}
-                  className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,152,59,0.22)] text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md shadow-[0_8px_18px_rgba(255,68,0,0.15)] hover:bg-[rgba(255,152,59,0.32)] focus:outline-none focus:ring-2 focus:ring-orange-500/60"
+                  className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-orange-500/60" style={{ backgroundColor: "hsla(var(--brand), 0.22)", boxShadow: "0 8px 18px hsla(18, 100%, 50%, 0.15)" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "hsla(var(--brand), 0.32)")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "hsla(var(--brand), 0.22)")}
                 >
                   <Search className="h-4 w-4" />
                 </Link>
