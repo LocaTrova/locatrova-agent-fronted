@@ -1,25 +1,34 @@
 import React from "react";
 import type { Message } from "../../../shared/api";
+import { COMPONENT_STYLES } from "@/constants/styles";
+import { cn } from "@/lib/utils";
 
 export { type Message } from "../../../shared/api";
 
-export default function MessageBubble({ message }: { message: Message }) {
+function MessageBubble({ message }: { message: Message }) {
   const isUser = message.role === "user";
+  const wrapperClass = isUser
+    ? COMPONENT_STYLES.MESSAGE_BUBBLE.WRAPPER_USER
+    : COMPONENT_STYLES.MESSAGE_BUBBLE.WRAPPER_ASSISTANT;
+  const bubbleClass = cn(
+    COMPONENT_STYLES.MESSAGE_BUBBLE.CONTENT,
+    isUser
+      ? COMPONENT_STYLES.MESSAGE_BUBBLE.USER
+      : COMPONENT_STYLES.MESSAGE_BUBBLE.ASSISTANT,
+  );
+
   return (
-    <div className={isUser ? "flex justify-end" : "flex"}>
-      <div
-        className={
-          (isUser
-            ? "bg-slate-200 text-slate-800"
-            : "bg-white text-slate-800 border border-slate-200") +
-          " max-w-[90%] sm:max-w-[85%] rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm leading-5"
-        }
-      >
+    <div className={wrapperClass}>
+      <div className={bubbleClass}>
         <p className="whitespace-pre-wrap break-words">{message.content}</p>
         {message.createdAt && (
-          <div className="mt-2 text-xs text-gray-400">{message.createdAt}</div>
+          <div className={"mt-2 " + COMPONENT_STYLES.MESSAGE_BUBBLE.TIMESTAMP}>
+            {message.createdAt}
+          </div>
         )}
       </div>
     </div>
   );
 }
+
+export default React.memo(MessageBubble);

@@ -56,6 +56,10 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Brand tokens */
+    --brand: 28 100% 61%; /* #FF983B */
+    --brand-foreground: 0 0% 0%;
   }
 
   .dark {
@@ -102,7 +106,14 @@
     border-color: hsl(var(--border));
   }
 
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
   body {
+    margin: 0;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     font-family: "Wix Madefor Text", system-ui, sans-serif;
@@ -114,7 +125,15 @@
     outline: none;
   }
   .ui-focus:focus-visible {
-    box-shadow: 0 0 0 2px white, 0 0 0 4px hsla(var(--primary) / 0.6);
+    box-shadow:
+      0 0 0 2px white,
+      0 0 0 4px hsla(var(--primary) / 0.6);
+  }
+  .bg-brand {
+    background-color: hsl(var(--brand));
+  }
+  .text-brand {
+    color: hsl(var(--brand));
   }
   .ui-card {
     border-radius: 1rem;

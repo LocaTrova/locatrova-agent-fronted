@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useId, useState } from "react";
 import { ArrowUp, Plus, Palette } from "lucide-react";
 import { DIMENSIONS, MESSAGES, UI_TEXT, FILE_CONFIG } from "../../constants";
 import { STYLES } from "../../constants/styles";
@@ -24,6 +24,7 @@ export default function SearchInput({
 }: SearchInputProps) {
   const [value, setValue] = useState("");
   const isDisabled = value.trim().length === 0;
+  const fileInputId = useId();
 
   const handleSubmit = useCallback(() => {
     if (isDisabled) return;
@@ -32,14 +33,17 @@ export default function SearchInput({
   }, [isDisabled, onSubmit, value]);
 
   // Memoize the onChange handler to prevent re-creation on every render
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(e.target.value);
-  }, []);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setValue(e.target.value);
+    },
+    [],
+  );
 
   // Memoize the file input click handler to prevent re-creation on every render
   const handleAttachmentClick = useCallback(() => {
-    document.getElementById("file-input")?.click();
-  }, []);
+    document.getElementById(fileInputId)?.click();
+  }, [fileInputId]);
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = (
     e,
@@ -64,7 +68,9 @@ export default function SearchInput({
   const textareaStyle = STYLES.INPUT.TEXTAREA;
 
   return (
-    <div className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className}`}>
+    <div
+      className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className} ring-1 ring-orange-300/20`}
+    >
       <div className="relative">
         <label htmlFor="search-input" className="sr-only">
           {placeholder}
@@ -82,7 +88,7 @@ export default function SearchInput({
           title={UI_TEXT.BUTTONS.SEND}
           disabled={isDisabled}
           onClick={handleSubmit}
-          className={STYLES.BUTTON.SEND}
+          className={`${STYLES.BUTTON.SEND} hover:shadow-sm disabled:shadow-none`}
           style={{ transform: "rotate(90deg)" }}
         >
           <ArrowUp className={DIMENSIONS.ICON.SMALL} />
@@ -93,13 +99,13 @@ export default function SearchInput({
         <>
           <input
             type="file"
-            id="file-input"
+            id={fileInputId}
             multiple
             accept={FILE_CONFIG.ACCEPTED_FORMATS.join(",")}
             className="hidden"
             onChange={handleFileSelect}
           />
-          <div className="flex items-center justify-between px-4 py-2 text-sm">
+          <div className="flex items-center justify-between px-4 py-2 text-sm border-t border-white/20">
             <div className="flex items-center gap-2">
               {showAttachment && (
                 <button

@@ -1,7 +1,12 @@
-import React from 'react';
-import type { LocationResult, ResultFilter, LocationFilterType, AttributeFilterType } from '../../../shared/api';
-import FilterControls from './FilterControls';
-import ResultsList from './ResultsList';
+import React from "react";
+import type {
+  LocationResult,
+  ResultFilter,
+  LocationFilterType,
+  AttributeFilterType,
+} from "../../../shared/api";
+import FilterControls from "./FilterControls";
+import ResultsList from "./ResultsList";
 
 interface ChatResultsSectionProps {
   filteredResults: LocationResult[];
@@ -9,6 +14,7 @@ interface ChatResultsSectionProps {
   hasActiveFilters: boolean;
   mapView: boolean;
   loading: boolean;
+  addressSeed?: string;
   onLocationFilterChange: (filter: LocationFilterType) => void;
   onAttributeFiltersChange: (filters: AttributeFilterType[]) => void;
   onClearFilters: () => void;
@@ -25,6 +31,7 @@ export function ChatResultsSection({
   hasActiveFilters,
   mapView,
   loading,
+  addressSeed,
   onLocationFilterChange,
   onAttributeFiltersChange,
   onClearFilters,
@@ -46,6 +53,7 @@ export function ChatResultsSection({
         results={filteredResults}
         loading={loading}
         mapView={mapView}
+        addressSeed={addressSeed}
       />
     </>
   );
