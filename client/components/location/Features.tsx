@@ -148,6 +148,8 @@ const STATUS_VALUE_TONES: Record<FeatureStatus, string> = {
   neutral: "text-slate-900",
 };
 
+const SECTION_HEADING = "text-lg font-semibold text-slate-900";
+
 const BADGE_TONES: Record<StatusTone, string> = {
   positive:
     "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200",
