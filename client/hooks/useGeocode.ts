@@ -33,7 +33,10 @@ export function useGeocode(address: string) {
           setCoords({ lat: parseFloat(first.lat), lon: parseFloat(first.lon) });
         if (!cancelled) setStatus("done");
       } catch {
-        if (!cancelled) setStatus("error");
+        if (!cancelled) {
+          setCoords(null);
+          setStatus("error");
+        }
       }
     }
     run();

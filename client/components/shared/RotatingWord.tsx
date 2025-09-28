@@ -15,6 +15,11 @@ export default function RotatingWord({
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
+    // Clamp index when words array length changes
+    setIndex(prev => Math.min(prev, Math.max(0, safeWords.length - 1)));
+  }, [safeWords.length]);
+
+  useEffect(() => {
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % safeWords.length);
     }, interval);

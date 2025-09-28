@@ -66,7 +66,7 @@ const FeatureRow: FC<FeatureItem> = ({ icon: Icon, title, description }) => (
   <div className="grid grid-cols-[28px_1fr] gap-3">
     <Icon className="h-7 w-7 text-slate-700 mt-2" />
     <div>
-      <dt className="leading-6 ${TYPE.SUBTITLE}">{title}</dt>
+      <dt className={`leading-6 ${TYPE.SUBTITLE}`}>{title}</dt>
       <dd className={`leading-5 ${TYPE.SMALL}`}>{description}</dd>
     </div>
   </div>

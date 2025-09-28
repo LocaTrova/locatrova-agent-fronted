@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Map, List, X } from "lucide-react";
+import { Map as MapIcon, List, X } from "lucide-react";
 import type {
   LocationFilterType,
   AttributeFilterType,
@@ -111,7 +111,7 @@ export default function FilterControls({
             aria-label="Map view"
             className={mapItemClass}
           >
-            <Map
+            <MapIcon
               className={`${DIMENSIONS.ICON.SMALL} ${mapView ? "text-orange-700" : "text-slate-600"}`}
             />
             <span className="hidden sm:inline text-xs ml-1">Map</span>
