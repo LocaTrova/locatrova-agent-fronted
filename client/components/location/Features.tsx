@@ -280,7 +280,7 @@ type RoomGridProps = {
 
 const RoomsGrid = ({ spaces }: RoomGridProps) => (
   <div className="mt-6 space-y-3">
-    <h3 className={TYPE.H3}>Spazi Disponibili</h3>
+    <h3 className={SECTION_HEADING}>Spazi Disponibili</h3>
     <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
       {spaces.map((space) => (
         <article
