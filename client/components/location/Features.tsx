@@ -350,7 +350,7 @@ const AdditionalSections = ({
 
     return (
       <div className="mt-8 space-y-3">
-        <h3 className={`${TYPE.H3} flex items-center gap-2`}>
+        <h3 className={`${SECTION_HEADING} flex items-center gap-2`}>
           <BadgeCheck className="h-5 w-5 text-slate-600" aria-hidden />
           Specifiche Studio
         </h3>
