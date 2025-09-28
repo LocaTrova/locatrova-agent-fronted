@@ -154,8 +154,7 @@ const STATUS_VALUE_TONES: Record<FeatureStatus, string> = {
 const SECTION_HEADING = "text-lg font-semibold text-slate-900";
 
 const BADGE_TONES: Record<StatusTone, string> = {
-  positive:
-    "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200",
+  positive: "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200",
   negative: "bg-rose-50 text-rose-700 ring-1 ring-inset ring-rose-200",
   neutral: "bg-slate-100 text-slate-700 ring-1 ring-inset ring-slate-200",
   warning: "bg-amber-50 text-amber-700 ring-1 ring-inset ring-amber-200",
@@ -265,7 +264,9 @@ const FeatureRow = ({
 
 const RatingDisplay = ({ score }: { score: number }) => (
   <div className="flex flex-col items-end gap-1">
-    <span className="text-sm font-semibold text-slate-900">{score.toFixed(1)}/10</span>
+    <span className="text-sm font-semibold text-slate-900">
+      {score.toFixed(1)}/10
+    </span>
     <span className="sr-only">Valutazione cinematografica</span>
     <div className="h-1.5 w-24 overflow-hidden rounded-full bg-slate-200">
       <span
@@ -294,9 +295,13 @@ const RoomsGrid = ({ spaces }: RoomGridProps) => (
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700">
               <space.icon className="h-5 w-5" aria-hidden />
             </div>
-            <h4 className="text-sm font-semibold text-slate-900">{space.name}</h4>
+            <h4 className="text-sm font-semibold text-slate-900">
+              {space.name}
+            </h4>
           </div>
-          <p className="text-sm leading-5 text-slate-600">{space.description}</p>
+          <p className="text-sm leading-5 text-slate-600">
+            {space.description}
+          </p>
         </article>
       ))}
     </div>
@@ -512,7 +517,8 @@ const demoProfile: CinemaLocationProfile = {
     restrooms: true,
     hours: "07:00 – 02:00 (estendibile su richiesta)",
     priceRange: "€€€",
-    surroundings: "Quartiere creativo Ostiense, servizi e hospitality a 5 minuti",
+    surroundings:
+      "Quartiere creativo Ostiense, servizi e hospitality a 5 minuti",
     tags: ["studio", "industrial", "rigging-ready", "soundproof"],
   },
   spaces: [
@@ -523,12 +529,14 @@ const demoProfile: CinemaLocationProfile = {
     },
     {
       name: "Sala Regia",
-      description: "Cabina insonorizzata con routing video SDI e intercom full-duplex.",
+      description:
+        "Cabina insonorizzata con routing video SDI e intercom full-duplex.",
       icon: Building2,
     },
     {
       name: "Backstage",
-      description: "Area trucco & costumi con 6 postazioni, luci bilanciate 5600K.",
+      description:
+        "Area trucco & costumi con 6 postazioni, luci bilanciate 5600K.",
       icon: Sparkles,
     },
   ],
@@ -554,7 +562,9 @@ const FeaturesSection = () => {
       {
         icon: Star,
         label: "Rating Cinematografico",
-        value: <RatingDisplay score={profile.sentiment.filmSuitability.score} />,
+        value: (
+          <RatingDisplay score={profile.sentiment.filmSuitability.score} />
+        ),
         helperText: profile.sentiment.filmSuitability.description,
         status: "ideal",
       },
@@ -619,8 +629,12 @@ const FeaturesSection = () => {
         label: "Accessibilità",
         value: (
           <StatusBadge
-            tone={profile.details.wheelchairAccessible ? "positive" : "negative"}
-            label={profile.details.wheelchairAccessible ? "Garantita" : "Limitata"}
+            tone={
+              profile.details.wheelchairAccessible ? "positive" : "negative"
+            }
+            label={
+              profile.details.wheelchairAccessible ? "Garantita" : "Limitata"
+            }
           />
         ),
       },
@@ -654,7 +668,9 @@ const FeaturesSection = () => {
         label: "Range Prezzo",
         value: (
           <StatusBadge
-            tone={profile.details.priceRange.length <= 2 ? "positive" : "warning"}
+            tone={
+              profile.details.priceRange.length <= 2 ? "positive" : "warning"
+            }
             label={profile.details.priceRange}
           />
         ),
