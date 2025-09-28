@@ -31,6 +31,80 @@ export default function LocationPage() {
     [],
   );
 
+  const locationProfile = useMemo<CinemaLocationProfile>(
+    () => ({
+      locationType: "historic",
+      sentiment: {
+        mood: "Elegante, luminoso, urbano",
+        filmSuitability: {
+          score: 8.4,
+          description:
+            "Perfetto per scene domestiche sofisticate, drammi intimi e produzioni glamour in città.",
+        },
+        popularTimes: ["Mattina", "Golden hour", "Serata"],
+      },
+      bimData: {
+        usableAreaSqm: 98,
+        totalAreaSqm: 120,
+        technicalNotes:
+          "Impianti certificati con alimentazione gas centralizzata, predisposizione climatizzazione, serrande elettriche e infissi triplo vetro.",
+      },
+      dimensions: {
+        heightM: 3.1,
+        widthM: 12.5,
+      },
+      logistics: {
+        power: {
+          outlets: "Circuiti domestici rinforzati, prese multiple in ogni ambiente",
+          powerNotes:
+            "Quadro elettrico aggiornato 2024, possibilità di linee dedicate aggiuntive previo sopralluogo.",
+        },
+        heavyVehicleAccess: {
+          vehicleType: "Furgoni compatti, automezzi fino a 3,5 t",
+          accessPoint: "Ingresso condominiale da Via Rodolfo Lanciani con ascensore",
+        },
+      },
+      details: {
+        capacity: 35,
+        soundProfile: "Ambienti controllati con isolamento da infissi triplo vetro",
+        wheelchairAccessible: false,
+        parking: false,
+        restrooms: true,
+        hours: "08:00 – 22:00 (prorogabile)",
+        priceRange: "€€",
+        surroundings:
+          "Quartiere residenziale signorile nei pressi di Villa Torlonia, servizi e ristorazione a pochi minuti.",
+        tags: ["appartamento", "luminoso", "anni40", "vista urbana"],
+      },
+      spaces: [
+        {
+          name: "Zona Living",
+          description: "Salone open space con grandi finestre esposte a sud e finiture di pregio.",
+          icon: DoorOpen,
+        },
+        {
+          name: "Studio",
+          description: "Ambiente dedicato con boiserie, ideale per scene di lavoro o creative.",
+          icon: Sparkles,
+        },
+        {
+          name: "Suite Padronale",
+          description: "Camera con luce morbida naturale, ottima per riprese intime o moda.",
+          icon: Building2,
+        },
+      ],
+      productionNotes:
+        "Possibilità di personalizzare arredi e layout previo accordo. Ascensore disponibile per trasporto attrezzature leggere.",
+      historicDetails: {
+        heritageConstraints: "Edificio anni '40 soggetto a vincoli estetici condominiali",
+        protectionNotes: "Richiesta protezione pavimenti in parquet e superfici originali",
+        era: "Post-Art Déco romano",
+        historicOutdoors: "Balconi alla romana con vista sui tetti del quartiere",
+      },
+    }),
+    [],
+  );
+
   return (
     <main
       aria-label="Location gallery"
