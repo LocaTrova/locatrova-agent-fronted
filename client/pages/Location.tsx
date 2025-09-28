@@ -1,9 +1,11 @@
 import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router";
-import FeaturesSection from "@/components/location/Features";
+import FeaturesSection, {
+  type CinemaLocationProfile,
+} from "@/components/location/Features";
 import MapSection from "@/components/location/MapSection";
 import FloorplanSection from "@/components/location/Floorplan";
-import { MapPin, ArrowLeft } from "lucide-react";
+import { ArrowLeft, Building2, DoorOpen, MapPin, Sparkles } from "lucide-react";
 import IconButton from "@/components/shared/IconButton";
 import FavoriteButton from "@/components/shared/FavoriteButton";
 import { TYPE } from "@/constants/styles";
@@ -25,6 +27,89 @@ export default function LocationPage() {
       "https://ssl.cdn-redfin.com/system_files/media/1148538_JPG/genLdpUgcMediaBrowserUrlComp/item_17.jpg",
       "https://ssl.cdn-redfin.com/system_files/media/1148538_JPG/genLdpUgcMediaBrowserUrlComp/item_22.jpg",
     ],
+    [],
+  );
+
+  const locationProfile = useMemo<CinemaLocationProfile>(
+    () => ({
+      locationType: "historic",
+      sentiment: {
+        mood: "Elegante, luminoso, urbano",
+        filmSuitability: {
+          score: 8.4,
+          description:
+            "Perfetto per scene domestiche sofisticate, drammi intimi e produzioni glamour in città.",
+        },
+        popularTimes: ["Mattina", "Golden hour", "Serata"],
+      },
+      bimData: {
+        usableAreaSqm: 98,
+        totalAreaSqm: 120,
+        technicalNotes:
+          "Impianti certificati con alimentazione gas centralizzata, predisposizione climatizzazione, serrande elettriche e infissi triplo vetro.",
+      },
+      dimensions: {
+        heightM: 3.1,
+        widthM: 12.5,
+      },
+      logistics: {
+        power: {
+          outlets:
+            "Circuiti domestici rinforzati, prese multiple in ogni ambiente",
+          powerNotes:
+            "Quadro elettrico aggiornato 2024, possibilità di linee dedicate aggiuntive previo sopralluogo.",
+        },
+        heavyVehicleAccess: {
+          vehicleType: "Furgoni compatti, automezzi fino a 3,5 t",
+          accessPoint:
+            "Ingresso condominiale da Via Rodolfo Lanciani con ascensore",
+        },
+      },
+      details: {
+        capacity: 35,
+        soundProfile:
+          "Ambienti controllati con isolamento da infissi triplo vetro",
+        wheelchairAccessible: false,
+        parking: false,
+        restrooms: true,
+        hours: "08:00 – 22:00 (prorogabile)",
+        priceRange: "€€",
+        surroundings:
+          "Quartiere residenziale signorile nei pressi di Villa Torlonia, servizi e ristorazione a pochi minuti.",
+        tags: ["appartamento", "luminoso", "anni40", "vista urbana"],
+      },
+      spaces: [
+        {
+          name: "Zona Living",
+          description:
+            "Salone open space con grandi finestre esposte a sud e finiture di pregio.",
+          icon: DoorOpen,
+        },
+        {
+          name: "Studio",
+          description:
+            "Ambiente dedicato con boiserie, ideale per scene di lavoro o creative.",
+          icon: Sparkles,
+        },
+        {
+          name: "Suite Padronale",
+          description:
+            "Camera con luce morbida naturale, ottima per riprese intime o moda.",
+          icon: Building2,
+        },
+      ],
+      productionNotes:
+        "Possibilità di personalizzare arredi e layout previo accordo. Ascensore disponibile per trasporto attrezzature leggere.",
+      historicDetails: {
+        heritageConstraints:
+          "Edificio anni '40 soggetto a vincoli estetici condominiali",
+        protectionNotes:
+          "Richiesta protezione pavimenti in parquet e superfici originali",
+        era: "Post-Art Déco romano",
+        historicOutdoors:
+          "Balconi alla romana con vista sui tetti del quartiere",
+      },
+    }),
     [],
   );
 
@@ -197,7 +282,7 @@ export default function LocationPage() {
               elettriche, scalda Acqua in Pompa di Calore e impianto di
               condizionamento. Per qualsiasi altra personalizzazione la società
               costruttrice è disponibile ad incontrare le esigenze
-              dell’acquirente, compatibilmente con lo stato di avanzamento dei
+              dell��acquirente, compatibilmente con lo stato di avanzamento dei
               lavori.
             </p>
           </div>
@@ -209,7 +294,7 @@ export default function LocationPage() {
           id="caratteristiche"
           className="mt-8 border-t border-slate-200 pt-6"
         >
-          <FeaturesSection />
+          <FeaturesSection profile={locationProfile} />
         </section>
 
         {/* Planimetria section */}
