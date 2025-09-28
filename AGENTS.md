@@ -1,164 +1,93 @@
-# Fusion Starter
+To maximize effectiveness, clarity, and agent usability, here is a **refactored `AGENTS.md` template** following 2025's best practices for agent-oriented documentation. This structure is based on leading recommendations: keep it concise, structured, AI-focused, modular, and explicitly reference auxiliary docs. It should complement (not duplicate) your `README.md` or human developer guides.
 
-A production-ready full-stack React application template with integrated Express server, featuring React Router 6 SPA mode, TypeScript, Vitest, Zod and modern tooling.
+***
 
-While the starter comes with a express server, only create endpoint when strictly neccesary, for example to encapsulate logic that must leave in the server, such as private keys handling, or certain DB operations, db...
+# AGENTS.md
 
-## Tech Stack
+**Purpose:**  
+This file gives precise, machine-readable guidance for AI coding agents.  
+It defines setup, environment, coding standards, system-specific conventions, and agent operations.  
+*Do not duplicate README contents. Reference supporting documents where necessary.*
 
-- **PNPM**: Prefer pnpm
-- **Frontend**: React 18 + React Router 6 (spa) + TypeScript + Vite + TailwindCSS 3
-- **Backend**: Express server integrated with Vite dev server
-- **Testing**: Vitest
-- **UI**: Radix UI + TailwindCSS 3 + Lucide React icons
+***
 
-## Project Structure
+## 1. Directory Overview
 
-```
-client/                   # React SPA frontend
-├── pages/                # Route components (Index.tsx = home)
-├── components/ui/        # Pre-built UI component library
-├── App.tsx                # App entry point and with SPA routing setup
-└── global.css            # TailwindCSS 3 theming and global styles
+- List key folders, their primary purpose, and rules if relevant for agents (e.g., where to place new API endpoints, UI files, tests).
+  - Example:
+    - `/client/` – Front-end React SPA. Put all new pages in `/client/pages/` unless domain-specific.
+    - `/server/` – Express API code.
+    - `/shared/` – Shared types and schemas (always use for contract types).
+    - `/tests/` – All new tests must be placed near code-under-test or in `/tests/`.
+- If the project is a monorepo, mention AGENTS.md inheritance/nesting rules.
 
-server/                   # Express API backend
-├── index.ts              # Main server setup (express config + routes)
-└── routes/               # API handlers
+***
 
-shared/                   # Types used by both client & server
-└── api.ts                # Example of how to share api interfaces
-```
+## 2. Key Commands & Environments
 
-## Key Features
+- **Dev Start:** `pnpm dev`
+- **Build:** `pnpm build`
+- **Run Tests:** `pnpm test`
+- **Lint/Typecheck:** `pnpm lint`, `pnpm typecheck`
+- **Env Selection:** Use `.env` for local, `.env.production` for prod.
 
-## SPA Routing System
+*Agents: Use `pnpm` for all package operations. Default to Node 20+ runtime.*
 
-The routing system is powered by React Router 6:
+***
 
-- `client/pages/Index.tsx` represents the home page.
-- Routes are defined in `client/App.tsx` using the `react-router-dom` import
-- Route files are located in the `client/pages/` directory
+## 3. Coding Conventions
 
-For example, routes can be defined with:
+- **Language:** TypeScript (strict mode, no implicit anys)
+- **Linting:** Run Prettier & Eslint after each file edit
+- **Formatting:** 2-space indent, single quotes
+- **Types:** Type all functions, props, and exported members
+- **Docs:** Add JSDoc for all exported functions and classes
+- **Testing:** Co-locate tests with source, prefer Vitest + React Testing Library AAA testing.
+- **Patterns:** Respect SOLID and DRY principles; all logic must be composable and testable. 
 
-```typescript
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+***
 
-<Routes>
-  <Route path="/" element={<Index />} />
-  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-  <Route path="*" element={<NotFound />} />
-</Routes>;
-```
+## 4. File Placement & Naming
 
-### Styling System
+- **UI Components:** Put generic ones in `/client/components/ui/`, domain logic in `/client/features/<domain>/components/`
+- **API Routes:** Add new endpoints in `/server/routes/`, use `snake_case` for filenames
+- **Shared Types/Schemas:** All API contracts go in `/shared/`. Do **not** redefine contracts; reference existing types or create new ones here.
 
-- **Primary**: TailwindCSS 3 utility classes
-- **Theme and design tokens**: Configure in `client/global.css` 
-- **UI components**: Pre-built library in `client/components/ui/`
-- **Utility**: `cn()` function combines `clsx` + `tailwind-merge` for conditional classes
+***
 
-```typescript
-// cn utility usage
-className={cn(
-  "base-classes",
-  { "conditional-class": condition },
-  props.className  // User overrides
-)}
-```
+## 5. Actions Prohibited for AI Agents
 
-### Express Server Integration
+- Never edit or delete migration/history files (`/migrations/`)
+- Never auto-update lockfiles/package managers unless commenting in a PR
+- Never commit secrets, keys, `.env` files, or credentials
+- Never attempt destructive or schema-altering DB/API migrations without human approval
 
-- **Development**: Single port (8080) for both frontend/backend
-- **Hot reload**: Both client and server code
-- **API endpoints**: Prefixed with `/api/`
+***
 
-#### Example API Routes
-- `GET /api/ping` - Simple ping api
-- `GET /api/demo` - Demo endpoint  
+## 6. Supplemental References
 
-### Shared Types
-Import consistent types in both client and server:
-```typescript
-import { DemoResponse } from '@shared/api';
-```
+- For project rationale, patterns, domain rules, and flowcharts, see `/docs/architecture.md` and `/README.md`
+- For custom workflow instructions (PRs, CI/CD, deployment), see `/docs/contributing.md`
+- For environment and secrets, see `/docs/environment.md`
 
-Path aliases:
-- `@shared/*` - Shared folder
-- `@/*` - Client folder
+***
 
-## Development Commands
+## 7. Agent-Specific Settings
 
-```bash
-pnpm dev        # Start dev server (client + server)
-pnpm build      # Production build
-pnpm start      # Start production server
-pnpm typecheck  # TypeScript validation
-pnpm test          # Run Vitest tests
-```
+- **MCP/Tool Config:**  
+  - [x] Node.js agent runtime, 4GB memory limit per job
+  - [x] Can use MCP DevOps API, but not MCP Admin endpoints unless whitelisted
+  - [x] Temp files must be cleaned up after agent session ends
+  - [x] Agents can call POST `/api/agents/notify` to report AI-driven changes
+  - [x] All generated code MUST pass lint and test checks before merge
 
-## Adding Features
+***
 
-### Add new colors to the theme
+## 8. Last Updated
 
-Open `client/global.css` and `tailwind.config.ts` and add new tailwind colors.
+- `2025-09-28`
+- Please keep this file concise: fewer than 100 lines, limit duplication, link to other docs.
 
-### New API Route
-1. **Optional**: Create a shared interface in `shared/api.ts`:
-```typescript
-export interface MyRouteResponse {
-  message: string;
-  // Add other response properties here
-}
-```
+***
 
-2. Create a new route handler in `server/routes/my-route.ts`:
-```typescript
-import { RequestHandler } from "express";
-import { MyRouteResponse } from "@shared/api"; // Optional: for type safety
 
-export const handleMyRoute: RequestHandler = (req, res) => {
-  const response: MyRouteResponse = {
-    message: 'Hello from my endpoint!'
-  };
-  res.json(response);
-};
-```
-
-3. Register the route in `server/index.ts`:
-```typescript
-import { handleMyRoute } from "./routes/my-route";
-
-// Add to the createServer function:
-app.get("/api/my-endpoint", handleMyRoute);
-```
-
-4. Use in React components with type safety:
-```typescript
-import { MyRouteResponse } from '@shared/api'; // Optional: for type safety
-
-const response = await fetch('/api/my-endpoint');
-const data: MyRouteResponse = await response.json();
-```
-
-### New Page Route
-1. Create component in `client/pages/MyPage.tsx`
-2. Add route in `client/App.tsx`:
-```typescript
-<Route path="/my-page" element={<MyPage />} />
-```
-
-## Production Deployment
-
-- **Standard**: `pnpm build`
-- **Binary**: Self-contained executables (Linux, macOS, Windows)
-- **Cloud Deployment**: Use either Netlify or Vercel via their MCP integrations for easy deployment. Both providers work well with this starter template.
-
-## Architecture Notes
-
-- Single-port development with Vite + Express integration
-- TypeScript throughout (client, server, shared)
-- Full hot reload for rapid development
-- Production-ready with multiple deployment options
-- Comprehensive UI component library included
-- Type-safe API communication via shared interfaces

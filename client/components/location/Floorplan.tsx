@@ -33,7 +33,7 @@ export default function FloorplanSection({
           className="absolute inset-0 h-full w-full object-contain"
           loading="lazy"
         />
-        <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-black/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-black/40 to-transparent" aria-hidden="true" />
         <button
           type="button"
           onClick={handleExpand}

@@ -23,9 +23,8 @@ export default function FavoriteButton({
       onClick={toggle}
     >
       <Heart
-        className={
-          fav ? "h-5 w-5 text-rose-600 fill-rose-500" : "h-5 w-5 text-rose-600"
-        }
+        className="h-5 w-5 text-rose-600"
+        fill={fav ? "currentColor" : "none"}
       />
     </IconButton>
   );
