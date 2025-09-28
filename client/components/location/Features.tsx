@@ -554,7 +554,9 @@ type FeaturesSectionProps = {
   profile?: CinemaLocationProfile;
 };
 
-const FeaturesSection = ({ profile: providedProfile }: FeaturesSectionProps) => {
+const FeaturesSection = ({
+  profile: providedProfile,
+}: FeaturesSectionProps) => {
   const profile = providedProfile ?? demoProfile;
   const essentials = useMemo<FeatureItem[]>(
     () => [
