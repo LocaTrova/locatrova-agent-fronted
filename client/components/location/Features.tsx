@@ -20,6 +20,7 @@ import {
   Plug,
   Road,
   Ruler,
+  ScrollText,
   Shield,
   Sparkles,
   Star,
@@ -28,7 +29,9 @@ import {
   Tags,
   Truck,
   Trees,
+  Umbrella,
   Users,
+  Wallet,
   Waveform,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
