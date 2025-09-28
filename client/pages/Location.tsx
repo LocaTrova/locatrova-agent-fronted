@@ -226,7 +226,7 @@ export default function LocationPage() {
             >
               <ol className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <li>Roma</li>
-                <li className="relative before:content-['��'] before:mr-4 before:text-slate-400">
+                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">
                   Bologna
                 </li>
                 <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">
@@ -286,7 +286,7 @@ export default function LocationPage() {
           id="caratteristiche"
           className="mt-8 border-t border-slate-200 pt-6"
         >
-          <FeaturesSection />
+          <FeaturesSection profile={locationProfile} />
         </section>
 
         {/* Planimetria section */}
