@@ -18,7 +18,7 @@ import {
   Music,
   Palette,
   Plug,
-  Road,
+  Navigation,
   Ruler,
   ScrollText,
   Shield,
@@ -447,7 +447,7 @@ const AdditionalSections = ({
         value: profile.outdoorDetails.cover,
       },
       {
-        icon: Road,
+        icon: Navigation,
         label: "Accessibilità",
         value: profile.outdoorDetails.roadAccess,
       },
