@@ -308,7 +308,7 @@ type NotesProps = {
 const NotesSection = ({ productionNotes, technicalNotes }: NotesProps) => (
   <div className="mt-6 grid gap-4 md:grid-cols-2">
     <div className="rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-      <h3 className="text-sm font-semibold text-slate-800">Note Produzione</h3>
+      <h3 className={SECTION_HEADING}>Note Produzione</h3>
       <p className="mt-2 text-sm leading-6 text-slate-600">{productionNotes}</p>
     </div>
     <div className="rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
