@@ -312,7 +312,7 @@ const NotesSection = ({ productionNotes, technicalNotes }: NotesProps) => (
       <p className="mt-2 text-sm leading-6 text-slate-600">{productionNotes}</p>
     </div>
     <div className="rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-      <h3 className="text-sm font-semibold text-slate-800">Note Tecniche</h3>
+      <h3 className={SECTION_HEADING}>Note Tecniche</h3>
       <p className="mt-2 text-sm leading-6 text-slate-600">{technicalNotes}</p>
     </div>
   </div>
