@@ -1,6 +1,9 @@
 import { useMemo } from "react";
+import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router";
-import FeaturesSection from "@/components/location/Features";
+import FeaturesSection, {
+  type CinemaLocationProfile,
+} from "@/components/location/Features";
 import MapSection from "@/components/location/MapSection";
 import FloorplanSection from "@/components/location/Floorplan";
 import { MapPin, ArrowLeft } from "lucide-react";
