@@ -6,7 +6,7 @@ import FeaturesSection, {
 } from "@/components/location/Features";
 import MapSection from "@/components/location/MapSection";
 import FloorplanSection from "@/components/location/Floorplan";
-import { MapPin, ArrowLeft } from "lucide-react";
+import { ArrowLeft, Building2, DoorOpen, MapPin, Sparkles } from "lucide-react";
 import IconButton from "@/components/shared/IconButton";
 import FavoriteButton from "@/components/shared/FavoriteButton";
 import { TYPE } from "@/constants/styles";
@@ -226,7 +226,7 @@ export default function LocationPage() {
             >
               <ol className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <li>Roma</li>
-                <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">
+                <li className="relative before:content-['��'] before:mr-4 before:text-slate-400">
                   Bologna
                 </li>
                 <li className="relative before:content-['•'] before:mr-4 before:text-slate-400">
