@@ -1,5 +1,6 @@
 import { memo, useMemo } from "react";
 import type { LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 import {
   Accessibility,
   BadgeCheck,
@@ -43,13 +44,14 @@ import { TYPE } from "@/constants/styles";
 
 type FeatureStatus = "ideal" | "warning" | "critical" | "neutral";
 
-type StatusTone = "positive" | "negative" | "neutral";
+type StatusTone = "positive" | "negative" | "neutral" | "warning";
 
 type FeatureItem = {
   icon: LucideIcon;
   label: string;
-  value: string | number | JSX.Element;
+  value: string | number | ReactNode;
   helperText?: string;
+  tooltip?: string;
   status?: FeatureStatus;
 };
 
@@ -152,6 +154,7 @@ const BADGE_TONES: Record<StatusTone, string> = {
     "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200",
   negative: "bg-rose-50 text-rose-700 ring-1 ring-inset ring-rose-200",
   neutral: "bg-slate-100 text-slate-700 ring-1 ring-inset ring-slate-200",
+  warning: "bg-amber-50 text-amber-700 ring-1 ring-inset ring-amber-200",
 };
 
 type StatusBadgeProps = {
@@ -172,6 +175,7 @@ const StatusBadge = ({ tone, label }: StatusBadgeProps) => (
         tone === "positive" && "bg-emerald-500",
         tone === "negative" && "bg-rose-500",
         tone === "neutral" && "bg-slate-500",
+        tone === "warning" && "bg-amber-500",
       )}
     />
     {label}
@@ -196,7 +200,14 @@ const FeatureList = ({ title, items }: FeatureListProps) => (
 
 type FeatureRowProps = FeatureItem;
 
-const FeatureRow = ({ icon: Icon, label, value, helperText, status }: FeatureRowProps) => {
+const FeatureRow = ({
+  icon: Icon,
+  label,
+  value,
+  helperText,
+  tooltip,
+  status,
+}: FeatureRowProps) => {
   const safeStatus = status ?? "neutral";
   const iconClasses = STATUS_ICON_TONES[safeStatus];
   const valueClasses = STATUS_VALUE_TONES[safeStatus];
@@ -232,12 +243,12 @@ const FeatureRow = ({ icon: Icon, label, value, helperText, status }: FeatureRow
         <dt className="text-sm font-semibold text-slate-900">{label}</dt>
         {helperText && <dd className="text-xs text-slate-500">{helperText}</dd>}
       </div>
-      {helperText ? (
+      {tooltip ? (
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>{contentWrapper}</TooltipTrigger>
             <TooltipContent side="bottom" className="max-w-xs text-left">
-              {helperText}
+              {tooltip}
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
