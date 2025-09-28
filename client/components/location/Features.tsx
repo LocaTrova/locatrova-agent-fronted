@@ -66,7 +66,7 @@ type LocationSpace = {
 
 type CinemaLocationType = "studio" | "historic" | "club" | "outdoor";
 
-type CinemaLocationProfile = {
+export type CinemaLocationProfile = {
   locationType: CinemaLocationType;
   sentiment: {
     mood: string;
@@ -550,8 +550,12 @@ const demoProfile: CinemaLocationProfile = {
   },
 };
 
-const FeaturesSection = () => {
-  const profile = demoProfile;
+type FeaturesSectionProps = {
+  profile?: CinemaLocationProfile;
+};
+
+const FeaturesSection = ({ profile: providedProfile }: FeaturesSectionProps) => {
+  const profile = providedProfile ?? demoProfile;
   const essentials = useMemo<FeatureItem[]>(
     () => [
       {
