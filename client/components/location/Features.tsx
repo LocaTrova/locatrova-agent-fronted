@@ -386,7 +386,7 @@ const AdditionalSections = ({
 
     return (
       <div className="mt-8">
-        <h3 className={`${TYPE.H3} mb-3 flex items-center gap-2`}>
+        <h3 className={`${SECTION_HEADING} mb-3 flex items-center gap-2`}>
           <Building2 className="h-5 w-5 text-slate-600" aria-hidden />
           Patrimonio & Vincoli
         </h3>
@@ -421,7 +421,7 @@ const AdditionalSections = ({
 
     return (
       <div className="mt-8">
-        <h3 className={`${TYPE.H3} mb-3 flex items-center gap-2`}>
+        <h3 className={`${SECTION_HEADING} mb-3 flex items-center gap-2`}>
           <Music className="h-5 w-5 text-slate-600" aria-hidden />
           Eventi & Intrattenimento
         </h3>
@@ -457,7 +457,7 @@ const AdditionalSections = ({
 
     return (
       <div className="mt-8">
-        <h3 className={`${TYPE.H3} mb-3 flex items-center gap-2`}>
+        <h3 className={`${SECTION_HEADING} mb-3 flex items-center gap-2`}>
           <Sun className="h-5 w-5 text-slate-600" aria-hidden />
           Considerazioni Ambientali
         </h3>
