@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router";
 import FeaturesSection, {
   type CinemaLocationProfile,
@@ -274,7 +273,7 @@ export default function LocationPage() {
               elettriche, scalda Acqua in Pompa di Calore e impianto di
               condizionamento. Per qualsiasi altra personalizzazione la società
               costruttrice è disponibile ad incontrare le esigenze
-              dell’acquirente, compatibilmente con lo stato di avanzamento dei
+              dell��acquirente, compatibilmente con lo stato di avanzamento dei
               lavori.
             </p>
           </div>
