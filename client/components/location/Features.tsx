@@ -67,7 +67,7 @@ const FeatureRow: FC<FeatureItem> = ({ icon: Icon, title, description }) => (
     <Icon className="h-7 w-7 text-slate-700 mt-2" />
     <div>
       <dt className="leading-6 ${TYPE.SUBTITLE}">{title}</dt>
-      <dd className="leading-5 ${TYPE.SMALL}">{description}</dd>
+      <dd className={`leading-5 ${TYPE.SMALL}`}>{description}</dd>
     </div>
   </div>
 );
