@@ -102,7 +102,6 @@ type CinemaLocationProfile = {
   };
   spaces: LocationSpace[];
   productionNotes: string;
-  technicalNotes: string;
   studioDetails?: {
     soundStages: string;
     totalAreaSqm: number;
@@ -483,7 +482,7 @@ const demoProfile: CinemaLocationProfile = {
     usableAreaSqm: 1200,
     totalAreaSqm: 3200,
     technicalNotes:
-      "Struttura in acciaio con portata 800 kg/punto, quadri certificati CEI 64-8.",
+      "Struttura in acciaio con portata 800 kg/punto, quadri certificati CEI 64-8. Passerelle aeree integrate, fibra 10 Gb ready, carriponte 1.5 t con certificazioni aggiornate.",
   },
   dimensions: {
     heightM: 6.5,
@@ -530,8 +529,6 @@ const demoProfile: CinemaLocationProfile = {
   ],
   productionNotes:
     "Layout modulare, black-out totale disponibile. Supporto on-site per scenografie e rigging.",
-  technicalNotes:
-    "Passerelle aeree integrate, fibra 10 Gb ready, carriponte 1.5 t con certificazioni aggiornate.",
   studioDetails: {
     soundStages: "3 teatri di posa insonorizzati (Stage A/B/C)",
     totalAreaSqm: 3200,
@@ -756,7 +753,7 @@ const FeaturesSection = () => {
         <RoomsGrid spaces={profile.spaces} />
         <NotesSection
           productionNotes={profile.productionNotes}
-          technicalNotes={profile.bimData.technicalNotes || profile.technicalNotes}
+          technicalNotes={profile.bimData.technicalNotes}
         />
         <AdditionalSections profile={profile} />
       </div>
