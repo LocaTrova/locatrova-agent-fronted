@@ -1,7 +1,6 @@
 import { FC, memo, useMemo } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
-import "leaflet/dist/leaflet.css";
 import { useGeocode, type Coords } from "@/hooks/useGeocode";
 import { TYPE } from "@/constants/styles";
 
