@@ -32,7 +32,7 @@ import {
   Umbrella,
   Users,
   Wallet,
-  Waveform,
+  Waves,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -603,7 +603,7 @@ const FeaturesSection = () => {
         value: profile.logistics.heavyVehicleAccess.accessPoint,
       },
       {
-        icon: Waveform,
+        icon: Waves,
         label: "Profilo Audio",
         value: profile.details.soundProfile,
         status: "ideal",
