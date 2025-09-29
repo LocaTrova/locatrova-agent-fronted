@@ -158,7 +158,10 @@ export default function FilterControls({
           value={filters.locationFilter}
           onValueChange={onLocationFilterChange}
         >
-          <SelectTrigger className={FILTER_CONFIG.SELECT_TRIGGER_CLASS}>
+          <SelectTrigger
+            className={`${FILTER_CONFIG.SELECT_TRIGGER_CLASS} min-w-[150px] sm:min-w-[180px]`}
+            aria-label="Filter by location type"
+          >
             <SelectValue placeholder={UI_TEXT.LABELS.LOCATION} />
           </SelectTrigger>
           <SelectContent align="start">
