@@ -1,10 +1,22 @@
 import React from "react";
-import type { LocationResult } from "../../../shared/api";
+import type { LocationResult, LocationAttributes } from "../../../shared/api";
 import { Link } from "react-router";
-import { Search, Home, Sun, BadgeCheck } from "lucide-react";
+import { Search, Home, Sun, BadgeCheck, type LucideIcon } from "lucide-react";
 import FavoriteToggle from "./FavoriteToggle";
 
 type ResultCardProps = Partial<LocationResult> & { href?: string };
+
+type AttributeMeta = {
+  key: keyof LocationAttributes;
+  label: string;
+  icon: LucideIcon;
+};
+
+const ATTRIBUTE_META: AttributeMeta[] = [
+  { key: "indoor", label: "Indoor", icon: Home },
+  { key: "outdoor", label: "Outdoor", icon: Sun },
+  { key: "permit", label: "Permit required", icon: BadgeCheck },
+];
 
 function ResultCard({
   title = "",
@@ -15,11 +27,13 @@ function ResultCard({
   tags,
   attributes,
 }: ResultCardProps) {
-  const attributeChips = [
-    { key: "indoor" as const, label: "Indoor", icon: Home },
-    { key: "outdoor" as const, label: "Outdoor", icon: Sun },
-    { key: "permit" as const, label: "Permit", icon: BadgeCheck },
-  ];
+  const activeAttributes = ATTRIBUTE_META.filter(
+    ({ key }) => attributes?.[key],
+  );
+  const displayedTags = tags?.slice(0, 3) ?? [];
+  const extraTagCount = tags && tags.length > displayedTags.length
+    ? tags.length - displayedTags.length
+    : 0;
 
   return (
     <div className="group relative overflow-hidden transition ui-card p-3 sm:p-4 hover:shadow-md hover:ring-1 hover:ring-orange-400/25 bg-white/70 backdrop-blur-md">
@@ -64,24 +78,22 @@ function ResultCard({
                 {description}
               </p>
             )}
-            {attributes && (
+            {activeAttributes.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {attributeChips.map(({ key, label, icon: Icon }) =>
-                  attributes?.[key] ? (
-                    <span
-                      key={key}
-                      className="inline-flex items-center gap-1 rounded-full bg-slate-100/80 px-2 py-0.5 text-[11px] font-medium text-slate-600 ring-1 ring-white/40"
-                    >
-                      <Icon className="h-3.5 w-3.5" aria-hidden />
-                      {label}
-                    </span>
-                  ) : null,
-                )}
+                {activeAttributes.map(({ key, label, icon: Icon }) => (
+                  <span
+                    key={key}
+                    className="inline-flex items-center gap-1 rounded-full bg-slate-100/80 px-2 py-0.5 text-[11px] font-medium text-slate-600 ring-1 ring-white/40"
+                  >
+                    <Icon className="h-3.5 w-3.5" aria-hidden />
+                    {label}
+                  </span>
+                ))}
               </div>
             )}
-            {tags && tags.length > 0 && (
+            {displayedTags.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {tags.slice(0, 3).map((tag) => (
+                {displayedTags.map((tag) => (
                   <span
                     key={tag}
                     className="inline-flex items-center rounded-full border border-slate-200/70 bg-white/80 px-2 py-0.5 text-[11px] uppercase tracking-wide text-slate-500"
@@ -89,6 +101,11 @@ function ResultCard({
                     {tag}
                   </span>
                 ))}
+                {extraTagCount > 0 && (
+                  <span className="inline-flex items-center rounded-full border border-dashed border-slate-200/70 bg-white/70 px-2 py-0.5 text-[11px] font-medium text-slate-500">
+                    +{extraTagCount}
+                  </span>
+                )}
               </div>
             )}
           </div>
@@ -99,19 +116,7 @@ function ResultCard({
                 to={href || "#"}
                 aria-label={`View ${title}`}
                 title={`View ${title}`}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-orange-500/60"
-                style={{
-                  backgroundColor: "hsla(var(--brand), 0.22)",
-                  boxShadow: "0 8px 18px hsla(18, 100%, 50%, 0.15)",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "hsla(var(--brand), 0.32)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "hsla(var(--brand), 0.22)")
-                }
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-orange-100/70 text-orange-900 ring-1 ring-orange-400/40 backdrop-blur-md transition hover:bg-orange-200/80 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500/60"
               >
                 <Search className="h-4 w-4" />
               </Link>
