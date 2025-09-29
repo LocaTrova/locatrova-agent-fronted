@@ -123,12 +123,17 @@ export default function FilterControls({
               ))}
             </div>
           )}
-          <p className="text-xs text-slate-500" aria-live="polite">
-            {filterSummary}
-          </p>
-          <span className="sr-only" aria-live="polite">
-            {filterAnnouncement}
-          </span>
+          <div className="space-y-1">
+            <p className="text-xs text-slate-500" aria-live="polite">
+              {filterSummary}
+            </p>
+            <p className="text-[11px] text-slate-500/80" aria-live="polite">
+              {contextDescription}
+            </p>
+            <span className="sr-only" aria-live="polite">
+              {filterAnnouncement}
+            </span>
+          </div>
         </div>
         <ToggleGroup
           type="single"
