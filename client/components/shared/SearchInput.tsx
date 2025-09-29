@@ -83,14 +83,15 @@ export default function SearchInput({
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          aria-describedby={helperTextId}
         />
         <button
+          type="button"
           aria-label={UI_TEXT.BUTTONS.SEND}
           title={UI_TEXT.BUTTONS.SEND}
           disabled={isDisabled}
           onClick={handleSubmit}
-          className={`${STYLES.BUTTON.SEND} hover:shadow-sm disabled:shadow-none`}
-          style={{ transform: "rotate(90deg)" }}
+          className={`${STYLES.BUTTON.SEND} rotate-90 hover:shadow-sm disabled:shadow-none disabled:opacity-60`}
         >
           <ArrowUp className={DIMENSIONS.ICON.SMALL} />
         </button>
