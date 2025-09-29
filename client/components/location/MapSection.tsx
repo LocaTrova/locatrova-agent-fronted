@@ -1,136 +1,51 @@
-import { FC, memo, useMemo } from "react";
-import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
-import type { LatLngExpression } from "leaflet";
-import { useGeocode, type Coords } from "@/hooks/useGeocode";
-import { TYPE } from "@/constants/styles";
+import { memo } from "react";
 
-export type MapPoint = { lat: number; lon: number; label?: string };
+import { MapView, type MapViewProps, type MapPoint } from "./MapView";
 
-type MapSectionProps = {
+export type { MapPoint };
+
+export interface MapSectionProps {
   address: string;
-  zoom?: number;
-  markers?: MapPoint[];
-};
-
-function toEmbedUrl(coords: Coords, zoom: number) {
-  if (!coords) return "";
-  const { lat, lon } = coords;
-  const delta = 0.01; // ~1km radius
-  const left = lon - delta;
-  const right = lon + delta;
-  const top = lat + delta;
-  const bottom = lat - delta;
-  const bbox = `${left},${bottom},${right},${top}`;
-  const marker = `${lat},${lon}`;
-  return `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(
-    bbox,
-  )}&layer=mapnik&marker=${encodeURIComponent(marker)}&zoom=${zoom}`;
+  zoom?: MapViewProps["zoom"];
+  markers?: MapViewProps["markers"];
+  title?: string;
+  description?: string;
+  externalLinkLabel?: string;
+  loadingLabel?: string;
+  errorLabel?: string;
 }
 
-const MapSection: FC<MapSectionProps> = ({ address, zoom = 16, markers }) => {
-  const { coords, status } = useGeocode(address);
+const DEFAULT_TITLE = "Mappa";
+const DEFAULT_EXTERNAL_LABEL = "Apri su OpenStreetMap";
+const DEFAULT_LOADING_LABEL = "Caricamento mappa…";
+const DEFAULT_ERROR_LABEL =
+  "Impossibile caricare la mappa per questo indirizzo.";
 
-  const embedUrl = useMemo(() => toEmbedUrl(coords, zoom), [coords, zoom]);
-  const viewUrl = useMemo(() => {
-    if (!coords) return "#";
-    return `https://www.openstreetmap.org/?mlat=${coords.lat}&mlon=${coords.lon}#map=${zoom}/${coords.lat}/${coords.lon}`;
-  }, [coords, zoom]);
-
-  const hasMultiple = (markers?.length ?? 0) > 0;
-
+const MapSection = ({
+  address,
+  zoom,
+  markers,
+  title = DEFAULT_TITLE,
+  description,
+  externalLinkLabel = DEFAULT_EXTERNAL_LABEL,
+  loadingLabel = DEFAULT_LOADING_LABEL,
+  errorLabel = DEFAULT_ERROR_LABEL,
+}: MapSectionProps) => {
   return (
-    <section aria-label="Mappa" className="py-8">
-      <h2 className={TYPE.H2}>Mappa</h2>
-      <div
-        className="mt-3 relative w-full max-w-full rounded-xl overflow-hidden ring-1 ring-slate-200"
-        style={{ aspectRatio: "16 / 9" }}
-      >
-        {status === "loading" && (
-          <div className="absolute inset-0 grid place-items-center bg-slate-100">
-            <span className={TYPE.SMALL}>Caricamento mappa…</span>
-          </div>
-        )}
-        {status === "error" && (
-          <div className="absolute inset-0 grid place-items-center bg-slate-50">
-            <span className={TYPE.SMALL}>
-              Impossibile caricare la mappa per questo indirizzo.
-            </span>
-          </div>
-        )}
-        {status === "done" &&
-          coords &&
-          (hasMultiple ? (
-            <LeafletPointsMap
-              center={[coords.lat, coords.lon]}
-              zoom={zoom}
-              points={markers!}
-            />
-          ) : (
-            embedUrl && (
-              <iframe
-                title="OpenStreetMap"
-                src={embedUrl}
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-              />
-            )
-          ))}
-      </div>
-      <div className="mt-2">
-        <a
-          className="text-sky-700 text-sm underline hover:no-underline"
-          href={viewUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Apri su OpenStreetMap
-        </a>
-      </div>
-    </section>
-  );
-};
-
-const LeafletPointsMap: FC<{
-  center: LatLngExpression;
-  zoom: number;
-  points: MapPoint[];
-}> = ({ center, zoom, points }) => {
-  return (
-    <MapContainer
-      center={center}
+    <MapView
+      address={address}
       zoom={zoom}
-      className="absolute inset-0 h-full w-full"
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {/* Center marker */}
-      <CircleMarker
-        center={center}
-        radius={8}
-        pathOptions={{
-          color: "#0ea5e9",
-          fillColor: "#0ea5e9",
-          fillOpacity: 0.9,
-        }}
-      />
-      {/* Extra points */}
-      {points.map((p, idx) => (
-        <CircleMarker
-          key={`${p.lat},${p.lon}-${idx}`}
-          center={[p.lat, p.lon]}
-          radius={7}
-          pathOptions={{
-            color: "#ef4444",
-            fillColor: "#ef4444",
-            fillOpacity: 0.9,
-          }}
-        >
-          {p.label ? <Popup>{p.label}</Popup> : null}
-        </CircleMarker>
-      ))}
-    </MapContainer>
+      markers={markers}
+      title={title}
+      description={description}
+      externalLinkLabel={externalLinkLabel}
+      loadingLabel={loadingLabel}
+      errorLabel={errorLabel}
+      ariaLabel={title}
+      className="py-8"
+      mapClassName="rounded-xl border-0 ring-1 ring-slate-200 bg-white"
+      showExternalLink
+    />
   );
 };
 

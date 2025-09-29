@@ -1,4 +1,8 @@
-import type { LocationResult, LocationFilterType, LocationAttributes } from "../../../shared/api";
+import type {
+  LocationResult,
+  LocationFilterType,
+  LocationAttributes,
+} from "../../../shared/api";
 import type { ILocationRepository } from "../interfaces/locationInterfaces";
 
 /**
@@ -29,20 +33,18 @@ const mockLocationData: LocationResult[] = [
   },
   {
     title: "Historic Art Deco Theater",
-    description:
-      "1920s theater with original fixtures and red velvet seats.",
+    description: "1920s theater with original fixtures and red velvet seats.",
     imageUrl:
-      "https://images.unsplash.com/photo-1489599165620-bbebfb7d8e00?q=80&w=400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=400&auto=format&fit=crop",
     badge: "historic",
     tags: ["historic", "indoor"],
     attributes: { indoor: true, outdoor: false, permit: true },
   },
   {
     title: "Sunlit Botanical Greenhouse",
-    description:
-      "Glass dome filled with tropical plants and natural lighting.",
+    description: "Glass dome filled with tropical plants and natural lighting.",
     imageUrl:
-      "https://images.unsplash.com/photo-1519982684761-282b8d602881?q=80&w=400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=400&auto=format&fit=crop",
     badge: "nature",
     tags: ["nature", "indoor"],
     attributes: { indoor: true, outdoor: false, permit: false },

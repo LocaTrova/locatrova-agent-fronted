@@ -31,7 +31,7 @@ export const STYLES = {
   // Sticky elements
   STICKY: {
     BOTTOM:
-      "sticky bottom-0 border-t border-white/20 p-2 sm:p-3 bg-white/50 backdrop-blur-md supports-[backdrop-filter]:bg-white/40 pb-safe",
+      "sticky bottom-0 border-t border-white/20 p-2 sm:p-3 bg-white/65 backdrop-blur-md supports-[backdrop-filter]:bg-white/45 pb-safe",
     TOP: "sticky top-0 z-10 border-b border-white/20 bg-white/40 backdrop-blur-md supports-[backdrop-filter]:bg-white/30",
   },
 

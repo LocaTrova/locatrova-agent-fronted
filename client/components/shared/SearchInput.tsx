@@ -25,6 +25,8 @@ export default function SearchInput({
   const [value, setValue] = useState("");
   const isDisabled = value.trim().length === 0;
   const fileInputId = useId();
+  const helperTextId = useId();
+  const attachmentHintId = useId();
 
   const handleSubmit = useCallback(() => {
     if (isDisabled) return;
@@ -70,6 +72,9 @@ export default function SearchInput({
   return (
     <div
       className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className} ring-1 ring-orange-300/20`}
+      role="form"
+      aria-label="Scene brief input"
+      onSubmit={(event) => event.preventDefault()}
     >
       <div className="relative">
         <label htmlFor="search-input" className="sr-only">
@@ -82,14 +87,15 @@ export default function SearchInput({
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          aria-describedby={helperTextId}
         />
         <button
+          type="button"
           aria-label={UI_TEXT.BUTTONS.SEND}
           title={UI_TEXT.BUTTONS.SEND}
           disabled={isDisabled}
           onClick={handleSubmit}
-          className={`${STYLES.BUTTON.SEND} hover:shadow-sm disabled:shadow-none`}
-          style={{ transform: "rotate(90deg)" }}
+          className={`${STYLES.BUTTON.SEND} rotate-90 hover:shadow-sm disabled:shadow-none disabled:opacity-60`}
         >
           <ArrowUp className={DIMENSIONS.ICON.SMALL} />
         </button>
@@ -105,12 +111,16 @@ export default function SearchInput({
             className="hidden"
             onChange={handleFileSelect}
           />
-          <div className="flex items-center justify-between px-4 py-2 text-sm border-t border-white/20">
+          <div
+            className="flex flex-col gap-2 px-4 py-2 text-sm border-t border-white/20 bg-white/60 sm:flex-row sm:items-center sm:justify-between"
+            aria-describedby={attachmentHintId}
+          >
             <div className="flex items-center gap-2">
               {showAttachment && (
                 <button
                   className={`${STYLES.BUTTON.ICON} text-black`}
-                  aria-label={UI_TEXT.BUTTONS.ADD_ATTACHMENT}
+                  type="button"
+                  aria-labelledby={attachmentHintId}
                   onClick={handleAttachmentClick}
                 >
                   <Plus className={DIMENSIONS.ICON.SMALL} />
@@ -119,6 +129,7 @@ export default function SearchInput({
               {showStyling && (
                 <button
                   className={`${STYLES.BUTTON.ICON} text-slate-500`}
+                  type="button"
                   aria-label={UI_TEXT.BUTTONS.STYLING}
                 >
                   <Palette
@@ -130,6 +141,15 @@ export default function SearchInput({
                 </button>
               )}
             </div>
+            <span
+              id={helperTextId}
+              className="text-[10px] uppercase tracking-[0.12em] text-slate-400"
+            >
+              Enter to send • Shift+Enter for new line
+            </span>
+            <span id={attachmentHintId} className="text-[11px] text-slate-500">
+              Add reference files or styling notes to get more tailored results.
+            </span>
           </div>
         </>
       )}
