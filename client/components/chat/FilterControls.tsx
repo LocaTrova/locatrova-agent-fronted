@@ -174,7 +174,7 @@ export default function FilterControls({
         </Select>
 
         <div className="flex items-center gap-1">
-          <span className="text-xs text-slate-500">
+          <span className="text-xs text-slate-500" id="attribute-filter-label">
             {UI_TEXT.LABELS.CURATE_BY}
           </span>
           <ToggleGroup
@@ -182,6 +182,7 @@ export default function FilterControls({
             value={filters.activeFilters}
             onValueChange={onAttributeFiltersChange}
             className={FILTER_CONFIG.TOGGLE_GROUP_CLASS}
+            aria-labelledby="attribute-filter-label"
           >
             {Object.entries(ATTRIBUTE_FILTERS).map(([value, config]) => (
               <ToggleGroupItem
