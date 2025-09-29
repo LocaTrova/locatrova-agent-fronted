@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { LocationResult } from "../../../shared/api";
 import { Link } from "react-router";
-import { Search } from "lucide-react";
+import { Search, Home, Sun, BadgeCheck } from "lucide-react";
 import FavoriteToggle from "./FavoriteToggle";
 
 type ResultCardProps = Partial<LocationResult> & { href?: string };
