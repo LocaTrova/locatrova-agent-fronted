@@ -9,6 +9,8 @@ import { TYPE } from "@/constants/styles";
 
 export type MapPoint = { lat: number; lon: number; label?: string };
 
+type GeocodeStatus = "idle" | "loading" | "done" | "error";
+
 export interface MapViewProps {
   address: string;
   zoom?: number;
