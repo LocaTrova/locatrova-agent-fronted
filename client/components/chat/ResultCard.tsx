@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import type { LocationResult } from "../../../shared/api";
 import { Link } from "react-router";
 import { Search, Home, Sun, BadgeCheck } from "lucide-react";
