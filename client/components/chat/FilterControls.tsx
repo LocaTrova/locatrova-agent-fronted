@@ -71,7 +71,8 @@ export default function FilterControls({
               {resultCount} found
             </span>
           </div>
-          {(filters.locationFilter !== "any" || filters.activeFilters.length > 0) && (
+          {(filters.locationFilter !== "any" ||
+            filters.activeFilters.length > 0) && (
             <div className="flex flex-wrap items-center gap-1 min-w-0">
               {filters.locationFilter !== "any" && (
                 <button

@@ -1,4 +1,8 @@
-import type { LocationResult, LocationFilterType, LocationAttributes } from "../../../shared/api";
+import type {
+  LocationResult,
+  LocationFilterType,
+  LocationAttributes,
+} from "../../../shared/api";
 import type { ILocationRepository } from "../interfaces/locationInterfaces";
 
 /**
@@ -29,8 +33,7 @@ const mockLocationData: LocationResult[] = [
   },
   {
     title: "Historic Art Deco Theater",
-    description:
-      "1920s theater with original fixtures and red velvet seats.",
+    description: "1920s theater with original fixtures and red velvet seats.",
     imageUrl:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=400&auto=format&fit=crop",
     badge: "historic",
@@ -39,8 +42,7 @@ const mockLocationData: LocationResult[] = [
   },
   {
     title: "Sunlit Botanical Greenhouse",
-    description:
-      "Glass dome filled with tropical plants and natural lighting.",
+    description: "Glass dome filled with tropical plants and natural lighting.",
     imageUrl:
       "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=400&auto=format&fit=crop",
     badge: "nature",
