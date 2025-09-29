@@ -68,7 +68,6 @@ function MapContent({
   coords,
   markers,
   zoom,
-  aspectRatio,
   mapClassName,
   embedUrl,
   loadingLabel,
