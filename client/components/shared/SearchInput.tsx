@@ -107,7 +107,7 @@ export default function SearchInput({
             className="hidden"
             onChange={handleFileSelect}
           />
-          <div className="flex items-center justify-between px-4 py-2 text-sm border-t border-white/20">
+          <div className="flex items-center justify-between px-4 py-2 text-sm border-t border-white/20 bg-white/60">
             <div className="flex items-center gap-2">
               {showAttachment && (
                 <button
@@ -132,6 +132,12 @@ export default function SearchInput({
                 </button>
               )}
             </div>
+            <span
+              id={helperTextId}
+              className="text-[10px] uppercase tracking-[0.12em] text-slate-400"
+            >
+              Enter to send • Shift+Enter for new line
+            </span>
           </div>
         </>
       )}
