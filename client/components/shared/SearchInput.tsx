@@ -74,6 +74,7 @@ export default function SearchInput({
       className={`${STYLES.CONTAINER.INPUT_WRAPPER} ${className} ring-1 ring-orange-300/20`}
       role="form"
       aria-label="Scene brief input"
+      onSubmit={(event) => event.preventDefault()}
     >
       <div className="relative">
         <label htmlFor="search-input" className="sr-only">
