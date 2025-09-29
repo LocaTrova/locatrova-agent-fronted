@@ -108,7 +108,6 @@ function MapContent({
         src={embedUrl}
         className={cn("absolute inset-0 h-full w-full border-0", mapClassName)}
         loading="lazy"
-        style={{ aspectRatio }}
       />
     );
   }
