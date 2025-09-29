@@ -64,34 +64,59 @@ function ResultCard({
                 {description}
               </p>
             )}
-          </div>
-          <div className="flex items-center">
-            {title && (
-              <>
-                <Link
-                  to={href || "#"}
-                  aria-label={`View ${title}`}
-                  title={`View ${title}`}
-                  className="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-orange-500/60"
-                  style={{
-                    backgroundColor: "hsla(var(--brand), 0.22)",
-                    boxShadow: "0 8px 18px hsla(18, 100%, 50%, 0.15)",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor =
-                      "hsla(var(--brand), 0.32)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor =
-                      "hsla(var(--brand), 0.22)")
-                  }
-                >
-                  <Search className="h-4 w-4" />
-                </Link>
-                <FavoriteToggle />
-              </>
+            {attributes && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {attributeChips.map(({ key, label, icon: Icon }) =>
+                  attributes?.[key] ? (
+                    <span
+                      key={key}
+                      className="inline-flex items-center gap-1 rounded-full bg-slate-100/80 px-2 py-0.5 text-[11px] font-medium text-slate-600 ring-1 ring-white/40"
+                    >
+                      <Icon className="h-3.5 w-3.5" aria-hidden />
+                      {label}
+                    </span>
+                  ) : null,
+                )}
+              </div>
+            )}
+            {tags && tags.length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {tags.slice(0, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center rounded-full border border-slate-200/70 bg-white/80 px-2 py-0.5 text-[11px] uppercase tracking-wide text-slate-500"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             )}
           </div>
+          {title && (
+            <div className="flex items-center justify-end gap-2 pt-3">
+              <FavoriteToggle />
+              <Link
+                to={href || "#"}
+                aria-label={`View ${title}`}
+                title={`View ${title}`}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-orange-900 ring-1 ring-orange-400/40 border border-white/30 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-orange-500/60"
+                style={{
+                  backgroundColor: "hsla(var(--brand), 0.22)",
+                  boxShadow: "0 8px 18px hsla(18, 100%, 50%, 0.15)",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor =
+                    "hsla(var(--brand), 0.32)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor =
+                    "hsla(var(--brand), 0.22)")
+                }
+              >
+                <Search className="h-4 w-4" />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
