@@ -27,13 +27,34 @@ export default function ChatSection({
     el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   }, [messages.length]);
 
+  const messageCount = messages.length;
+  const headerHint =
+    messageCount === 0
+      ? "Share a prompt to start curating locations."
+      : "Refine your brief or ask follow-up questions.";
+  const messageLabel =
+    messageCount === 0
+      ? "No messages yet"
+      : `${messageCount} ${messageCount === 1 ? "message" : "messages"}`;
+
   return (
     <section
       aria-label="Conversation"
-      className={`${STYLES.CONTAINER.SECTION} border border-orange-200/40 ring-1 ring-orange-300/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]`}
+      className={`${STYLES.CONTAINER.SECTION} rounded-[26px] overflow-hidden border border-orange-200/45 ring-1 ring-orange-300/25 shadow-[0_12px_32px_rgba(255,152,59,0.12)]`}
     >
-      <header className={`${STYLES.STICKY.TOP} px-4 sm:px-6 py-2`}>
-        <h2 className={TYPE.SECTION_LABEL}>Chat</h2>
+      <header className={`${STYLES.STICKY.TOP} px-4 sm:px-6 py-3`}>
+        <div className="flex flex-wrap items-baseline justify-between gap-y-1">
+          <div className="flex flex-col gap-1">
+            <h2 className={`${TYPE.SECTION_LABEL} text-slate-700`}>Chat</h2>
+            <p className="text-xs text-slate-500">{headerHint}</p>
+          </div>
+          <span
+            className="text-[11px] font-medium text-slate-400 sm:text-xs"
+            aria-live="polite"
+          >
+            {messageLabel}
+          </span>
+        </div>
       </header>
       <div
         ref={scrollRef}
