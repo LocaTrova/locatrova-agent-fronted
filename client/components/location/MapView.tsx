@@ -86,11 +86,7 @@ function MapContent({
     return <MapStatusOverlay message={loadingLabel} variant="loading" />;
   }
 
-  if (resolvedStatus === "error" || !resolvedCenter) {
-    return <MapStatusOverlay message={errorLabel} variant="error" />;
-  }
-
-  if (hasMarkers) {
+  if (hasMarkers && resolvedCenter) {
     return (
       <LeafletPointsMap
         center={resolvedCenter}
@@ -99,6 +95,10 @@ function MapContent({
         className={mapClassName}
       />
     );
+  }
+
+  if (resolvedStatus === "error" || !resolvedCenter) {
+    return <MapStatusOverlay message={errorLabel} variant="error" />;
   }
 
   if (embedUrl) {
