@@ -42,7 +42,7 @@ const mockLocationData: LocationResult[] = [
     description:
       "Glass dome filled with tropical plants and natural lighting.",
     imageUrl:
-      "https://images.unsplash.com/photo-1519982684761-282b8d602881?q=80&w=400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=400&auto=format&fit=crop",
     badge: "nature",
     tags: ["nature", "indoor"],
     attributes: { indoor: true, outdoor: false, permit: false },
