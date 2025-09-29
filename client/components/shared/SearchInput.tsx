@@ -147,10 +147,7 @@ export default function SearchInput({
             >
               Enter to send • Shift+Enter for new line
             </span>
-            <span
-              id={attachmentHintId}
-              className="text-[11px] text-slate-500"
-            >
+            <span id={attachmentHintId} className="text-[11px] text-slate-500">
               Add reference files or styling notes to get more tailored results.
             </span>
           </div>

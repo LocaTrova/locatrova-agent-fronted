@@ -18,7 +18,8 @@ export interface MapSectionProps {
 const DEFAULT_TITLE = "Mappa";
 const DEFAULT_EXTERNAL_LABEL = "Apri su OpenStreetMap";
 const DEFAULT_LOADING_LABEL = "Caricamento mappa…";
-const DEFAULT_ERROR_LABEL = "Impossibile caricare la mappa per questo indirizzo.";
+const DEFAULT_ERROR_LABEL =
+  "Impossibile caricare la mappa per questo indirizzo.";
 
 const MapSection = ({
   address,

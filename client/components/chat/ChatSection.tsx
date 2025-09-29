@@ -64,13 +64,17 @@ export default function ChatSection({
       >
         {messageCount === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-orange-200/60 bg-white/70 px-6 py-10 text-center text-slate-500">
-            <MessageSquareDashed className="h-8 w-8 text-orange-400" aria-hidden />
+            <MessageSquareDashed
+              className="h-8 w-8 text-orange-400"
+              aria-hidden
+            />
             <div className="space-y-1">
               <p className="text-sm font-medium text-slate-600">
                 Start the conversation
               </p>
               <p className="text-xs text-slate-500">
-                Describe the mood, setting, or shot you need and I’ll curate locations.
+                Describe the mood, setting, or shot you need and I’ll curate
+                locations.
               </p>
             </div>
           </div>

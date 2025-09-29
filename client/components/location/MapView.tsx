@@ -122,7 +122,12 @@ interface LeafletPointsMapProps {
   className?: string;
 }
 
-function LeafletPointsMap({ center, zoom, points, className }: LeafletPointsMapProps) {
+function LeafletPointsMap({
+  center,
+  zoom,
+  points,
+  className,
+}: LeafletPointsMapProps) {
   return (
     <MapContainer
       center={center}
@@ -137,7 +142,11 @@ function LeafletPointsMap({ center, zoom, points, className }: LeafletPointsMapP
       <CircleMarker
         center={center}
         radius={8}
-        pathOptions={{ color: "#0ea5e9", fillColor: "#0ea5e9", fillOpacity: 0.9 }}
+        pathOptions={{
+          color: "#0ea5e9",
+          fillColor: "#0ea5e9",
+          fillOpacity: 0.9,
+        }}
       />
       {points.map((point, index) => {
         const key = `${point.lat}-${point.lon}-${index}`;
@@ -146,7 +155,11 @@ function LeafletPointsMap({ center, zoom, points, className }: LeafletPointsMapP
             key={key}
             center={[point.lat, point.lon]}
             radius={7}
-            pathOptions={{ color: "#ef4444", fillColor: "#ef4444", fillOpacity: 0.9 }}
+            pathOptions={{
+              color: "#ef4444",
+              fillColor: "#ef4444",
+              fillOpacity: 0.9,
+            }}
           >
             {point.label ? <Popup>{point.label}</Popup> : null}
           </CircleMarker>
@@ -168,7 +181,12 @@ function MapStatusOverlay({ message, variant }: MapStatusOverlayProps) {
       : "bg-white/75 text-slate-600";
 
   return (
-    <div className={cn("absolute inset-0 grid place-items-center text-center", variantClasses)}>
+    <div
+      className={cn(
+        "absolute inset-0 grid place-items-center text-center",
+        variantClasses,
+      )}
+    >
       <span className="text-sm font-medium">{message}</span>
     </div>
   );
@@ -206,10 +224,7 @@ function MapViewComponent({
   const sectionLabel = ariaLabel ?? title ?? "Map view";
 
   return (
-    <section
-      aria-label={sectionLabel}
-      className={cn("space-y-3", className)}
-    >
+    <section aria-label={sectionLabel} className={cn("space-y-3", className)}>
       {(title || description) && (
         <div className="space-y-1">
           {title ? <h2 className={TYPE.H2}>{title}</h2> : null}

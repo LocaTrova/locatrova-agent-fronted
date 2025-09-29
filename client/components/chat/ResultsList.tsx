@@ -67,7 +67,8 @@ export default function ResultsList({
         className={`${STYLES.SCROLL.AREA} ${STYLES.SPACING.PADDING_MEDIUM} space-y-4`}
       >
         <div className="rounded-xl border border-white/30 bg-white/70 px-4 py-3 text-xs text-slate-600">
-          Viewing map for "{addressSeed && addressSeed.trim() ? addressSeed : "Roma, Italia"}".
+          Viewing map for "
+          {addressSeed && addressSeed.trim() ? addressSeed : "Roma, Italia"}".
           Toggle back to list view to explore curated cards.
         </div>
         <MapSection

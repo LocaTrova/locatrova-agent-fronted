@@ -31,9 +31,10 @@ function ResultCard({
     ({ key }) => attributes?.[key],
   );
   const displayedTags = tags?.slice(0, 3) ?? [];
-  const extraTagCount = tags && tags.length > displayedTags.length
-    ? tags.length - displayedTags.length
-    : 0;
+  const extraTagCount =
+    tags && tags.length > displayedTags.length
+      ? tags.length - displayedTags.length
+      : 0;
 
   return (
     <div className="group relative overflow-hidden transition ui-card p-3 sm:p-4 hover:shadow-md hover:ring-1 hover:ring-orange-400/25 bg-white/70 backdrop-blur-md">
