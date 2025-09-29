@@ -12,12 +12,21 @@ function ResultCard({
   imageUrl,
   badge,
   href,
+  tags,
+  attributes,
 }: ResultCardProps) {
+  const attributeChips = [
+    { key: "indoor" as const, label: "Indoor", icon: Home },
+    { key: "outdoor" as const, label: "Outdoor", icon: Sun },
+    { key: "permit" as const, label: "Permit", icon: BadgeCheck },
+  ];
+
   return (
-    <div className="transition ui-card p-3 hover:shadow-md hover:ring-1 hover:ring-orange-400/30 bg-white/60 backdrop-blur-md">
-      <div className="flex gap-3">
+    <div className="group relative transition ui-card p-3 sm:p-4 hover:shadow-md hover:ring-1 hover:ring-orange-400/25 bg-white/70 backdrop-blur-md">
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 bg-gradient-to-br from-orange-100/30 via-transparent to-white/40" />
+      <div className="relative flex gap-3 sm:gap-4">
         <div className="flex-shrink-0">
-          <span className="relative flex h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-lg bg-slate-100">
+          <span className="relative flex h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-lg bg-slate-100 ring-1 ring-white/40 shadow-sm">
             {imageUrl ? (
               <img
                 src={imageUrl}
