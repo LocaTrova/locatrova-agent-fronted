@@ -129,6 +129,7 @@ export default function SearchInput({
               {showStyling && (
                 <button
                   className={`${STYLES.BUTTON.ICON} text-slate-500`}
+                  type="button"
                   aria-label={UI_TEXT.BUTTONS.STYLING}
                 >
                   <Palette
