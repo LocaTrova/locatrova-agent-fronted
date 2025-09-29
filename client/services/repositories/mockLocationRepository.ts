@@ -32,7 +32,7 @@ const mockLocationData: LocationResult[] = [
     description:
       "1920s theater with original fixtures and red velvet seats.",
     imageUrl:
-      "https://images.unsplash.com/photo-1489599165620-bbebfb7d8e00?q=80&w=400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=400&auto=format&fit=crop",
     badge: "historic",
     tags: ["historic", "indoor"],
     attributes: { indoor: true, outdoor: false, permit: true },
