@@ -47,56 +47,72 @@ export default function FilterControls({
   onClearFilters,
   hasActiveFilters,
 }: FilterControlsProps) {
-  const baseToggleItem = "px-2 data-[state=on]:shadow-sm transition";
-  const listItemClass = `${baseToggleItem} ${!mapView ? "bg-white/70 text-slate-800 ring-1 ring-white/30" : "text-slate-600"}`;
+  const appliedFilterCount =
+    filters.activeFilters.length + (filters.locationFilter !== "any" ? 1 : 0);
+  const filterSummary =
+    appliedFilterCount > 0
+      ? `${appliedFilterCount} active ${
+          appliedFilterCount === 1 ? "filter" : "filters"
+        }`
+      : "Showing all curated picks";
+  const baseToggleItem =
+    "rounded-[18px] px-3 py-1.5 text-xs font-medium data-[state=on]:shadow-sm transition";
+  const listItemClass = `${baseToggleItem} ${!mapView ? "bg-white/80 text-slate-800 ring-1 ring-white/50" : "text-slate-600"}`;
   const mapItemClass = `${baseToggleItem} ${mapView ? "bg-orange-100/80 text-orange-800 ring-1 ring-orange-400/40 shadow-[0_0_0_2px_rgba(255,152,59,0.25),0_8px_24px_rgba(255,68,0,0.15)]" : "text-slate-600"}`;
   return (
     <div className={STYLES.STICKY.TOP}>
-      <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-4 py-2">
-        <div className="flex items-center gap-2 min-w-0">
-          <h2 className="font-semibold text-slate-900 whitespace-nowrap text-[clamp(14px,2.8vw,16px)]">
-            {UI_TEXT.LABELS.CURATED_RESULTS}
-          </h2>
-          <span className="inline-flex items-center rounded-full bg-orange-100/70 text-orange-800 px-2 py-0.5 text-[10px] font-medium ring-1 ring-orange-300/40">
-            {resultCount} found
-          </span>
-          <div className="flex items-center gap-1 min-w-0">
-            {filters.locationFilter !== "any" && (
-              <button
-                className="ui-chip border-orange-200/70 text-orange-800 hover:bg-orange-50"
-                onClick={() => onLocationFilterChange("any")}
-                aria-label="Clear location filter"
-                title="Clear location filter"
-              >
-                <span className="truncate max-w-[120px]">
-                  {LOCATION_FILTERS[filters.locationFilter]}
-                </span>
-                <X className="ml-2 h-3 w-3" />
-              </button>
-            )}
-            {filters.activeFilters.map((f) => (
-              <button
-                key={f}
-                className="ui-chip border-slate-200/80 hover:bg-slate-50"
-                onClick={() =>
-                  onAttributeFiltersChange(
-                    filters.activeFilters.filter((v) => v !== f),
-                  )
-                }
-                aria-label={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
-                title={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
-              >
-                <span>{ATTRIBUTE_FILTERS[f].label}</span>
-                <X className="ml-2 h-3 w-3" />
-              </button>
-            ))}
+      <div className="flex flex-col gap-3 px-3 sm:px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 min-w-0">
+          <div className="flex flex-wrap items-center gap-2 min-w-0">
+            <h2 className="font-semibold text-slate-900 whitespace-nowrap text-[clamp(14px,2.8vw,16px)]">
+              {UI_TEXT.LABELS.CURATED_RESULTS}
+            </h2>
+            <span className="inline-flex items-center rounded-full bg-orange-100/70 text-orange-800 px-2 py-0.5 text-[10px] font-medium ring-1 ring-orange-300/40">
+              {resultCount} found
+            </span>
           </div>
+          {(filters.locationFilter !== "any" || filters.activeFilters.length > 0) && (
+            <div className="flex flex-wrap items-center gap-1 min-w-0">
+              {filters.locationFilter !== "any" && (
+                <button
+                  className="ui-chip border-orange-200/70 text-orange-800 hover:bg-orange-50"
+                  onClick={() => onLocationFilterChange("any")}
+                  aria-label="Clear location filter"
+                  title="Clear location filter"
+                >
+                  <span className="truncate max-w-[140px]">
+                    {LOCATION_FILTERS[filters.locationFilter]}
+                  </span>
+                  <X className="ml-2 h-3 w-3" />
+                </button>
+              )}
+              {filters.activeFilters.map((f) => (
+                <button
+                  key={f}
+                  className="ui-chip border-slate-200/80 hover:bg-slate-50"
+                  onClick={() =>
+                    onAttributeFiltersChange(
+                      filters.activeFilters.filter((v) => v !== f),
+                    )
+                  }
+                  aria-label={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
+                  title={`Remove ${ATTRIBUTE_FILTERS[f].label}`}
+                >
+                  <span>{ATTRIBUTE_FILTERS[f].label}</span>
+                  <X className="ml-2 h-3 w-3" />
+                </button>
+              ))}
+            </div>
+          )}
+          <p className="text-xs text-slate-500" aria-live="polite">
+            {filterSummary}
+          </p>
         </div>
         <ToggleGroup
           type="single"
           value={mapView ? "map" : "list"}
           onValueChange={(v) => v && onMapViewChange(v === "map")}
-          className="h-8 rounded-xl bg-white/50 ring-1 ring-white/20 backdrop-blur-md"
+          className="h-9 rounded-2xl bg-white/60 ring-1 ring-white/20 backdrop-blur-md shadow-sm p-0.5"
         >
           <ToggleGroupItem
             value="list"
@@ -119,7 +135,7 @@ export default function FilterControls({
         </ToggleGroup>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-2">
+      <div className="flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-3 pt-2 border-t border-white/20">
         <Select
           value={filters.locationFilter}
           onValueChange={onLocationFilterChange}
