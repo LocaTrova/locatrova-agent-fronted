@@ -44,11 +44,11 @@ export function ChatContainer() {
     <div className={STYLES.CONTAINER.PAGE}>
       <div
         aria-hidden
-        className={`${STYLES.DECORATIVE.GRADIENT_CIRCLE} top-[-6rem] left-[-4rem] h-60 w-60 from-orange-200/70 via-orange-100/20 to-transparent`}
+        className={`${STYLES.DECORATIVE.GRADIENT_CIRCLE} pointer-events-none top-[-6rem] left-[-4rem] h-60 w-60 from-orange-200/70 via-orange-100/20 to-transparent`}
       />
       <div
         aria-hidden
-        className={`${STYLES.DECORATIVE.GRADIENT_CIRCLE} bottom-[-8rem] right-[-6rem] h-72 w-72 from-orange-100/60 via-white/10 to-transparent`}
+        className={`${STYLES.DECORATIVE.GRADIENT_CIRCLE} pointer-events-none bottom-[-8rem] right-[-6rem] h-72 w-72 from-orange-100/60 via-white/10 to-transparent`}
       />
       <div className={`${STYLES.CONTAINER.PAGE_INNER} relative z-10`}>
         <div className="relative h-full w-full">
