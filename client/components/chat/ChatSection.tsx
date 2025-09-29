@@ -80,7 +80,7 @@ export default function ChatSection({
           ))
         )}
       </div>
-      <div className={STYLES.STICKY.BOTTOM}>
+      <div className={`${STYLES.STICKY.BOTTOM} pt-2 sm:pt-3`}>
         <ChatInput onSend={onSendMessage} />
       </div>
     </section>
