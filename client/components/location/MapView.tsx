@@ -53,11 +53,10 @@ function buildViewUrl(coords: Coords, zoom: number) {
 }
 
 interface MapContentProps {
-  status: ReturnType<typeof useGeocode>["status"];
-  coords: Coords | null;
+  status: GeocodeStatus;
+  coords: Coords;
   markers?: MapPoint[];
   zoom: number;
-  aspectRatio: number;
   mapClassName?: string;
   embedUrl: string;
   loadingLabel: string;
