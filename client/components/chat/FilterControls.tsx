@@ -71,6 +71,9 @@ export default function FilterControls({
     activeFilterLabels.length > 0
       ? `Filters active: ${activeFilterLabels.join(", ")}`
       : "No filters applied";
+  const contextDescription = contextLabel?.trim()
+    ? `Curated for “${contextLabel.trim()}”`
+    : "Browse the list or open map view to explore visually.";
   return (
     <div className={STYLES.STICKY.TOP}>
       <div className="flex flex-col gap-3 px-3 sm:px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
