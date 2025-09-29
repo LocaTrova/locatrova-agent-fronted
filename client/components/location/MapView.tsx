@@ -161,10 +161,15 @@ interface MapStatusOverlayProps {
   variant: "loading" | "error";
 }
 
-function MapStatusOverlay({ message }: MapStatusOverlayProps) {
+function MapStatusOverlay({ message, variant }: MapStatusOverlayProps) {
+  const variantClasses =
+    variant === "error"
+      ? "bg-white/80 text-rose-600"
+      : "bg-white/75 text-slate-600";
+
   return (
-    <div className="absolute inset-0 grid place-items-center bg-white/75 text-center">
-      <span className="text-sm font-medium text-slate-600">{message}</span>
+    <div className={cn("absolute inset-0 grid place-items-center text-center", variantClasses)}>
+      <span className="text-sm font-medium">{message}</span>
     </div>
   );
 }
