@@ -119,6 +119,7 @@ export default function SearchInput({
               {showAttachment && (
                 <button
                   className={`${STYLES.BUTTON.ICON} text-black`}
+                  type="button"
                   aria-labelledby={attachmentHintId}
                   onClick={handleAttachmentClick}
                 >
