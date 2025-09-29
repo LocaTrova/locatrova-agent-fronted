@@ -130,6 +130,7 @@ export default function FilterControls({
           value={mapView ? "map" : "list"}
           onValueChange={(v) => v && onMapViewChange(v === "map")}
           className="h-9 rounded-2xl bg-white/60 ring-1 ring-white/20 backdrop-blur-md shadow-sm p-0.5"
+          aria-label="Toggle between list and map views"
         >
           <ToggleGroupItem
             value="list"
