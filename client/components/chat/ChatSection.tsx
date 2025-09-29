@@ -40,7 +40,7 @@ export default function ChatSection({
   return (
     <section
       aria-label="Conversation"
-      className={`${STYLES.CONTAINER.SECTION} rounded-[26px] overflow-hidden border border-orange-200/45 ring-1 ring-orange-300/25 shadow-[0_12px_32px_rgba(255,152,59,0.12)]`}
+      className={`${STYLES.CONTAINER.SECTION} border border-orange-200/40 ring-1 ring-orange-300/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]`}
     >
       <header className={`${STYLES.STICKY.TOP} px-4 sm:px-6 py-3`}>
         <div className="flex flex-wrap items-baseline justify-between gap-y-1">
