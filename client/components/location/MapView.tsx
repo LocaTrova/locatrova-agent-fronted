@@ -73,7 +73,8 @@ function MapContent({
   loadingLabel,
   errorLabel,
 }: MapContentProps) {
-  const resolvedStatus = status === "idle" ? "loading" : status;
+  const resolvedStatus: Exclude<GeocodeStatus, "idle"> =
+    status === "idle" ? "loading" : status;
   const hasMarkers = (markers?.length ?? 0) > 0;
   const resolvedCenter: LatLngExpression | null = coords
     ? [coords.lat, coords.lon]
