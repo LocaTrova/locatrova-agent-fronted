@@ -77,7 +77,10 @@ export default function FilterControls({
             <h2 className="font-semibold text-slate-900 whitespace-nowrap text-[clamp(14px,2.8vw,16px)]">
               {UI_TEXT.LABELS.CURATED_RESULTS}
             </h2>
-            <span className="inline-flex items-center rounded-full bg-orange-100/70 text-orange-800 px-2 py-0.5 text-[10px] font-medium ring-1 ring-orange-300/40">
+            <span
+              className="inline-flex items-center rounded-full bg-orange-100/70 text-orange-800 px-2 py-0.5 text-[10px] font-medium ring-1 ring-orange-300/40"
+              aria-live="polite"
+            >
               {resultCount} found
             </span>
           </div>
