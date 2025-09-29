@@ -4,6 +4,7 @@ import ChatInput from "./ChatInput";
 import type { Message } from "../../../shared/api";
 import { STYLES, TYPE } from "../../constants/styles";
 import { useEffect, useRef } from "react";
+import { MessageSquareDashed } from "lucide-react";
 
 interface ChatSectionProps {
   messages: Message[];
@@ -61,9 +62,23 @@ export default function ChatSection({
         aria-live="polite"
         className={`${STYLES.SCROLL.AREA_WITH_BOTTOM} ${STYLES.SPACING.PADDING_RESPONSIVE} py-3 sm:py-4 flex flex-col ${STYLES.SPACING.CONTENT_GAP}`}
       >
-        {messages.map((message) => (
-          <MessageBubble key={message.id} message={message} />
-        ))}
+        {messageCount === 0 ? (
+          <div className="flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-orange-200/60 bg-white/70 px-6 py-10 text-center text-slate-500">
+            <MessageSquareDashed className="h-8 w-8 text-orange-400" aria-hidden />
+            <div className="space-y-1">
+              <p className="text-sm font-medium text-slate-600">
+                Start the conversation
+              </p>
+              <p className="text-xs text-slate-500">
+                Describe the mood, setting, or shot you need and I’ll curate locations.
+              </p>
+            </div>
+          </div>
+        ) : (
+          messages.map((message) => (
+            <MessageBubble key={message.id} message={message} />
+          ))
+        )}
       </div>
       <div className={STYLES.STICKY.BOTTOM}>
         <ChatInput onSend={onSendMessage} />
