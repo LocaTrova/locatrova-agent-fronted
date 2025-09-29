@@ -25,6 +25,7 @@ export default function SearchInput({
   const [value, setValue] = useState("");
   const isDisabled = value.trim().length === 0;
   const fileInputId = useId();
+  const helperTextId = useId();
 
   const handleSubmit = useCallback(() => {
     if (isDisabled) return;
