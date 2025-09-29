@@ -121,6 +121,9 @@ export default function FilterControls({
           <p className="text-xs text-slate-500" aria-live="polite">
             {filterSummary}
           </p>
+          <span className="sr-only" aria-live="polite">
+            {filterAnnouncement}
+          </span>
         </div>
         <ToggleGroup
           type="single"
