@@ -48,6 +48,7 @@ export function ChatResultsSection({
         onAttributeFiltersChange={onAttributeFiltersChange}
         onClearFilters={onClearFilters}
         onMapViewChange={onMapViewChange}
+        contextLabel={addressSeed?.trim() || undefined}
       />
       <ResultsList
         results={filteredResults}
