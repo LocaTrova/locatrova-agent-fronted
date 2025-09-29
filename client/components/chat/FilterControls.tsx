@@ -31,6 +31,7 @@ interface FilterControlsProps {
   onAttributeFiltersChange: (values: AttributeFilterType[]) => void;
   onClearFilters: () => void;
   hasActiveFilters: boolean;
+  contextLabel?: string;
 }
 
 /**
@@ -46,6 +47,7 @@ export default function FilterControls({
   onAttributeFiltersChange,
   onClearFilters,
   hasActiveFilters,
+  contextLabel,
 }: FilterControlsProps) {
   const appliedFilterCount =
     filters.activeFilters.length + (filters.locationFilter !== "any" ? 1 : 0);
