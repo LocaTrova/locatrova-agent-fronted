@@ -197,16 +197,27 @@ export default function FilterControls({
           </ToggleGroup>
         </div>
 
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-2">
           {hasActiveFilters && (
-            <Button
-              variant="ghost"
-              size="sm"
-              className={STYLES.BUTTON.GHOST}
-              onClick={onClearFilters}
-            >
-              {UI_TEXT.BUTTONS.CLEAR}
-            </Button>
+            <>
+              <Button
+                variant="ghost"
+                size="sm"
+                className={`${STYLES.BUTTON.GHOST} hidden sm:inline-flex`}
+                onClick={onClearFilters}
+              >
+                {UI_TEXT.BUTTONS.CLEAR}
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className={`${STYLES.BUTTON.GHOST} sm:hidden`}
+                onClick={onClearFilters}
+                aria-label="Clear all filters"
+              >
+                Clear
+              </Button>
+            </>
           )}
         </div>
       </div>
