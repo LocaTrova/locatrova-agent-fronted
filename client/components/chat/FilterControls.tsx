@@ -59,6 +59,16 @@ export default function FilterControls({
     "rounded-[18px] px-3 py-1.5 text-xs font-medium data-[state=on]:shadow-sm transition";
   const listItemClass = `${baseToggleItem} ${!mapView ? "bg-white/80 text-slate-800 ring-1 ring-white/50" : "text-slate-600"}`;
   const mapItemClass = `${baseToggleItem} ${mapView ? "bg-orange-100/80 text-orange-800 ring-1 ring-orange-400/40 shadow-[0_0_0_2px_rgba(255,152,59,0.25),0_8px_24px_rgba(255,68,0,0.15)]" : "text-slate-600"}`;
+  const activeFilterLabels = [
+    filters.locationFilter !== "any"
+      ? LOCATION_FILTERS[filters.locationFilter]
+      : null,
+    ...filters.activeFilters.map((f) => ATTRIBUTE_FILTERS[f].label),
+  ].filter(Boolean);
+  const filterAnnouncement =
+    activeFilterLabels.length > 0
+      ? `Filters active: ${activeFilterLabels.join(", ")}`
+      : "No filters applied";
   return (
     <div className={STYLES.STICKY.TOP}>
       <div className="flex flex-col gap-3 px-3 sm:px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
