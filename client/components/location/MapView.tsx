@@ -228,10 +228,9 @@ function MapViewComponent({
       >
         <MapContent
           status={status}
-          coords={coords ?? null}
+          coords={coords}
           markers={markers}
           zoom={zoom}
-          aspectRatio={aspectRatio}
           mapClassName={mapClassName}
           embedUrl={embedUrl}
           loadingLabel={loadingLabel}
