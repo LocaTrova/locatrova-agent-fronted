@@ -108,9 +108,7 @@ export default function SearchInput({
             className="hidden"
             onChange={handleFileSelect}
           />
-          <div
-            className="flex flex-col gap-2 px-4 py-2 text-sm border-t border-white/20 bg-white/60 sm:flex-row sm:items-center sm:justify-between"
-          >
+          <div className="flex flex-col gap-2 px-4 py-2 text-sm border-t border-white/20 bg-white/60 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
               {showAttachment && (
                 <button
